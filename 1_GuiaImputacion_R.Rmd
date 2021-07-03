@@ -1,0 +1,384 @@
+---
+title: "Tratamiento de valores perdidos con R"
+author: 
+  - Evelyn Gutierrez^[egutierreza@pucp.edu.pe]
+  - Vilma Romero^[vromero@uni.pe]
+date: "Marzo, 2021"
+output:
+  html_document:
+    toc: yes
+  pdf_document: 
+    number_sections: yes
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+```
+
+# Introducción.
+
+
+En esta sesión, realizaremos la imputación de datos perdidos utilizando técnicas básicas y por vecinos más cercanos. 
+
+Requerimos instalar los siguientes paquetes: 
+
+* `Hmisc`
+* `VIM`
+* `mice`
+* `DMwR`
+
+
+# Exploración de valores perdidos.
+  
+## Caso 1: Notas.
+  
+Iniciamos este ejemplo, creando un data.frame notas con alguna nota faltante.
+  
+```{r}
+notas <- data.frame(nombre = c("Jesus", "Carla", "Rodrigo", "Javier"),
+                    nota = c(12, 15, 13, NA))
+notas
+```
+
+Exploramos visualmente el número de valores perdidos por variable: solo existe un valor aleatorio.
+
+Finalmente, seleccionar los datos completos con `complete.cases`.
+```{r}
+notas_comp <- notas[complete.cases(notas),]
+notas_comp
+```
+ 
+
+## Caso 2: Dataset sleep
+
+Vamos a utilizar la base de datos sleep del paquete VIM para realizar la exploración de valores perdidos.
+
+Para ello, instalamos el paquete VIM con el siguiente código en la consola: `install.packages("VIM")`.
+
+Luego, cargamos los datos de `sleep` y vemos las primeras filas del dataset utilizando el siguiente código:
+
+```{r}
+data(sleep, package = "VIM")
+
+head(sleep)
+```
+
+Comprobará que el dataset "sleep" ahora aparece también en su environment. 
+
+Exploramos este nuevo dataset con los siguientes comandos:
+
+```{r}
+str(sleep)
+dplyr::glimpse(sleep)
+summary(sleep)
+```
+
+
+Exploramos el número de valores perdidos por variable
+```{r}
+apply(sleep, 2, function(x){sum(is.na(x))})
+```
+
+Con esta tabla podemos responder lo siguiente: 
+
+* ¿Qué variables tienen valores perdidos?
+* ¿Qué variables tienen más valores perdidos?
+
+
+
+Continuamos explorando los valores perdidos analizando el patros de valores perdidos distribuidos en las diferentes variables del dataset. Esto nos ayudará a entener mejor nuestros datos y encontrar penciales probllemas de
+```{r out.width='80%'}
+mice::md.pattern(sleep, rotate.names=TRUE)
+mice::md.pairs(sleep)
+```
+
+En estos gráficos y tablas observamos las diferentes combinaciones de valores perdidos que tenemos para nuestras variables. Ahora, podemos responder las siguiente preguntas: 
+
+* ¿Cuantas observaciones no tienen nigún valor perdido?
+* ¿Cuantas observaciones no tienen nigún valor perdido?
+
+Visualización de datos perdidos
+```{r}
+sleep_aggr <- VIM::aggr(sleep, col = mice::mdc(1:2), numbers = TRUE, 
+                        sortVars = TRUE, labels = names(sleep),
+                        cex.axis= 0.7, gap = 3,
+                        ylab = c("Proporción de Pérdida",
+                                 "Patrón de Pérdida"))
+```
+
+Distribución de observaciones completas e incompletas por pares de variables
+```{r}
+VIM::marginplot(sleep[ , c(3, 7)], pch = 19)
+VIM::marginplot(sleep[ , c(3, 7)], col = c("blue", "red", "orange"), pch = 20)
+```
+
+Descripción:
+
+* Puntos azules (diagrama de dispersión): individuos con ambos valores de las variables.
+* Boxplots azules: boxplots de los valores no perdidos de cada variable
+
+* Puntos rojos (Eje X: NonD): individuos con valores perdidos en Gest pero observados en NonD.
+* Puntos rojos (Eje Y: Gest): individuos con valores perdidos en NonD pero observados en Gest.
+* Boxplots rojos: Representan la distribución marginal de los puntos rojos.
+
+Nota: Si los datos perdidos son completamente aleatorios se espera que
+los boxplots rojos y azules sean idénticos
+
+
+\newpage
+
+
+# Imputación Univariada
+
+
+## Imputación con la media.
+
+instalamos la librería `Hmisc` para realizar imputaciones básicas. La instalación, la realizaremos utilizando el siguiente comando en la consola: `install.packages("Hmisc")`.
+
+Luego de completada la instalación, comprobamos cargando el paquete.
+
+
+```{r warning=FALSE}
+library(Hmisc)
+```
+
+
+Si no tenemos mayor información, utilizaremos la media como valor de imputación.
+Es una imputación rápida, simple y sencilla.
+
+```{r}
+notas$nota_imp <- with(notas, impute(nota, mean))
+notas
+```
+
+***
+
+## Imputación con valor aleatorio.
+
+Utilizamos un valor aleatorio como valor de imputación.
+
+```{r}
+notas$nota_imp <- with(notas, impute(nota, 'random'))
+notas
+```
+
+***
+
+## Imputación con un valor específico.
+
+Si tenemos información específica, o resulta conveniente, podemos imputar los datos perdidos con un valor específico.
+
+```{r}
+notas$nota_imp <- with(notas, impute(nota, 99))
+notas
+```
+
+***
+
+## Imputación manual
+
+Por ultimo, la imputación puede realizarse sin el paquete Hmisc de la siguiente manera:
+
+```{r}
+notas$nota[is.na(notas$nota)] <- mean(notas$nota, na.rm = T)
+notas
+```
+
+# Imputación Multivariada
+
+## Imputación por regresión lineal.
+
+Con la librería mice. 
+
+```{r}
+library(mice) 
+imp <- mice(sleep, method = "norm.predict", m = 1) # Impute data
+imp_reg <- complete(imp)
+```
+
+Para missings en variables categorícas se puede utilizar regresión logistica con el argumento `method="logreg"`. Para ver otros métodos, podemos ver la documentación de la función mice escribiendo `?mice::mice` en la consola.
+
+## Imputación por el método de K vecinos más cercanos.
+ 
+ 
+Aplicamos vecions más cercanos y guardamos los resultados en sleep_imp
+
+```{r}
+library(DMwR)
+sleep_imp <- DMwR::knnImputation(sleep)
+#View(sleep_imp)
+summary(sleep_imp)
+```
+
+¿Hay datos perdidos ahora? 
+
+```{r}
+apply(sleep_imp, 2, function(x){sum(is.na(x))})
+```
+
+
+## Imputación por bosques aleatorios.
+
+```{r}
+library(missForest)
+sleep_imp_rf <- missForest(sleep)
+print(sleep_imp$NonD, digits = 3)
+```
+
+## MICE: Multivariate Imputation by Chained Equations
+
+Utilizaremos la metodología MICE: Multivariate Imputation by Chained Equations para realizar imputación multivariada.
+
+La imputación con MICE puede ser simple o múltiple. Simple si solo se imputa el dataset inicial; y múltiple cuando se crean multiples datasets con diferentes imputaciones.
+
+
+```{r}
+library(VIM)
+library(mice)
+```
+ 
+
+# Imputación Múltiple
+
+
+Utilizamos el paquete MICE: Imputación Multivariada por Chained Equations para realizar la imputación múltiple.
+
+```{r}
+library(mice)
+```
+
+La imputación se realiza con estas líneas de código:
+
+```{r}
+imp1 <- mice(sleep, m = 5, seed = 2)
+imp1
+```
+
+El argumento m=5 indica que se crearan 5 datasets de imputaciones.
+
+
+Verificamos el métodos de imputación utilizado:
+```{r}
+imp1$method
+```
+
+Como vemos, se usó el método pmm (Predictive mean matching): Un método de imputación semi-parámetrico usado por defecto para variables continuas. 
+
+Imputaciones para una variable en particular
+```{r}
+head(imp1$imp$NonD)
+```
+
+## Visualización de datos imputados.
+
+Estos gráficos nos servirán para revisar si las imputaciones realizadas son muy variables entre diferentes datasets.
+
+El primer gráfico muestra los valores perdidos para la variable en el eje Y. SE muestran 6 cuadros correspondientes a la data original y los 5 dataset construidos con la imputación multiple. En rojo están las observaciones imputadas para la variable Gest (variable del eje Y); y en azul, todas las demás observaciones. Notese que los puntos azules son los datos observados y además imputaciones realizadas en la variable NonD (variable del eje X).
+
+```{r}
+library(lattice)
+xyplot(imp1, Gest ~ NonD | .imp, pch = 20, cex = 1.4)
+```
+
+En el siguiente gráfico observamos el mismo tipo de digráma. Esta vez enfocado en el análisis de la variable NonD. 
+A partir de los puntos rosados, se observan las variaciones en las imputaciones para NonD en los diferentes datasets contruídos durante la imputación múltiple.
+
+
+```{r}
+xyplot(imp1, NonD ~ Gest | .imp, pch = 20, cex = 1.4)
+```
+
+Finalmente, para observar los datos de las 5 imputaciones en un solo gráfico, tenemos el siguiente código.
+
+```{r out.width='70%'}
+xyplot(imp1, Gest ~ NonD, pch = 18)
+```
+
+Y en el caso de querer observa además, la relación de la variable Gest con alguna otra variable adicional, se añade a la variable como el siguiente código.
+
+```{r out.width='70%'}
+xyplot(imp1, Gest ~ NonD + Span, pch = 18)
+```
+
+Finalmente, utilizaremos un gráfico para la densidad de las observaciones imputadas en cada dataset. 
+
+Cada densidad en color rosado representa la densidad para las imputaciones en uno de los 5 datasets de la imputación múltiple.
+
+
+```{r}
+densityplot(imp1)
+```
+
+Este gráfico compara la densidad de los datos observados con los datos imputados. Se espera que ambos sean similares (pero no idénticos).
+
+Si encontramos diferencias entre las muestras, esto indica que las imputaciones varian entre diferentes datasets.
+
+El último gráfico llamado stripplot muestra la distribución de cada variable y sus valores imputados en los multiples datasets. 
+
+
+
+```{r}
+stripplot(imp1, pch = 20)
+```
+
+
+# Modelamiento  
+
+## Casos completos
+
+El caso más simple y rápido será utilizando solo los datos completos.
+En este caso, omitimos las fila con valores perdidos y construimos nuestro modelo.
+
+```{r}
+ajuste_cc <- lm(BodyWgt ~ Sleep + BrainWgt, 
+                data = na.omit(sleep))
+summary(ajuste_cc)
+```
+
+## Imputación simple.
+
+Despues de una imputación simple, el resultado es un dataset con el mismo número de filas y columna pero con todos los datos llenos con algún valor imputado. 
+Al realizar el modelamiento, se utilizan los resultados de la imputación realizada para entrenar el modelo. 
+
+```{r}
+ajuste_cc <- lm(BodyWgt ~ Sleep + BrainWgt, data = imp_reg)
+summary(ajuste_cc)
+```
+
+Nota: Si deseamos utilizar la imputación para nuestra data de validación, tenemos que aplicar la metodología y modelos creados para la imputación a partir de la data de entrenamiento. No deben realizarse modelos para imputaciones con los datos de validación sino podríamos sesgar la evaluación del modelo en la data de entrenamiento. 
+
+
+## Imputación múltiple.
+
+Luego de una imputación multiple, el entrenamiento del modelo debe realizarse en los múltiples datasets imputados. 
+
+Multiples modelos serán entrenados a partir de los datasets. Es nuestra tarea evaluar la variabilidad de los modelos en los diferentes conjuntos de datos y analizar el performance conjunto de todo ellos.
+
+Ejemplo: uso de regresión lineal para los múltiples datasets imputados. 
+El resultados del modelo es el siguiente: 
+
+```{r}
+ajuste_imp <- with(imp1, lm( BodyWgt ~ Sleep + BrainWgt))
+summary(ajuste_imp)
+```
+
+Note que es posible utilizar cualquier otra función en lugar de `lm()`.
+El resultado será una lista de modelos para cada dataset.
+
+
+Finalmente, el análisis de resultados se realizará combinando los resultados de cada modelos. 
+En nuestro caso, se juntan los coeficientes y errores estándares de los 5 modelos de regresión.
+
+```{r}
+ajuste_comb <- pool(ajuste_imp)
+summary(ajuste_comb)
+pool.r.squared(ajuste_imp)
+```
+
+Estos resultados definen el modelo final a evaluar con la data de validación. 
+
+<!-- knitr::purl() -->
+
