@@ -363,42 +363,79 @@ xyplot(imp1, Gest ~ NonD | .imp, pch = 20, cex = 1.4)
 
 <br>
 
-- En el siguiente gráfico observamos el mismo tipo de diagrama. Esta vez enfocado en el análisis de la variable **NonD** (note la diferencia en la formula utilizada). 
-A partir de los puntos rosados, se observan las variaciones en las imputaciones para NonD en los diferentes datasets contruídos durante la imputación múltiple.
+
+- En el siguiente gráfico observamos el mismo tipo de diagrama. Esta vez **enfocado** en el análisis de otra variable: **NonD** (Note la diferencia en la formula utilizada *NonD ~ Gest*). 
+
+
+- A partir de los **puntos rosados** en los diferentes cuadros, se observan las variaciones en las imputaciones para **NonD** en los diferentes datasets contruídos durante la imputación múltiple. 
+
+
+- Notemos a partir de estos gráficos que se están imputando valores fuera de la nube de puntos creada entre estas dos variables. Aunque podría suceder. 
 
 
 ```{r}
 xyplot(imp1, NonD ~ Gest | .imp, pch = 20, cex = 1.4)
 ```
 
+
+<br>
+
 Finalmente, para observar los datos de las 5 imputaciones en un solo gráfico, tenemos el siguiente código.
+
+**Para la variable Gest**
 
 ```{r out.width='70%'}
 xyplot(imp1, Gest ~ NonD, pch = 18)
 ```
 
-Y en el caso de querer observa además, la relación de la variable Gest con alguna otra variable adicional, se añade a la variable como el siguiente código.
+**Para la variable NonD**
 
 ```{r out.width='70%'}
-xyplot(imp1, Gest ~ NonD + Span, pch = 18)
+xyplot(imp1, NonD ~ Gest, pch = 18)
 ```
 
-Finalmente, utilizaremos un gráfico para la densidad de las observaciones imputadas en cada dataset. 
+<br>
 
-Cada densidad en color rosado representa la densidad para las imputaciones en uno de los 5 datasets de la imputación múltiple.
+
+Ademas, si queremos incluir una tercera variable al análisis podemos observarla cambiando la formula como el siguiente código.
+
+```{r out.width='90%'}
+xyplot(imp1, Gest ~ NonD + Span , pch = 18)
+```
+
+- Veremos la relación de la variable Gest con Span además de con NonD.
+
+- Los **puntos rosados** son los valores imputados.
+
+
+<br>
+
+
+Finalmente, utilizaremos un gráfico para la densidad de las observaciones imputadas en cada dataset.
+
+- Esto nos mostrará si las diferentes imputaciones están concentradas en los mismos valores o si cambian entre diferentes datasets. 
+
+- Cada densidad está representada en líneas de color rosado y representan la densidad para las imputaciones en uno de los 5 datasets de la imputación múltiple.
+
+- La densidad en color celeste representa la densidad de los valores observados.
 
 
 ```{r}
 densityplot(imp1)
 ```
 
-Este gráfico compara la densidad de los datos observados con los datos imputados. Se espera que ambos sean similares (pero no idénticos).
+- Este gráfico compara la densidad de los datos observados con los datos imputados. Se espera que las líneas sean similares (pero no idénticos).
 
-Si encontramos diferencias entre las muestras, esto indica que las imputaciones varian entre diferentes datasets.
-
-El último gráfico llamado stripplot muestra la distribución de cada variable y sus valores imputados en los multiples datasets. 
+- Encontrar diferencias entre las diferentes imputaciones indica que las **imputaciones varían** entre diferentes datasets.
 
 
+<br>
+
+**Streeplot**
+
+- El último gráfico llamado **stripplot** muestra la distribución de cada variable y sus valores imputados en los multiples datasets. 
+
+- Es **otra forma** de ver la **distribución de los imputados** en las diferentes muestras. 
 
 ```{r}
 stripplot(imp1, pch = 20)
@@ -406,6 +443,7 @@ stripplot(imp1, pch = 20)
 
 
 # Modelamiento  
+
 
 ## Casos completos
 
@@ -428,17 +466,19 @@ ajuste_cc <- lm(BodyWgt ~ Sleep + BrainWgt, data = imp_reg)
 summary(ajuste_cc)
 ```
 
-Nota: Si deseamos utilizar la imputación para nuestra data de validación, tenemos que aplicar la metodología y modelos creados para la imputación a partir de la data de entrenamiento. No deben realizarse modelos para imputaciones con los datos de validación sino podríamos sesgar la evaluación del modelo en la data de entrenamiento. 
+- Nota: Si deseamos utilizar la imputación para nuestra data de validación, tenemos que aplicar la metodología y modelos creados para la imputación a partir de la data de entrenamiento. 
+
+- No deben realizarse modelos para imputaciones con los datos de validación sino podríamos sesgar la evaluación del modelo en la data de entrenamiento. 
 
 
 ## Imputación múltiple.
 
-Luego de una imputación multiple, el entrenamiento del modelo debe realizarse en los múltiples datasets imputados. 
 
-Multiples modelos serán entrenados a partir de los datasets. Es nuestra tarea evaluar la variabilidad de los modelos en los diferentes conjuntos de datos y analizar el performance conjunto de todo ellos.
+- Luego de una imputación multiple, el entrenamiento del modelo debe realizarse en cada uno los múltiples datasets imputados. 
 
-Ejemplo: uso de regresión lineal para los múltiples datasets imputados. 
-El resultados del modelo es el siguiente: 
+- Multiples modelos serán entrenados a partir de los datasets. Es nuestra tarea evaluar la **variabilidad de los modelos** en los diferentes conjuntos de datos y analizar el performance conjunto de todos ellos. (Cuando los modelos sirven para entender el problema, es mejor buscar características estables entre diferentes imputaciones.)
+
+- Ejemplo en R: uso de regresión lineal para los múltiples datasets imputados. El resultados del modelo es el siguiente: 
 
 ```{r}
 ajuste_imp <- with(imp1, lm( BodyWgt ~ Sleep + BrainWgt))
@@ -462,10 +502,19 @@ Estos resultados definen el modelo final a evaluar con la data de validación.
 
 <!-- knitr::purl() -->
 
-# Apendice: Códigos utilizados:
+# Anexos
 
 <!-- # ```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE} -->
 <!-- # ``` -->
 
-[Todos los códigos en R](files/GuiaRImputacion_20210904.R)
+[Slides Imputación](files/3_Tratamiento de datos perdidos.pdf)
 
+[Códigos utilizados en este manual en R](files/GuiaRImputacion_20210904.R)
+
+[Descripción de columnas del dataset _sleep_](files/sleep_data_names.pdf)
+
+
+# Ejercicio
+
+[Descripción del ejercicio](files/EjercicioImputacion1.pdf)
+[Datos Advertising.csv](files/Advertising.csv)
