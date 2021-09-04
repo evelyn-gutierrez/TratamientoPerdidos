@@ -8,7 +8,8 @@ output:
   rmdformats::robobook:
     highlight: tango
     number_sections: true
-    #code_folding: hide
+    code_folding: show
+    code_download: TRUE
   html_document:
     toc: yes
   pdf_document: 
@@ -47,6 +48,10 @@ Requerimos instalar los siguientes paquetes:
 
 # Exploración de valores perdidos.
   
+  
+
+<br>
+
 ## Exploración básica.
 
 **Caso 1: Notas.**
@@ -68,26 +73,37 @@ notas_comp
 ```
  
 
+<br>
+
 ## Visualizaciones
 
+ 
+**Caso 2: Dataset sleep**  
 
-**Caso 2: Dataset sleep**
 
-Vamos a utilizar la base de datos sleep del paquete VIM para realizar la exploración de valores perdidos.
 
-Para ello, instalamos el paquete VIM con el siguiente código en la consola: `install.packages("VIM")`.
+Utilizaremos el conjunto de datos *sleep* del paquete VIM para realizar la exploración de valores perdidos en R.
+ 
+- Instalación:
+
+Necesitamos instalar el paquete VIM con el siguiente código en la consola: `install.packages("VIM")`.
 
 Luego, cargamos los datos de `sleep` y vemos las primeras filas del dataset utilizando el siguiente código:
 
+
 ```{r}
+# Carga los datos.
 data(sleep, package = "VIM")
 
+# Vemos las 6 primeras filas.
 head(sleep)
 ```
 
-Comprobará que el dataset "sleep" ahora aparece también en su environment. 
 
-Exploramos este nuevo dataset con los siguientes comandos:
+Comprobaremos que el dataset "sleep" ahora aparece también en su **Environment** en RStudio. 
+
+
+Iniciamos la **exploración inicial** de este nuevo dataset con alguno de los siguientes comandos básicos:
 
 ```{r}
 str(sleep)
@@ -96,19 +112,34 @@ summary(sleep)
 ```
 
 
-Exploramos el número de valores perdidos por variable
+En todos ellos observaremos una primera vista de los datos. Notaremos además, que existen valores NA, datos perdidos.
+La primera pregunta que nos hacemos es:
+
+
+> ¿Cuántos datos están con valores NA en este dataset?
+
+
+Para contar el número de valores perdidos por variable podemos usar este cálculo con la función *apply* que cuenta el número de valores perdidos (valores NA para R) por columna. 
+
 ```{r}
 apply(sleep, 2, function(x){sum(is.na(x))})
 ```
+ 
+ 
+Ahora podemos responder lo siguiente `r emo::ji("teacher")`: 
 
-Con esta tabla podemos responder lo siguiente: 
-
+* ¿Cuántos valores perdidos hay en cada variable?
 * ¿Qué variables tienen valores perdidos?
-* ¿Qué variables tienen más valores perdidos?
+* ¿Qué variables tienen más valores perdidos? `r emo::ji("raised")`
+ 
+
+<br>
 
 
+Continuamos explorando los valores perdidos analizando el **patrón de valores perdidos** distribuidos **en las diferentes variables** del conjunto de datos (dataset). Esto nos ayudará a entender mejor nuestros datos. 
 
-Continuamos explorando los valores perdidos analizando el patros de valores perdidos distribuidos en las diferentes variables del dataset. Esto nos ayudará a entener mejor nuestros datos y encontrar penciales probllemas de
+Lo hacemos utilizando la función *md.pattern* y *md.pairs* del paquete **MICE**.
+
 ```{r out.width='80%'}
 mice::md.pattern(sleep, rotate.names=TRUE)
 mice::md.pairs(sleep)
