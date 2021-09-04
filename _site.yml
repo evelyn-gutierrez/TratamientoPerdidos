@@ -1,4 +1,4 @@
 name: "TratamientoPerdidos"
-output_dir: "_site"
+output_dir: "docs"
 description: |
   TratamientoPerdidos
