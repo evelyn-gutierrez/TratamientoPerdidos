@@ -215,13 +215,15 @@
           <li><a href="#imputación-simple."><span class="toc-section-number">7.2</span> Imputación simple.</a></li>
           <li><a href="#imputación-múltiple."><span class="toc-section-number">7.3</span> Imputación múltiple.</a></li>
           </ul></li>
+          <li><a href="#apendice-códigos-utilizados"><span class="toc-section-number">8</span> Apendice: Códigos utilizados:</a></li>
           </ul>
         </nav>
         <ul class="authors">
           <li class="divider"></li>
                                 <li><span><i class="glyphicon glyphicon-user"></i> Evelyn Gutierrez<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></span></li>
                                           <li><span><i class="glyphicon glyphicon-user"></i> Vilma Romero<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></span></li>
-                                      </ul>     
+                                         <li><span><i class="glyphicon glyphicon-calendar"></i> September, 2021</span></li>
+                  </ul>     
       </div>
       <div class="book-body fixed">
         <div class="body-inner">
@@ -243,7 +245,7 @@
 <!-- Don't indent these lines or it will mess pre blocks indentation --> 
 <div id="introducción." class="section level1" number="1">
 <h1 number="1"><span class="header-section-number">1</span> Introducción.</h1>
-<iframe src="docs/3_Tratamiento de datos perdidos.pdf" width="768" height="600px">
+<iframe src="files/3_Tratamiento de datos perdidos.pdf" width="768" height="600px">
 </iframe>
 </div>
 <div id="laboratorio-en-r." class="section level1" number="2">
@@ -575,7 +577,10 @@
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>sleep_imp_rf <span class="ot">&lt;-</span> <span class="fu">missForest</span>(sleep)</span></code></pre></div>
 <pre><code>##   missForest iteration 1 in progress...done!
 ##   missForest iteration 2 in progress...done!
-##   missForest iteration 3 in progress...done!</code></pre>
+##   missForest iteration 3 in progress...done!
+##   missForest iteration 4 in progress...done!
+##   missForest iteration 5 in progress...done!
+##   missForest iteration 6 in progress...done!</code></pre>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sleep_imp<span class="sc">$</span>NonD, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##  [1]  2.28  6.30 10.28 10.63  2.10  9.10 15.80  5.20 10.90  8.30 11.00  3.20
 ## [13]  7.60  4.20  6.30  8.60  6.60  9.50  4.80 12.00  4.97  3.30 11.00  8.17
@@ -735,19 +740,19 @@
 ## 
 ## Residuals:
 ##      Min       1Q   Median       3Q      Max 
-## -1554.83    11.41    32.30    58.21  1544.54 
+## -1556.68     4.10    30.71    57.17  1541.10 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -113.01539  114.49993  -0.987    0.328    
-## Sleep          5.10144    9.63082   0.530    0.598    
-## BrainWgt       0.91135    0.04754  19.168   &lt;2e-16 ***
+## (Intercept) -123.55239  118.38815  -1.044    0.301    
+## Sleep          6.00622    9.92578   0.605    0.547    
+## BrainWgt       0.91328    0.04793  19.055   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 325.5 on 59 degrees of freedom
-## Multiple R-squared:  0.8733, Adjusted R-squared:  0.869 
-## F-statistic: 203.3 on 2 and 59 DF,  p-value: &lt; 2.2e-16</code></pre>
+## Residual standard error: 325.2 on 59 degrees of freedom
+## Multiple R-squared:  0.8734, Adjusted R-squared:  0.8692 
+## F-statistic: 203.6 on 2 and 59 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Nota: Si deseamos utilizar la imputación para nuestra data de validación, tenemos que aplicar la metodología y modelos creados para la imputación a partir de la data de entrenamiento. No deben realizarse modelos para imputaciones con los datos de validación sino podríamos sesgar la evaluación del modelo en la data de entrenamiento.</p>
 </div>
 <div id="imputación-múltiple." class="section level2" number="7.3">
@@ -789,6 +794,12 @@
 <p>Estos resultados definen el modelo final a evaluar con la data de validación.</p>
 <!-- knitr::purl() -->
 </div>
+</div>
+<div id="apendice-códigos-utilizados" class="section level1" number="8">
+<h1 number="8"><span class="header-section-number">8</span> Apendice: Códigos utilizados:</h1>
+<!-- # ```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE} -->
+<!-- # ``` -->
+<p><a href="%22files/GuiaRImputacion_20210904.R%22">Todos los códigos en R</a></p>
 </div>
 <div class="footnotes">
 <hr />

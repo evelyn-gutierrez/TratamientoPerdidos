@@ -3,12 +3,12 @@ title: "Tratamiento de valores perdidos con R"
 author:
   - Evelyn Gutierrez^[egutierreza@pucp.edu.pe]
   - Vilma Romero^[vromero@uni.pe]
-#date: "Marzo, 2021"
+date: "September, 2021"
 output:
   rmdformats::robobook:
     highlight: tango
     number_sections: true
-    
+    #code_folding: hide
   html_document:
     toc: yes
   pdf_document: 
@@ -28,7 +28,7 @@ knitr::opts_chunk$set(message = FALSE)
 
 
 ```{r echo=FALSE}
-knitr::include_url("docs/3_Tratamiento de datos perdidos.pdf", height = "600px")
+knitr::include_url("files/3_Tratamiento de datos perdidos.pdf", height = "600px")
 ```
 
 
@@ -398,4 +398,11 @@ pool.r.squared(ajuste_imp)
 Estos resultados definen el modelo final a evaluar con la data de validación. 
 
 <!-- knitr::purl() -->
+
+# Apendice: Códigos utilizados:
+
+<!-- # ```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE} -->
+<!-- # ``` -->
+
+[Todos los códigos en R]("files/GuiaRImputacion_20210904.R")
 
