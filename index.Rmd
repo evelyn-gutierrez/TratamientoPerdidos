@@ -46,6 +46,9 @@ Requerimos instalar los siguientes paquetes:
 * `DMwR`
 
 
+Para `DMwR`, utilizar: `remotes::install_github("cran/DMwR")`
+
+
 # Exploración de valores perdidos.
   
   
@@ -183,6 +186,11 @@ los boxplots rojos y azules sean idénticos
 
 # Imputación Univariada
 
+```{r eval=FALSE, warning=FALSE, include=FALSE}
+
+# Imputación Univariada
+
+```
 
 ## Con la media.
 
@@ -243,6 +251,12 @@ notas
 
 # Imputación Multivariada
 
+```{r eval=FALSE, warning=FALSE, include=FALSE}
+
+# Imputación Multivariada
+
+```
+
 ## Por regresión lineal.
 
 Con la librería mice. Esta librería sirve para imputación múltiple pero podemos usarla también para imputación simple si definimos *m=1*.  
@@ -302,6 +316,12 @@ library(mice)
  
 
 # Imputación Múltiple
+
+```{r eval=FALSE, warning=FALSE, include=FALSE}
+
+# Imputación Multiple
+
+```
 
 ## MICE
 
@@ -488,6 +508,14 @@ summary(ajuste_imp)
 Note que es posible utilizar cualquier otra función en lugar de `lm()`.
 El resultado será una lista de modelos para cada dataset.
 
+Performance del modelo en las 5 diferentes imputaciones con la librería *performance*.  
+
+```{r}
+library(performance)
+lapply(ajuste_imp$analyses, performance)
+```
+
+
 
 Finalmente, el análisis de resultados se realizará combinando los resultados de cada modelos. 
 En nuestro caso, se juntan los coeficientes y errores estándares de los 5 modelos de regresión.
@@ -498,20 +526,12 @@ summary(ajuste_comb)
 pool.r.squared(ajuste_imp)
 ```
 
+
+
 Estos resultados definen el modelo final a evaluar con la data de validación. 
 
 <!-- knitr::purl() -->
 
-# Anexos
-
-<!-- # ```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE} -->
-<!-- # ``` -->
-
-[Slides Imputación](files/3_Tratamiento de datos perdidos.pdf)
-
-[Códigos utilizados en este manual en R](files/GuiaRImputacion_20210904.R)
-
-[Descripción de columnas del dataset _sleep_](files/sleep_data_names.pdf)
 
 
 # Ejercicio
@@ -519,3 +539,15 @@ Estos resultados definen el modelo final a evaluar con la data de validación.
 - [Descripción del ejercicio](files/EjercicioImputacion1.pdf)
 
 - [Datos Advertising.csv](files/Advertising.csv)
+
+# Anexos
+
+- [Slides Imputación](files/3_Tratamiento de datos perdidos.pdf)
+
+- [Códigos utilizados en este manual en R](files/GuiaRImputacion_20210904.R)
+
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE, class.source = "fold-hide"} 
+``` 
+
+
+- [Descripción de columnas del dataset _sleep_](files/sleep_data_names.pdf)
