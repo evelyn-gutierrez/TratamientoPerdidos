@@ -25,7 +25,7 @@ summary(sleep)
 apply(sleep, 2, function(x){sum(is.na(x))})
 
 
-## ----out.width='80%'--------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------
 mice::md.pattern(sleep, rotate.names=TRUE)
 mice::md.pairs(sleep)
 
@@ -69,7 +69,8 @@ notas
 
 ## ---------------------------------------------------------------------------------------------------------------------
 library(mice) 
-imp <- mice(sleep, method = "norm.predict", m = 1) # Impute data
+imp <- mice(sleep, method = "norm.predict", m = 1, maxit)
+# La función complete devuelve la dta completa en imp_reg
 imp_reg <- complete(imp)
 
 

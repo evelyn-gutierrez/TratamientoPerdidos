@@ -208,7 +208,7 @@ notas
 
 ## Con valor aleatorio.
 
-Utilizamos un valor aleatorio como valor de imputación.
+Utilizamos un valor aleatorio como valor de imputación: Se selecciona aleatoriamente a partir de los valores no perdidos. Simple y útil en caso de MCAR.
 
 ```{r}
 notas$nota_imp <- with(notas, impute(nota, 'random'))
@@ -220,6 +220,7 @@ notas
 ## Con un valor específico.
 
 Si tenemos información específica, o resulta conveniente, podemos imputar los datos perdidos con un valor específico.
+
 
 ```{r}
 notas$nota_imp <- with(notas, impute(nota, 99))
@@ -237,22 +238,29 @@ notas$nota[is.na(notas$nota)] <- mean(notas$nota, na.rm = T)
 notas
 ```
 
+
+<br>
+
 # Imputación Multivariada
 
-## Imputación por regresión lineal.
+## Por regresión lineal.
 
-Con la librería mice. 
+Con la librería mice. Esta librería sirve para imputación múltiple pero podemos usarla también para imputación simple si definimos *m=1*.  
 
 ```{r}
 library(mice) 
-imp <- mice(sleep, method = "norm.predict", m = 1) # Impute data
+imp <- mice(sleep, method = "norm.predict", m = 1, maxit=1) # Impute data
 imp_reg <- complete(imp)
 ```
 
-Para missings en variables categorícas se puede utilizar regresión logistica con el argumento `method="logreg"`. Para ver otros métodos, podemos ver la documentación de la función mice escribiendo `?mice::mice` en la consola.
+Para missings en variables categorícas se puede utilizar regresión logistica con el argumento `method="logreg"`. Ejemplo: 
+`mice(nhanes2, meth = c("sample", "norm.predict", "logreg", "norm.predict"))`
 
-## Imputación por el método de K vecinos más cercanos.
- 
+Para ver otros métodos, podemos ver la documentación de la función mice escribiendo `?mice::mice` en la consola.
+
+<br>
+
+## Por K vecinos más cercanos.
  
 Aplicamos vecions más cercanos y guardamos los resultados en sleep_imp
 
@@ -270,7 +278,7 @@ apply(sleep_imp, 2, function(x){sum(is.na(x))})
 ```
 
 
-## Imputación por bosques aleatorios.
+## Por bosques aleatorios.
 
 ```{r}
 library(missForest)
@@ -295,6 +303,8 @@ library(mice)
 
 # Imputación Múltiple
 
+## MICE
+
 Utilizamos el paquete MICE: Imputación Multivariada por Chained Equations para realizar la imputación múltiple.
 
 ```{r}
@@ -317,25 +327,43 @@ imp1$method
 ```
 
 Como vemos, se usó el método pmm (Predictive mean matching): Un método de imputación semi-parámetrico usado por defecto para variables continuas. 
+  - Selecciona un grupo de candidatos vecino similares y cercanos, y toma uno aleatoriamente como donador.
 
-Imputaciones para una variable en particular
+
+<br>
+
+
+Imputaciones para una variable en particular. Veamos el objeto **imp1**, que tiene una lista de imputados **imp** con un set de imputados para la columna NonD 
 
 ```{r}
 head(imp1$imp$NonD)
 ```
 
-## Visualización de datos imputados.
+Notemos que cada columna representa a un set de valores imputados para una variable.
+
+## Visualización.
 
 Estos gráficos nos servirán para revisar si las imputaciones realizadas son muy variables entre diferentes datasets.
 
-El primer gráfico muestra los valores perdidos para la variable en el eje Y. SE muestran 6 cuadros correspondientes a la data original y los 5 dataset construidos con la imputación multiple. En rojo están las observaciones imputadas para la variable Gest (variable del eje Y); y en azul, todas las demás observaciones. Notese que los puntos azules son los datos observados y además imputaciones realizadas en la variable NonD (variable del eje X).
+- El primer gráfico muestra los valores perdidos para la variable en el eje Y: **Gest**.
+
+- Se muestran 6 cuadros correspondientes a 
+  
+    - La data original y 
+    - Los 5 dataset construidos con la imputación multiple. 
+    
+- En **rojo** están las observaciones imputadas para la variable Gest (variable del eje Y); y en **azul**, todas las demás observaciones. 
+
+- Los puntos azules son los datos observados y además imputaciones realizadas en la variable **NonD** (variable del eje X). 
 
 ```{r}
 library(lattice)
 xyplot(imp1, Gest ~ NonD | .imp, pch = 20, cex = 1.4)
 ```
 
-En el siguiente gráfico observamos el mismo tipo de digráma. Esta vez enfocado en el análisis de la variable NonD. 
+<br>
+
+- En el siguiente gráfico observamos el mismo tipo de diagrama. Esta vez enfocado en el análisis de la variable **NonD** (note la diferencia en la formula utilizada). 
 A partir de los puntos rosados, se observan las variaciones en las imputaciones para NonD en los diferentes datasets contruídos durante la imputación múltiple.
 
 
@@ -439,5 +467,5 @@ Estos resultados definen el modelo final a evaluar con la data de validación.
 <!-- # ```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE} -->
 <!-- # ``` -->
 
-[Todos los códigos en R]("files/GuiaRImputacion_20210904.R")
+[Todos los códigos en R](files/GuiaRImputacion_20210904.R)
 
