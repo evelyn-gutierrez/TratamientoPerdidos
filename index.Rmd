@@ -284,6 +284,7 @@ imp1$method
 Como vemos, se usó el método pmm (Predictive mean matching): Un método de imputación semi-parámetrico usado por defecto para variables continuas. 
 
 Imputaciones para una variable en particular
+
 ```{r}
 head(imp1$imp$NonD)
 ```

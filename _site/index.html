@@ -575,8 +575,7 @@
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>sleep_imp_rf <span class="ot">&lt;-</span> <span class="fu">missForest</span>(sleep)</span></code></pre></div>
 <pre><code>##   missForest iteration 1 in progress...done!
 ##   missForest iteration 2 in progress...done!
-##   missForest iteration 3 in progress...done!
-##   missForest iteration 4 in progress...done!</code></pre>
+##   missForest iteration 3 in progress...done!</code></pre>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sleep_imp<span class="sc">$</span>NonD, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##  [1]  2.28  6.30 10.28 10.63  2.10  9.10 15.80  5.20 10.90  8.30 11.00  3.20
 ## [13]  7.60  4.20  6.30  8.60  6.60  9.50  4.80 12.00  4.97  3.30 11.00  8.17
@@ -736,19 +735,19 @@
 ## 
 ## Residuals:
 ##      Min       1Q   Median       3Q      Max 
-## -1557.86    -0.83    32.64    56.52  1539.29 
+## -1554.83    11.41    32.30    58.21  1544.54 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -128.06061  117.81773  -1.087    0.281    
-## Sleep          6.49171    9.99372   0.650    0.518    
-## BrainWgt       0.91410    0.04794  19.066   &lt;2e-16 ***
+## (Intercept) -113.01539  114.49993  -0.987    0.328    
+## Sleep          5.10144    9.63082   0.530    0.598    
+## BrainWgt       0.91135    0.04754  19.168   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 325.1 on 59 degrees of freedom
-## Multiple R-squared:  0.8736, Adjusted R-squared:  0.8693 
-## F-statistic: 203.8 on 2 and 59 DF,  p-value: &lt; 2.2e-16</code></pre>
+## Residual standard error: 325.5 on 59 degrees of freedom
+## Multiple R-squared:  0.8733, Adjusted R-squared:  0.869 
+## F-statistic: 203.3 on 2 and 59 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Nota: Si deseamos utilizar la imputación para nuestra data de validación, tenemos que aplicar la metodología y modelos creados para la imputación a partir de la data de entrenamiento. No deben realizarse modelos para imputaciones con los datos de validación sino podríamos sesgar la evaluación del modelo en la data de entrenamiento.</p>
 </div>
 <div id="imputación-múltiple." class="section level2" number="7.3">
