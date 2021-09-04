@@ -424,7 +424,7 @@ Finalmente, utilizaremos un gráfico para la densidad de las observaciones imput
 densityplot(imp1)
 ```
 
-- Este gráfico compara la densidad de los datos observados con los datos imputados. Se espera que las líneas sean similares (pero no idénticos).
+- Este gráfico compara la **densidad de los datos observados versus la densidad de los datos imputados**. Se espera que las líneas sean similares pero no idénticos.
 
 - Encontrar diferencias entre las diferentes imputaciones indica que las **imputaciones varían** entre diferentes datasets.
 
@@ -516,5 +516,6 @@ Estos resultados definen el modelo final a evaluar con la data de validación.
 
 # Ejercicio
 
-[Descripción del ejercicio](files/EjercicioImputacion1.pdf)
-[Datos Advertising.csv](files/Advertising.csv)
+- [Descripción del ejercicio](files/EjercicioImputacion1.pdf)
+
+- [Datos Advertising.csv](files/Advertising.csv)
