@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="pandoc" />
+
+        <meta name="author" content="Evelyn Gutierrez" />
+        <meta name="author" content="Vilma Romero" />
+    
+    
+    <title>Tratamiento de valores perdidos con R</title>
+
+        <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+        <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="site_libs/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="site_libs/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+        <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+        <script src="site_libs/navigation-1.1/tabsets.js"></script>
+        <link href="site_libs/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
+        <script src="site_libs/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
+        <link href="site_libs/robobook-0.1/robobook.css" rel="stylesheet" />
+        <link href="site_libs/robobook-0.1/robobook_fonts_embed.css" rel="stylesheet" />
+        <script src="site_libs/robobook-0.1/robobook.js"></script>
+    
+    
+        <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #c4a000; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #000000; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #000000; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #000000; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+    
+    
+    <!-- tabsets -->
+    <script>
+      $(document).ready(function () {
+	  window.buildTabsets("toc");
+      });
+      $(document).ready(function () {
+	  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+	      $(this).parent().toggleClass('nav-tabs-open')
+	  });
+      });
+    </script>
+
+    <!-- code folding -->
+    
+    <!-- code download -->
+    
+    <!-- tabsets dropdown -->
+
+    <style type="text/css">
+      .tabset-dropdown > .nav-tabs {
+	  display: inline-table;
+	  max-height: 500px;
+	  min-height: 44px;
+	  overflow-y: auto;
+	  background: white;
+	  border: 1px solid #ddd;
+	  border-radius: 4px;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+	  content: "&#xe258;";
+	  border: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active {
+	  display: block;
+      }
+
+      .tabset-dropdown > .nav-tabs > li.active a {
+  	  padding: 0 15px !important;
+      }
+
+      .tabset-dropdown > .nav-tabs > li > a,
+      .tabset-dropdown > .nav-tabs > li > a:focus,
+      .tabset-dropdown > .nav-tabs > li > a:hover {
+	  border: none;
+	  display: inline-block;
+	  border-radius: 4px;
+	  background-color: transparent;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+	  display: block;
+	  float: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li {
+	  display: none;
+	  margin-left: 0 !important;
+      }
+    </style>
+    
+</head>
+
+<body class="preload">
+
+   	
+            <!-- robobook start -->   
+   <div class="book with-summary">
+      <div class="book-summary">
+        <ul>
+          <li class="title">Tratamiento de valores perdidos con R</li>
+          <li class="divider"></li>
+        </ul>
+        <nav role="navigation" id="toc">
+          <ul>
+          <li><a href="#introducción."><span class="toc-section-number">1</span> Introducción.</a></li>
+          <li><a href="#laboratorio-en-r."><span class="toc-section-number">2</span> Laboratorio en R.</a></li>
+          <li><a href="#exploración-de-valores-perdidos."><span class="toc-section-number">3</span> Exploración de valores perdidos.</a>
+          <ul>
+          <li><a href="#caso-1-notas."><span class="toc-section-number">3.1</span> Caso 1: Notas.</a></li>
+          <li><a href="#caso-2-dataset-sleep"><span class="toc-section-number">3.2</span> Caso 2: Dataset sleep</a></li>
+          </ul></li>
+          <li><a href="#imputación-univariada"><span class="toc-section-number">4</span> Imputación Univariada</a>
+          <ul>
+          <li><a href="#con-la-media."><span class="toc-section-number">4.1</span> Con la media.</a></li>
+          <li><a href="#con-valor-aleatorio."><span class="toc-section-number">4.2</span> Con valor aleatorio.</a></li>
+          <li><a href="#con-un-valor-específico."><span class="toc-section-number">4.3</span> Con un valor específico.</a></li>
+          <li><a href="#manualmente"><span class="toc-section-number">4.4</span> Manualmente</a></li>
+          </ul></li>
+          <li><a href="#imputación-multivariada"><span class="toc-section-number">5</span> Imputación Multivariada</a>
+          <ul>
+          <li><a href="#imputación-por-regresión-lineal."><span class="toc-section-number">5.1</span> Imputación por regresión lineal.</a></li>
+          <li><a href="#imputación-por-el-método-de-k-vecinos-más-cercanos."><span class="toc-section-number">5.2</span> Imputación por el método de K vecinos más cercanos.</a></li>
+          <li><a href="#imputación-por-bosques-aleatorios."><span class="toc-section-number">5.3</span> Imputación por bosques aleatorios.</a></li>
+          <li><a href="#mice"><span class="toc-section-number">5.4</span> MICE</a></li>
+          </ul></li>
+          <li><a href="#imputación-múltiple"><span class="toc-section-number">6</span> Imputación Múltiple</a>
+          <ul>
+          <li><a href="#visualización-de-datos-imputados."><span class="toc-section-number">6.1</span> Visualización de datos imputados.</a></li>
+          </ul></li>
+          <li><a href="#modelamiento"><span class="toc-section-number">7</span> Modelamiento</a>
+          <ul>
+          <li><a href="#casos-completos"><span class="toc-section-number">7.1</span> Casos completos</a></li>
+          <li><a href="#imputación-simple."><span class="toc-section-number">7.2</span> Imputación simple.</a></li>
+          <li><a href="#imputación-múltiple."><span class="toc-section-number">7.3</span> Imputación múltiple.</a></li>
+          </ul></li>
+          </ul>
+        </nav>
+        <ul class="authors">
+          <li class="divider"></li>
+                                <li><span><i class="glyphicon glyphicon-user"></i> Evelyn Gutierrez<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></span></li>
+                                          <li><span><i class="glyphicon glyphicon-user"></i> Vilma Romero<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></span></li>
+                                      </ul>     
+      </div>
+      <div class="book-body fixed">
+        <div class="body-inner">
+            <a class="btn pull-left js-toolbar-action toggle-sidebar" aria-label="Toggle Sidebar" title="Toggle Sidebar" href="#">
+              <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </a>
+            <div class="page-inner">
+              <section id="content" class="normal">
+      
+   
+        
+      <h1 class="title">Tratamiento de valores perdidos con R</h1>
+      
+        
+
+   
+      
+   
+<!-- Don't indent these lines or it will mess pre blocks indentation --> 
+<div id="introducción." class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Introducción.</h1>
+<iframe src="docs/3_Tratamiento de datos perdidos.pdf" width="768" height="600px">
+</iframe>
+</div>
+<div id="laboratorio-en-r." class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Laboratorio en R.</h1>
+<p>En esta sesión, realizaremos la imputación de datos perdidos utilizando técnicas básicas y por vecinos más cercanos.</p>
+<p>Requerimos instalar los siguientes paquetes:</p>
+<ul>
+<li><code>Hmisc</code></li>
+<li><code>VIM</code></li>
+<li><code>mice</code></li>
+<li><code>DMwR</code></li>
+</ul>
+</div>
+<div id="exploración-de-valores-perdidos." class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> Exploración de valores perdidos.</h1>
+<div id="caso-1-notas." class="section level2" number="3.1">
+<h2 number="3.1"><span class="header-section-number">3.1</span> Caso 1: Notas.</h2>
+<p>Iniciamos este ejemplo, creando un data.frame notas con alguna nota faltante.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>notas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">nombre =</span> <span class="fu">c</span>(<span class="st">&quot;Jesus&quot;</span>, <span class="st">&quot;Carla&quot;</span>, <span class="st">&quot;Rodrigo&quot;</span>, <span class="st">&quot;Javier&quot;</span>),</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">nota =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">13</span>, <span class="cn">NA</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>notas</span></code></pre></div>
+<pre><code>##    nombre nota
+## 1   Jesus   12
+## 2   Carla   15
+## 3 Rodrigo   13
+## 4  Javier   NA</code></pre>
+<p>Exploramos visualmente el número de valores perdidos por variable: solo existe un valor aleatorio.</p>
+<p>Finalmente, seleccionar los datos completos con <code>complete.cases</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>notas_comp <span class="ot">&lt;-</span> notas[<span class="fu">complete.cases</span>(notas),]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>notas_comp</span></code></pre></div>
+<pre><code>##    nombre nota
+## 1   Jesus   12
+## 2   Carla   15
+## 3 Rodrigo   13</code></pre>
+</div>
+<div id="caso-2-dataset-sleep" class="section level2" number="3.2">
+<h2 number="3.2"><span class="header-section-number">3.2</span> Caso 2: Dataset sleep</h2>
+<p>Vamos a utilizar la base de datos sleep del paquete VIM para realizar la exploración de valores perdidos.</p>
+<p>Para ello, instalamos el paquete VIM con el siguiente código en la consola: <code>install.packages("VIM")</code>.</p>
+<p>Luego, cargamos los datos de <code>sleep</code> y vemos las primeras filas del dataset utilizando el siguiente código:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sleep, <span class="at">package =</span> <span class="st">&quot;VIM&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sleep)</span></code></pre></div>
+<pre><code>##    BodyWgt BrainWgt NonD Dream Sleep Span Gest Pred Exp Danger
+## 1 6654.000   5712.0   NA    NA   3.3 38.6  645    3   5      3
+## 2    1.000      6.6  6.3   2.0   8.3  4.5   42    3   1      3
+## 3    3.385     44.5   NA    NA  12.5 14.0   60    1   1      1
+## 4    0.920      5.7   NA    NA  16.5   NA   25    5   2      3
+## 5 2547.000   4603.0  2.1   1.8   3.9 69.0  624    3   5      4
+## 6   10.550    179.5  9.1   0.7   9.8 27.0  180    4   4      4</code></pre>
+<p>Comprobará que el dataset “sleep” ahora aparece también en su environment.</p>
+<p>Exploramos este nuevo dataset con los siguientes comandos:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sleep)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    62 obs. of  10 variables:
+##  $ BodyWgt : num  6654 1 3.38 0.92 2547 ...
+##  $ BrainWgt: num  5712 6.6 44.5 5.7 4603 ...
+##  $ NonD    : num  NA 6.3 NA NA 2.1 9.1 15.8 5.2 10.9 8.3 ...
+##  $ Dream   : num  NA 2 NA NA 1.8 0.7 3.9 1 3.6 1.4 ...
+##  $ Sleep   : num  3.3 8.3 12.5 16.5 3.9 9.8 19.7 6.2 14.5 9.7 ...
+##  $ Span    : num  38.6 4.5 14 NA 69 27 19 30.4 28 50 ...
+##  $ Gest    : num  645 42 60 25 624 180 35 392 63 230 ...
+##  $ Pred    : int  3 3 1 5 3 4 1 4 1 1 ...
+##  $ Exp     : int  5 1 1 2 5 4 1 5 2 1 ...
+##  $ Danger  : int  3 3 1 3 4 4 1 4 1 1 ...</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(sleep)</span></code></pre></div>
+<pre><code>## Rows: 62
+## Columns: 10
+## $ BodyWgt  &lt;dbl&gt; 6654.000, 1.000, 3.385, 0.920, 2547.000, 10.550, 0.023, 160.0~
+## $ BrainWgt &lt;dbl&gt; 5712.0, 6.6, 44.5, 5.7, 4603.0, 179.5, 0.3, 169.0, 25.6, 440.~
+## $ NonD     &lt;dbl&gt; NA, 6.3, NA, NA, 2.1, 9.1, 15.8, 5.2, 10.9, 8.3, 11.0, 3.2, 7~
+## $ Dream    &lt;dbl&gt; NA, 2.0, NA, NA, 1.8, 0.7, 3.9, 1.0, 3.6, 1.4, 1.5, 0.7, 2.7,~
+## $ Sleep    &lt;dbl&gt; 3.3, 8.3, 12.5, 16.5, 3.9, 9.8, 19.7, 6.2, 14.5, 9.7, 12.5, 3~
+## $ Span     &lt;dbl&gt; 38.6, 4.5, 14.0, NA, 69.0, 27.0, 19.0, 30.4, 28.0, 50.0, 7.0,~
+## $ Gest     &lt;dbl&gt; 645, 42, 60, 25, 624, 180, 35, 392, 63, 230, 112, 281, NA, 36~
+## $ Pred     &lt;int&gt; 3, 3, 1, 5, 3, 4, 1, 4, 1, 1, 5, 5, 2, 5, 1, 2, 2, 2, 1, 1, 5~
+## $ Exp      &lt;int&gt; 5, 1, 1, 2, 5, 4, 1, 5, 2, 1, 4, 5, 1, 5, 1, 2, 2, 2, 2, 1, 5~
+## $ Danger   &lt;int&gt; 3, 3, 1, 3, 4, 4, 1, 4, 1, 1, 4, 5, 2, 5, 1, 2, 2, 2, 1, 1, 5~</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sleep)</span></code></pre></div>
+<pre><code>##     BodyWgt            BrainWgt            NonD            Dream      
+##  Min.   :   0.005   Min.   :   0.14   Min.   : 2.100   Min.   :0.000  
+##  1st Qu.:   0.600   1st Qu.:   4.25   1st Qu.: 6.250   1st Qu.:0.900  
+##  Median :   3.342   Median :  17.25   Median : 8.350   Median :1.800  
+##  Mean   : 198.790   Mean   : 283.13   Mean   : 8.673   Mean   :1.972  
+##  3rd Qu.:  48.202   3rd Qu.: 166.00   3rd Qu.:11.000   3rd Qu.:2.550  
+##  Max.   :6654.000   Max.   :5712.00   Max.   :17.900   Max.   :6.600  
+##                                       NA&#39;s   :14       NA&#39;s   :12     
+##      Sleep            Span              Gest             Pred      
+##  Min.   : 2.60   Min.   :  2.000   Min.   : 12.00   Min.   :1.000  
+##  1st Qu.: 8.05   1st Qu.:  6.625   1st Qu.: 35.75   1st Qu.:2.000  
+##  Median :10.45   Median : 15.100   Median : 79.00   Median :3.000  
+##  Mean   :10.53   Mean   : 19.878   Mean   :142.35   Mean   :2.871  
+##  3rd Qu.:13.20   3rd Qu.: 27.750   3rd Qu.:207.50   3rd Qu.:4.000  
+##  Max.   :19.90   Max.   :100.000   Max.   :645.00   Max.   :5.000  
+##  NA&#39;s   :4       NA&#39;s   :4         NA&#39;s   :4                       
+##       Exp            Danger     
+##  Min.   :1.000   Min.   :1.000  
+##  1st Qu.:1.000   1st Qu.:1.000  
+##  Median :2.000   Median :2.000  
+##  Mean   :2.419   Mean   :2.613  
+##  3rd Qu.:4.000   3rd Qu.:4.000  
+##  Max.   :5.000   Max.   :5.000  
+## </code></pre>
+<p>Exploramos el número de valores perdidos por variable</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(sleep, <span class="dv">2</span>, <span class="cf">function</span>(x){<span class="fu">sum</span>(<span class="fu">is.na</span>(x))})</span></code></pre></div>
+<pre><code>##  BodyWgt BrainWgt     NonD    Dream    Sleep     Span     Gest     Pred 
+##        0        0       14       12        4        4        4        0 
+##      Exp   Danger 
+##        0        0</code></pre>
+<p>Con esta tabla podemos responder lo siguiente:</p>
+<ul>
+<li>¿Qué variables tienen valores perdidos?</li>
+<li>¿Qué variables tienen más valores perdidos?</li>
+</ul>
+<p>Continuamos explorando los valores perdidos analizando el patros de valores perdidos distribuidos en las diferentes variables del dataset. Esto nos ayudará a entener mejor nuestros datos y encontrar penciales probllemas de</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mice<span class="sc">::</span><span class="fu">md.pattern</span>(sleep, <span class="at">rotate.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" width="80%" /></p>
+<pre><code>##    BodyWgt BrainWgt Pred Exp Danger Sleep Span Gest Dream NonD   
+## 42       1        1    1   1      1     1    1    1     1    1  0
+## 9        1        1    1   1      1     1    1    1     0    0  2
+## 3        1        1    1   1      1     1    1    0     1    1  1
+## 2        1        1    1   1      1     1    0    1     1    1  1
+## 1        1        1    1   1      1     1    0    1     0    0  3
+## 1        1        1    1   1      1     1    0    0     1    1  2
+## 2        1        1    1   1      1     0    1    1     1    0  2
+## 2        1        1    1   1      1     0    1    1     0    0  3
+##          0        0    0   0      0     4    4    4    12   14 38</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mice<span class="sc">::</span><span class="fu">md.pairs</span>(sleep)</span></code></pre></div>
+<pre><code>## $rr
+##          BodyWgt BrainWgt NonD Dream Sleep Span Gest Pred Exp Danger
+## BodyWgt       62       62   48    50    58   58   58   62  62     62
+## BrainWgt      62       62   48    50    58   58   58   62  62     62
+## NonD          48       48   48    48    48   45   44   48  48     48
+## Dream         50       50   48    50    48   47   46   50  50     50
+## Sleep         58       58   48    48    58   54   54   58  58     58
+## Span          58       58   45    47    54   58   55   58  58     58
+## Gest          58       58   44    46    54   55   58   58  58     58
+## Pred          62       62   48    50    58   58   58   62  62     62
+## Exp           62       62   48    50    58   58   58   62  62     62
+## Danger        62       62   48    50    58   58   58   62  62     62
+## 
+## $rm
+##          BodyWgt BrainWgt NonD Dream Sleep Span Gest Pred Exp Danger
+## BodyWgt        0        0   14    12     4    4    4    0   0      0
+## BrainWgt       0        0   14    12     4    4    4    0   0      0
+## NonD           0        0    0     0     0    3    4    0   0      0
+## Dream          0        0    2     0     2    3    4    0   0      0
+## Sleep          0        0   10    10     0    4    4    0   0      0
+## Span           0        0   13    11     4    0    3    0   0      0
+## Gest           0        0   14    12     4    3    0    0   0      0
+## Pred           0        0   14    12     4    4    4    0   0      0
+## Exp            0        0   14    12     4    4    4    0   0      0
+## Danger         0        0   14    12     4    4    4    0   0      0
+## 
+## $mr
+##          BodyWgt BrainWgt NonD Dream Sleep Span Gest Pred Exp Danger
+## BodyWgt        0        0    0     0     0    0    0    0   0      0
+## BrainWgt       0        0    0     0     0    0    0    0   0      0
+## NonD          14       14    0     2    10   13   14   14  14     14
+## Dream         12       12    0     0    10   11   12   12  12     12
+## Sleep          4        4    0     2     0    4    4    4   4      4
+## Span           4        4    3     3     4    0    3    4   4      4
+## Gest           4        4    4     4     4    3    0    4   4      4
+## Pred           0        0    0     0     0    0    0    0   0      0
+## Exp            0        0    0     0     0    0    0    0   0      0
+## Danger         0        0    0     0     0    0    0    0   0      0
+## 
+## $mm
+##          BodyWgt BrainWgt NonD Dream Sleep Span Gest Pred Exp Danger
+## BodyWgt        0        0    0     0     0    0    0    0   0      0
+## BrainWgt       0        0    0     0     0    0    0    0   0      0
+## NonD           0        0   14    12     4    1    0    0   0      0
+## Dream          0        0   12    12     2    1    0    0   0      0
+## Sleep          0        0    4     2     4    0    0    0   0      0
+## Span           0        0    1     1     0    4    1    0   0      0
+## Gest           0        0    0     0     0    1    4    0   0      0
+## Pred           0        0    0     0     0    0    0    0   0      0
+## Exp            0        0    0     0     0    0    0    0   0      0
+## Danger         0        0    0     0     0    0    0    0   0      0</code></pre>
+<p>En estos gráficos y tablas observamos las diferentes combinaciones de valores perdidos que tenemos para nuestras variables. Ahora, podemos responder las siguiente preguntas:</p>
+<ul>
+<li>¿Cuantas observaciones no tienen nigún valor perdido?</li>
+<li>¿Cuantas observaciones no tienen nigún valor perdido?</li>
+</ul>
+<p>Visualización de datos perdidos</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sleep_aggr <span class="ot">&lt;-</span> VIM<span class="sc">::</span><span class="fu">aggr</span>(sleep, <span class="at">col =</span> mice<span class="sc">::</span><span class="fu">mdc</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">numbers =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">sortVars =</span> <span class="cn">TRUE</span>, <span class="at">labels =</span> <span class="fu">names</span>(sleep),</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">cex.axis=</span> <span class="fl">0.7</span>, <span class="at">gap =</span> <span class="dv">3</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">ylab =</span> <span class="fu">c</span>(<span class="st">&quot;Proporción de Pérdida&quot;</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;Patrón de Pérdida&quot;</span>))</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" width="768" /></p>
+<pre><code>## 
+##  Variables sorted by number of missings: 
+##  Variable      Count
+##      NonD 0.22580645
+##     Dream 0.19354839
+##     Sleep 0.06451613
+##      Span 0.06451613
+##      Gest 0.06451613
+##   BodyWgt 0.00000000
+##  BrainWgt 0.00000000
+##      Pred 0.00000000
+##       Exp 0.00000000
+##    Danger 0.00000000</code></pre>
+<p>Distribución de observaciones completas e incompletas por pares de variables</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>VIM<span class="sc">::</span><span class="fu">marginplot</span>(sleep[ , <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>)], <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" width="768" /></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>VIM<span class="sc">::</span><span class="fu">marginplot</span>(sleep[ , <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>)], <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>), <span class="at">pch =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-9-2.png" width="768" /></p>
+<p>Descripción:</p>
+<ul>
+<li><p>Puntos azules (diagrama de dispersión): individuos con ambos valores de las variables.</p></li>
+<li><p>Boxplots azules: boxplots de los valores no perdidos de cada variable</p></li>
+<li><p>Puntos rojos (Eje X: NonD): individuos con valores perdidos en Gest pero observados en NonD.</p></li>
+<li><p>Puntos rojos (Eje Y: Gest): individuos con valores perdidos en NonD pero observados en Gest.</p></li>
+<li><p>Boxplots rojos: Representan la distribución marginal de los puntos rojos.</p></li>
+</ul>
+<p>Nota: Si los datos perdidos son completamente aleatorios se espera que los boxplots rojos y azules sean idénticos</p>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div id="imputación-univariada" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Imputación Univariada</h1>
+<div id="con-la-media." class="section level2" number="4.1">
+<h2 number="4.1"><span class="header-section-number">4.1</span> Con la media.</h2>
+<p>instalamos la librería <code>Hmisc</code> para realizar imputaciones básicas. La instalación, la realizaremos utilizando el siguiente comando en la consola: <code>install.packages("Hmisc")</code>.</p>
+<p>Luego de completada la instalación, comprobamos cargando el paquete.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span></code></pre></div>
+<p>Si no tenemos mayor información, utilizaremos la media como valor de imputación. Es una imputación rápida, simple y sencilla.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, mean))</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>notas</span></code></pre></div>
+<pre><code>##    nombre nota nota_imp
+## 1   Jesus   12 12.00000
+## 2   Carla   15 15.00000
+## 3 Rodrigo   13 13.00000
+## 4  Javier   NA 13.33333</code></pre>
+<hr />
+</div>
+<div id="con-valor-aleatorio." class="section level2" number="4.2">
+<h2 number="4.2"><span class="header-section-number">4.2</span> Con valor aleatorio.</h2>
+<p>Utilizamos un valor aleatorio como valor de imputación.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, <span class="st">&#39;random&#39;</span>))</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>notas</span></code></pre></div>
+<pre><code>##    nombre nota nota_imp
+## 1   Jesus   12       12
+## 2   Carla   15       15
+## 3 Rodrigo   13       13
+## 4  Javier   NA       13</code></pre>
+<hr />
+</div>
+<div id="con-un-valor-específico." class="section level2" number="4.3">
+<h2 number="4.3"><span class="header-section-number">4.3</span> Con un valor específico.</h2>
+<p>Si tenemos información específica, o resulta conveniente, podemos imputar los datos perdidos con un valor específico.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, <span class="dv">99</span>))</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>notas</span></code></pre></div>
+<pre><code>##    nombre nota nota_imp
+## 1   Jesus   12       12
+## 2   Carla   15       15
+## 3 Rodrigo   13       13
+## 4  Javier   NA       99</code></pre>
+<hr />
+</div>
+<div id="manualmente" class="section level2" number="4.4">
+<h2 number="4.4"><span class="header-section-number">4.4</span> Manualmente</h2>
+<p>Por ultimo, la imputación puede realizarse sin el paquete Hmisc de la siguiente manera:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota[<span class="fu">is.na</span>(notas<span class="sc">$</span>nota)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(notas<span class="sc">$</span>nota, <span class="at">na.rm =</span> T)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>notas</span></code></pre></div>
+<pre><code>##    nombre     nota nota_imp
+## 1   Jesus 12.00000       12
+## 2   Carla 15.00000       15
+## 3 Rodrigo 13.00000       13
+## 4  Javier 13.33333       99</code></pre>
+</div>
+</div>
+<div id="imputación-multivariada" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> Imputación Multivariada</h1>
+<div id="imputación-por-regresión-lineal." class="section level2" number="5.1">
+<h2 number="5.1"><span class="header-section-number">5.1</span> Imputación por regresión lineal.</h2>
+<p>Con la librería mice.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice) </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>imp <span class="ot">&lt;-</span> <span class="fu">mice</span>(sleep, <span class="at">method =</span> <span class="st">&quot;norm.predict&quot;</span>, <span class="at">m =</span> <span class="dv">1</span>) <span class="co"># Impute data</span></span></code></pre></div>
+<pre><code>## 
+##  iter imp variable
+##   1   1  NonD  Dream  Sleep  Span  Gest
+##   2   1  NonD  Dream  Sleep  Span  Gest
+##   3   1  NonD  Dream  Sleep  Span  Gest
+##   4   1  NonD  Dream  Sleep  Span  Gest
+##   5   1  NonD  Dream  Sleep  Span  Gest</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>imp_reg <span class="ot">&lt;-</span> <span class="fu">complete</span>(imp)</span></code></pre></div>
+<p>Para missings en variables categorícas se puede utilizar regresión logistica con el argumento <code>method="logreg"</code>. Para ver otros métodos, podemos ver la documentación de la función mice escribiendo <code>?mice::mice</code> en la consola.</p>
+</div>
+<div id="imputación-por-el-método-de-k-vecinos-más-cercanos." class="section level2" number="5.2">
+<h2 number="5.2"><span class="header-section-number">5.2</span> Imputación por el método de K vecinos más cercanos.</h2>
+<p>Aplicamos vecions más cercanos y guardamos los resultados en sleep_imp</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DMwR)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>sleep_imp <span class="ot">&lt;-</span> DMwR<span class="sc">::</span><span class="fu">knnImputation</span>(sleep)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co">#View(sleep_imp)</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sleep_imp)</span></code></pre></div>
+<pre><code>##     BodyWgt            BrainWgt            NonD            Dream      
+##  Min.   :   0.005   Min.   :   0.14   Min.   : 2.100   Min.   :0.000  
+##  1st Qu.:   0.600   1st Qu.:   4.25   1st Qu.: 5.800   1st Qu.:0.925  
+##  Median :   3.342   Median :  17.25   Median : 8.350   Median :1.800  
+##  Mean   : 198.790   Mean   : 283.13   Mean   : 8.489   Mean   :1.976  
+##  3rd Qu.:  48.202   3rd Qu.: 166.00   3rd Qu.:10.757   3rd Qu.:2.567  
+##  Max.   :6654.000   Max.   :5712.00   Max.   :17.900   Max.   :6.600  
+##      Sleep            Span              Gest             Pred      
+##  Min.   : 2.60   Min.   :  2.000   Min.   : 12.00   Min.   :1.000  
+##  1st Qu.: 6.95   1st Qu.:  6.125   1st Qu.: 35.75   1st Qu.:2.000  
+##  Median :10.30   Median : 13.350   Median : 65.68   Median :3.000  
+##  Mean   :10.43   Mean   : 19.133   Mean   :138.65   Mean   :2.871  
+##  3rd Qu.:13.20   3rd Qu.: 27.000   3rd Qu.:196.80   3rd Qu.:4.000  
+##  Max.   :19.90   Max.   :100.000   Max.   :645.00   Max.   :5.000  
+##       Exp            Danger     
+##  Min.   :1.000   Min.   :1.000  
+##  1st Qu.:1.000   1st Qu.:1.000  
+##  Median :2.000   Median :2.000  
+##  Mean   :2.419   Mean   :2.613  
+##  3rd Qu.:4.000   3rd Qu.:4.000  
+##  Max.   :5.000   Max.   :5.000</code></pre>
+<p>¿Hay datos perdidos ahora?</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(sleep_imp, <span class="dv">2</span>, <span class="cf">function</span>(x){<span class="fu">sum</span>(<span class="fu">is.na</span>(x))})</span></code></pre></div>
+<pre><code>##  BodyWgt BrainWgt     NonD    Dream    Sleep     Span     Gest     Pred 
+##        0        0        0        0        0        0        0        0 
+##      Exp   Danger 
+##        0        0</code></pre>
+</div>
+<div id="imputación-por-bosques-aleatorios." class="section level2" number="5.3">
+<h2 number="5.3"><span class="header-section-number">5.3</span> Imputación por bosques aleatorios.</h2>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(missForest)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>sleep_imp_rf <span class="ot">&lt;-</span> <span class="fu">missForest</span>(sleep)</span></code></pre></div>
+<pre><code>##   missForest iteration 1 in progress...done!
+##   missForest iteration 2 in progress...done!
+##   missForest iteration 3 in progress...done!
+##   missForest iteration 4 in progress...done!</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sleep_imp<span class="sc">$</span>NonD, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##  [1]  2.28  6.30 10.28 10.63  2.10  9.10 15.80  5.20 10.90  8.30 11.00  3.20
+## [13]  7.60  4.20  6.30  8.60  6.60  9.50  4.80 12.00  4.97  3.30 11.00  8.17
+## [25]  4.70 10.54 10.40  7.40  2.10  9.21  7.65  7.70 17.90  6.10  8.20  8.40
+## [37] 11.90 10.80 13.80 14.30  5.25 15.20 10.00 11.90  6.50  7.50 10.50 10.60
+## [49]  7.40  8.40  5.70  4.90  4.60  3.20  9.66  8.10 11.00  4.90 13.20  9.70
+## [61] 12.80 12.04</code></pre>
+</div>
+<div id="mice" class="section level2" number="5.4">
+<h2 number="5.4"><span class="header-section-number">5.4</span> MICE</h2>
+<blockquote>
+<p>MICE: <em>Multivariate Imputation by Chained Equations</em></p>
+</blockquote>
+<p>Utilizaremos la metodología MICE: Multivariate Imputation by Chained Equations para realizar imputación multivariada.</p>
+<p>La imputación con MICE puede ser simple o múltiple. Simple si solo se imputa el dataset inicial; y múltiple cuando se crean multiples datasets con diferentes imputaciones.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VIM)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span></code></pre></div>
+</div>
+</div>
+<div id="imputación-múltiple" class="section level1" number="6">
+<h1 number="6"><span class="header-section-number">6</span> Imputación Múltiple</h1>
+<p>Utilizamos el paquete MICE: Imputación Multivariada por Chained Equations para realizar la imputación múltiple.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span></code></pre></div>
+<p>La imputación se realiza con estas líneas de código:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>imp1 <span class="ot">&lt;-</span> <span class="fu">mice</span>(sleep, <span class="at">m =</span> <span class="dv">5</span>, <span class="at">seed =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## 
+##  iter imp variable
+##   1   1  NonD  Dream  Sleep  Span  Gest
+##   1   2  NonD  Dream  Sleep  Span  Gest
+##   1   3  NonD  Dream  Sleep  Span  Gest
+##   1   4  NonD  Dream  Sleep  Span  Gest
+##   1   5  NonD  Dream  Sleep  Span  Gest
+##   2   1  NonD  Dream  Sleep  Span  Gest
+##   2   2  NonD  Dream  Sleep  Span  Gest
+##   2   3  NonD  Dream  Sleep  Span  Gest
+##   2   4  NonD  Dream  Sleep  Span  Gest
+##   2   5  NonD  Dream  Sleep  Span  Gest
+##   3   1  NonD  Dream  Sleep  Span  Gest
+##   3   2  NonD  Dream  Sleep  Span  Gest
+##   3   3  NonD  Dream  Sleep  Span  Gest
+##   3   4  NonD  Dream  Sleep  Span  Gest
+##   3   5  NonD  Dream  Sleep  Span  Gest
+##   4   1  NonD  Dream  Sleep  Span  Gest
+##   4   2  NonD  Dream  Sleep  Span  Gest
+##   4   3  NonD  Dream  Sleep  Span  Gest
+##   4   4  NonD  Dream  Sleep  Span  Gest
+##   4   5  NonD  Dream  Sleep  Span  Gest
+##   5   1  NonD  Dream  Sleep  Span  Gest
+##   5   2  NonD  Dream  Sleep  Span  Gest
+##   5   3  NonD  Dream  Sleep  Span  Gest
+##   5   4  NonD  Dream  Sleep  Span  Gest
+##   5   5  NonD  Dream  Sleep  Span  Gest</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>imp1</span></code></pre></div>
+<pre><code>## Class: mids
+## Number of multiple imputations:  5 
+## Imputation methods:
+##  BodyWgt BrainWgt     NonD    Dream    Sleep     Span     Gest     Pred 
+##       &quot;&quot;       &quot;&quot;    &quot;pmm&quot;    &quot;pmm&quot;    &quot;pmm&quot;    &quot;pmm&quot;    &quot;pmm&quot;       &quot;&quot; 
+##      Exp   Danger 
+##       &quot;&quot;       &quot;&quot; 
+## PredictorMatrix:
+##          BodyWgt BrainWgt NonD Dream Sleep Span Gest Pred Exp Danger
+## BodyWgt        0        1    1     1     1    1    1    1   1      1
+## BrainWgt       1        0    1     1     1    1    1    1   1      1
+## NonD           1        1    0     1     1    1    1    1   1      1
+## Dream          1        1    1     0     1    1    1    1   1      1
+## Sleep          1        1    1     1     0    1    1    1   1      1
+## Span           1        1    1     1     1    0    1    1   1      1
+## Number of logged events:  11 
+##   it im  dep meth   out
+## 1  1  5 Span  pmm Sleep
+## 2  1  5 Gest  pmm Sleep
+## 3  3  2 Span  pmm Sleep
+## 4  3  5 Span  pmm Sleep
+## 5  3  5 Gest  pmm Sleep
+## 6  4  1 Span  pmm Sleep</code></pre>
+<p>El argumento m=5 indica que se crearan 5 datasets de imputaciones.</p>
+<p>Verificamos el métodos de imputación utilizado:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>imp1<span class="sc">$</span>method</span></code></pre></div>
+<pre><code>##  BodyWgt BrainWgt     NonD    Dream    Sleep     Span     Gest     Pred 
+##       &quot;&quot;       &quot;&quot;    &quot;pmm&quot;    &quot;pmm&quot;    &quot;pmm&quot;    &quot;pmm&quot;    &quot;pmm&quot;       &quot;&quot; 
+##      Exp   Danger 
+##       &quot;&quot;       &quot;&quot;</code></pre>
+<p>Como vemos, se usó el método pmm (Predictive mean matching): Un método de imputación semi-parámetrico usado por defecto para variables continuas.</p>
+<p>Imputaciones para una variable en particular</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(imp1<span class="sc">$</span>imp<span class="sc">$</span>NonD)</span></code></pre></div>
+<pre><code>##       1    2    3    4    5
+## 1   3.2  3.3  2.1  2.1  3.2
+## 3  10.0 12.0 10.8 11.9 11.0
+## 4  11.0 10.4 12.8 17.9 13.2
+## 14  2.1  3.2  3.2  2.1  3.2
+## 21 12.8 11.9  7.6  4.7  8.2
+## 24  8.4 11.0 11.0 11.0 10.0</code></pre>
+<div id="visualización-de-datos-imputados." class="section level2" number="6.1">
+<h2 number="6.1"><span class="header-section-number">6.1</span> Visualización de datos imputados.</h2>
+<p>Estos gráficos nos servirán para revisar si las imputaciones realizadas son muy variables entre diferentes datasets.</p>
+<p>El primer gráfico muestra los valores perdidos para la variable en el eje Y. SE muestran 6 cuadros correspondientes a la data original y los 5 dataset construidos con la imputación multiple. En rojo están las observaciones imputadas para la variable Gest (variable del eje Y); y en azul, todas las demás observaciones. Notese que los puntos azules son los datos observados y además imputaciones realizadas en la variable NonD (variable del eje X).</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lattice)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD <span class="sc">|</span> .imp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="fl">1.4</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-24-1.png" width="768" /></p>
+<p>En el siguiente gráfico observamos el mismo tipo de digráma. Esta vez enfocado en el análisis de la variable NonD. A partir de los puntos rosados, se observan las variaciones en las imputaciones para NonD en los diferentes datasets contruídos durante la imputación múltiple.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, NonD <span class="sc">~</span> Gest <span class="sc">|</span> .imp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="fl">1.4</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-25-1.png" width="768" /></p>
+<p>Finalmente, para observar los datos de las 5 imputaciones en un solo gráfico, tenemos el siguiente código.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD, <span class="at">pch =</span> <span class="dv">18</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-26-1.png" width="70%" /></p>
+<p>Y en el caso de querer observa además, la relación de la variable Gest con alguna otra variable adicional, se añade a la variable como el siguiente código.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD <span class="sc">+</span> Span, <span class="at">pch =</span> <span class="dv">18</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-27-1.png" width="70%" /></p>
+<p>Finalmente, utilizaremos un gráfico para la densidad de las observaciones imputadas en cada dataset.</p>
+<p>Cada densidad en color rosado representa la densidad para las imputaciones en uno de los 5 datasets de la imputación múltiple.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">densityplot</span>(imp1)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-28-1.png" width="768" /></p>
+<p>Este gráfico compara la densidad de los datos observados con los datos imputados. Se espera que ambos sean similares (pero no idénticos).</p>
+<p>Si encontramos diferencias entre las muestras, esto indica que las imputaciones varian entre diferentes datasets.</p>
+<p>El último gráfico llamado stripplot muestra la distribución de cada variable y sus valores imputados en los multiples datasets.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stripplot</span>(imp1, <span class="at">pch =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-29-1.png" width="768" /></p>
+</div>
+</div>
+<div id="modelamiento" class="section level1" number="7">
+<h1 number="7"><span class="header-section-number">7</span> Modelamiento</h1>
+<div id="casos-completos" class="section level2" number="7.1">
+<h2 number="7.1"><span class="header-section-number">7.1</span> Casos completos</h2>
+<p>El caso más simple y rápido será utilizando solo los datos completos. En este caso, omitimos las fila con valores perdidos y construimos nuestro modelo.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>ajuste_cc <span class="ot">&lt;-</span> <span class="fu">lm</span>(BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt, </span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> <span class="fu">na.omit</span>(sleep))</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_cc)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = BodyWgt ~ Sleep + BrainWgt, data = na.omit(sleep))
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -616.89   -4.08   11.32   21.49  244.51 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  8.22805   51.15597   0.161    0.873    
+## Sleep       -1.98795    4.25534  -0.467    0.643    
+## BrainWgt     0.52013    0.02735  19.021   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 120.8 on 39 degrees of freedom
+## Multiple R-squared:  0.9141, Adjusted R-squared:  0.9097 
+## F-statistic: 207.6 on 2 and 39 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div id="imputación-simple." class="section level2" number="7.2">
+<h2 number="7.2"><span class="header-section-number">7.2</span> Imputación simple.</h2>
+<p>Despues de una imputación simple, el resultado es un dataset con el mismo número de filas y columna pero con todos los datos llenos con algún valor imputado. Al realizar el modelamiento, se utilizan los resultados de la imputación realizada para entrenar el modelo.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>ajuste_cc <span class="ot">&lt;-</span> <span class="fu">lm</span>(BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt, <span class="at">data =</span> imp_reg)</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_cc)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = BodyWgt ~ Sleep + BrainWgt, data = imp_reg)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1557.86    -0.83    32.64    56.52  1539.29 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -128.06061  117.81773  -1.087    0.281    
+## Sleep          6.49171    9.99372   0.650    0.518    
+## BrainWgt       0.91410    0.04794  19.066   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 325.1 on 59 degrees of freedom
+## Multiple R-squared:  0.8736, Adjusted R-squared:  0.8693 
+## F-statistic: 203.8 on 2 and 59 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Nota: Si deseamos utilizar la imputación para nuestra data de validación, tenemos que aplicar la metodología y modelos creados para la imputación a partir de la data de entrenamiento. No deben realizarse modelos para imputaciones con los datos de validación sino podríamos sesgar la evaluación del modelo en la data de entrenamiento.</p>
+</div>
+<div id="imputación-múltiple." class="section level2" number="7.3">
+<h2 number="7.3"><span class="header-section-number">7.3</span> Imputación múltiple.</h2>
+<p>Luego de una imputación multiple, el entrenamiento del modelo debe realizarse en los múltiples datasets imputados.</p>
+<p>Multiples modelos serán entrenados a partir de los datasets. Es nuestra tarea evaluar la variabilidad de los modelos en los diferentes conjuntos de datos y analizar el performance conjunto de todo ellos.</p>
+<p>Ejemplo: uso de regresión lineal para los múltiples datasets imputados. El resultados del modelo es el siguiente:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>ajuste_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(imp1, <span class="fu">lm</span>( BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt))</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_imp)</span></code></pre></div>
+<pre><code>## # A tibble: 15 x 6
+##    term        estimate std.error statistic  p.value  nobs
+##    &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;
+##  1 (Intercept) -116.     115.        -1.00  3.20e- 1    62
+##  2 Sleep          5.34     9.70       0.550 5.84e- 1    62
+##  3 BrainWgt       0.912    0.0476    19.2   5.18e-27    62
+##  4 (Intercept) -119.     118.        -1.01  3.16e- 1    62
+##  5 Sleep          5.61     9.88       0.568 5.72e- 1    62
+##  6 BrainWgt       0.912    0.0478    19.1   6.10e-27    62
+##  7 (Intercept) -128.     118.        -1.08  2.86e- 1    62
+##  8 Sleep          6.39     9.96       0.642 5.23e- 1    62
+##  9 BrainWgt       0.914    0.0480    19.0   7.19e-27    62
+## 10 (Intercept) -124.     111.        -1.12  2.69e- 1    62
+## 11 Sleep          6.27     9.54       0.657 5.14e- 1    62
+## 12 BrainWgt       0.914    0.0478    19.1   5.73e-27    62
+## 13 (Intercept) -131.     117.        -1.12  2.68e- 1    62
+## 14 Sleep          6.75     9.92       0.680 4.99e- 1    62
+## 15 BrainWgt       0.915    0.0480    19.1   6.57e-27    62</code></pre>
+<p>Note que es posible utilizar cualquier otra función en lugar de <code>lm()</code>. El resultado será una lista de modelos para cada dataset.</p>
+<p>Finalmente, el análisis de resultados se realizará combinando los resultados de cada modelos. En nuestro caso, se juntan los coeficientes y errores estándares de los 5 modelos de regresión.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>ajuste_comb <span class="ot">&lt;-</span> <span class="fu">pool</span>(ajuste_imp)</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_comb)</span></code></pre></div>
+<pre><code>##          term     estimate   std.error  statistic       df   p.value
+## 1 (Intercept) -123.4775543 116.1456478 -1.0631268 56.89702 0.2922159
+## 2       Sleep    6.0728040   9.8226090  0.6182476 56.84236 0.5388816
+## 3    BrainWgt    0.9133712   0.0478443 19.0904921 57.04963 0.0000000</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pool.r.squared</span>(ajuste_imp)</span></code></pre></div>
+<pre><code>##           est     lo 95     hi 95 fmi
+## R^2 0.8734907 0.7981373 0.9220335 NaN</code></pre>
+<p>Estos resultados definen el modelo final a evaluar con la data de validación.</p>
+<!-- knitr::purl() -->
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="mailto:egutierreza@pucp.edu.pe" class="email">egutierreza@pucp.edu.pe</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p><a href="mailto:vromero@uni.pe" class="email">vromero@uni.pe</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+   
+   
+           </section>
+  </div>
+  </div>
+  </div>
+  </div>
+      
+      
+
+  <script>
+    $(document).ready(function () {
+
+		// add bootstrap table styles to pandoc tables
+	$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+		
+ 		
+	    });
+  </script>
+
+
+
+    <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+	document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+  
+</body>
+</html>
