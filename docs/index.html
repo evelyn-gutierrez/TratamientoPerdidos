@@ -188,8 +188,8 @@
           <li><a href="#laboratorio-en-r."><span class="toc-section-number">2</span> Laboratorio en R.</a></li>
           <li><a href="#exploración-de-valores-perdidos."><span class="toc-section-number">3</span> Exploración de valores perdidos.</a>
           <ul>
-          <li><a href="#caso-1-notas."><span class="toc-section-number">3.1</span> Caso 1: Notas.</a></li>
-          <li><a href="#caso-2-dataset-sleep"><span class="toc-section-number">3.2</span> Caso 2: Dataset sleep</a></li>
+          <li><a href="#exploración-básica."><span class="toc-section-number">3.1</span> Exploración básica.</a></li>
+          <li><a href="#visualizaciones"><span class="toc-section-number">3.2</span> Visualizaciones</a></li>
           </ul></li>
           <li><a href="#imputación-univariada"><span class="toc-section-number">4</span> Imputación Univariada</a>
           <ul>
@@ -261,8 +261,9 @@
 </div>
 <div id="exploración-de-valores-perdidos." class="section level1" number="3">
 <h1 number="3"><span class="header-section-number">3</span> Exploración de valores perdidos.</h1>
-<div id="caso-1-notas." class="section level2" number="3.1">
-<h2 number="3.1"><span class="header-section-number">3.1</span> Caso 1: Notas.</h2>
+<div id="exploración-básica." class="section level2" number="3.1">
+<h2 number="3.1"><span class="header-section-number">3.1</span> Exploración básica.</h2>
+<p><strong>Caso 1: Notas.</strong></p>
 <p>Iniciamos este ejemplo, creando un data.frame notas con alguna nota faltante.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>notas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">nombre =</span> <span class="fu">c</span>(<span class="st">&quot;Jesus&quot;</span>, <span class="st">&quot;Carla&quot;</span>, <span class="st">&quot;Rodrigo&quot;</span>, <span class="st">&quot;Javier&quot;</span>),</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">nota =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">13</span>, <span class="cn">NA</span>))</span>
@@ -281,8 +282,9 @@
 ## 2   Carla   15
 ## 3 Rodrigo   13</code></pre>
 </div>
-<div id="caso-2-dataset-sleep" class="section level2" number="3.2">
-<h2 number="3.2"><span class="header-section-number">3.2</span> Caso 2: Dataset sleep</h2>
+<div id="visualizaciones" class="section level2" number="3.2">
+<h2 number="3.2"><span class="header-section-number">3.2</span> Visualizaciones</h2>
+<p><strong>Caso 2: Dataset sleep</strong></p>
 <p>Vamos a utilizar la base de datos sleep del paquete VIM para realizar la exploración de valores perdidos.</p>
 <p>Para ello, instalamos el paquete VIM con el siguiente código en la consola: <code>install.packages("VIM")</code>.</p>
 <p>Luego, cargamos los datos de <code>sleep</code> y vemos las primeras filas del dataset utilizando el siguiente código:</p>
@@ -578,9 +580,7 @@
 <pre><code>##   missForest iteration 1 in progress...done!
 ##   missForest iteration 2 in progress...done!
 ##   missForest iteration 3 in progress...done!
-##   missForest iteration 4 in progress...done!
-##   missForest iteration 5 in progress...done!
-##   missForest iteration 6 in progress...done!</code></pre>
+##   missForest iteration 4 in progress...done!</code></pre>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sleep_imp<span class="sc">$</span>NonD, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##  [1]  2.28  6.30 10.28 10.63  2.10  9.10 15.80  5.20 10.90  8.30 11.00  3.20
 ## [13]  7.60  4.20  6.30  8.60  6.60  9.50  4.80 12.00  4.97  3.30 11.00  8.17
@@ -740,19 +740,19 @@
 ## 
 ## Residuals:
 ##      Min       1Q   Median       3Q      Max 
-## -1556.68     4.10    30.71    57.17  1541.10 
+## -1560.12     0.52    30.72    56.51  1536.50 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -123.55239  118.38815  -1.044    0.301    
-## Sleep          6.00622    9.92578   0.605    0.547    
-## BrainWgt       0.91328    0.04793  19.055   &lt;2e-16 ***
+## (Intercept) -127.96716  114.64858  -1.116    0.269    
+## Sleep          6.48387    9.68388   0.670    0.506    
+## BrainWgt       0.91458    0.04801  19.051   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 325.2 on 59 degrees of freedom
-## Multiple R-squared:  0.8734, Adjusted R-squared:  0.8692 
-## F-statistic: 203.6 on 2 and 59 DF,  p-value: &lt; 2.2e-16</code></pre>
+## Residual standard error: 325 on 59 degrees of freedom
+## Multiple R-squared:  0.8736, Adjusted R-squared:  0.8693 
+## F-statistic: 203.9 on 2 and 59 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Nota: Si deseamos utilizar la imputación para nuestra data de validación, tenemos que aplicar la metodología y modelos creados para la imputación a partir de la data de entrenamiento. No deben realizarse modelos para imputaciones con los datos de validación sino podríamos sesgar la evaluación del modelo en la data de entrenamiento.</p>
 </div>
 <div id="imputación-múltiple." class="section level2" number="7.3">

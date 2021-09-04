@@ -47,7 +47,9 @@ Requerimos instalar los siguientes paquetes:
 
 # Exploración de valores perdidos.
   
-## Caso 1: Notas.
+## Exploración básica.
+
+**Caso 1: Notas.**
   
 Iniciamos este ejemplo, creando un data.frame notas con alguna nota faltante.
   
@@ -66,7 +68,10 @@ notas_comp
 ```
  
 
-## Caso 2: Dataset sleep
+## Visualizaciones
+
+
+**Caso 2: Dataset sleep**
 
 Vamos a utilizar la base de datos sleep del paquete VIM para realizar la exploración de valores perdidos.
 
@@ -258,7 +263,6 @@ library(mice)
  
 
 # Imputación Múltiple
-
 
 Utilizamos el paquete MICE: Imputación Multivariada por Chained Equations para realizar la imputación múltiple.
 
