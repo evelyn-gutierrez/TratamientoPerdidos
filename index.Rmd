@@ -350,7 +350,9 @@ imp1$method
 ```
 
 Como vemos, se usó el método pmm (Predictive mean matching): Un método de imputación semi-parámetrico usado por defecto para variables continuas. 
-  - Selecciona un grupo de candidatos vecino similares y cercanos, y toma uno aleatoriamente como donador.
+  - Selecciona un grupo de candidatos vecinos similares y cercanos, y toma uno aleatoriamente como donador.
+
+- Para revisar todas la metodologías que tiene, se puede ver el [artículo donde se presenta MICE](https://www.researchgate.net/publication/44203418_MICE_Multivariate_Imputation_by_Chained_Equations_in_R). 
 
 
 <br>
