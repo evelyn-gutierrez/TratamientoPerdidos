@@ -563,3 +563,5 @@ Estos resultados definen el modelo final a evaluar con la data de validación.
 ``` 
 
 - [Descripción de columnas del dataset _sleep_](files/sleep_data_names.pdf)
+
+- [Artículo presentación de MICE](https://www.researchgate.net/publication/44203418_MICE_Multivariate_Imputation_by_Chained_Equations_in_R)
