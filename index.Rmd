@@ -6,15 +6,18 @@ author:
 date: "September, 2021"
 output:
   rmdformats::robobook:
-    highlight: tango
+    highlight: pygments
     number_sections: true
     code_folding: show
     code_download: TRUE
+    df_print: "kable"
   html_document:
     toc: yes
   pdf_document: 
+    keep_tex: yes
     number_sections: yes
     toc: yes
+
 ---
 
 ```{r setup, include=FALSE}
@@ -494,7 +497,7 @@ summary(ajuste_cc)
 ## Imputación múltiple.
 
 
-- Luego de una imputación multiple, el entrenamiento del modelo debe realizarse en cada uno los múltiples datasets imputados. 
+- Luego de una imputación multiple, el entrenamiento del modelo debe realizarse en **cada uno** de los múltiples datasets imputados. 
 
 - Multiples modelos serán entrenados a partir de los datasets. Es nuestra tarea evaluar la **variabilidad de los modelos** en los diferentes conjuntos de datos y analizar el performance conjunto de todos ellos. (Cuando los modelos sirven para entender el problema, es mejor buscar características estables entre diferentes imputaciones.)
 
@@ -520,10 +523,18 @@ lapply(ajuste_imp$analyses, performance)
 Finalmente, el análisis de resultados se realizará combinando los resultados de cada modelos. 
 En nuestro caso, se juntan los coeficientes y errores estándares de los 5 modelos de regresión.
 
+**Combinación de ajustes: **
+
 ```{r}
 ajuste_comb <- pool(ajuste_imp)
 summary(ajuste_comb)
-pool.r.squared(ajuste_imp)
+```
+
+
+** R-Cuadrado ajustado combinado: **
+
+```{r}
+pool.r.squared(ajuste_imp, adjusted=TRUE)
 ```
 
 
@@ -548,6 +559,5 @@ Estos resultados definen el modelo final a evaluar con la data de validación.
 
 ```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE, class.source = "fold-hide"} 
 ``` 
-
 
 - [Descripción de columnas del dataset _sleep_](files/sleep_data_names.pdf)

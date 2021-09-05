@@ -60,38 +60,39 @@
         }
       pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        {  background-color: #f8f8f8; }
+        {   }
       @media screen {
       pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
-      code span.al { color: #ef2929; } /* Alert */
-      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #c4a000; } /* Attribute */
-      code span.bn { color: #0000cf; } /* BaseN */
-      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-      code span.ch { color: #4e9a06; } /* Char */
-      code span.cn { color: #000000; } /* Constant */
-      code span.co { color: #8f5902; font-style: italic; } /* Comment */
-      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-      code span.dt { color: #204a87; } /* DataType */
-      code span.dv { color: #0000cf; } /* DecVal */
-      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
       code span.ex { } /* Extension */
-      code span.fl { color: #0000cf; } /* Float */
-      code span.fu { color: #000000; } /* Function */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
       code span.im { } /* Import */
-      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-      code span.ot { color: #8f5902; } /* Other */
-      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-      code span.sc { color: #000000; } /* SpecialChar */
-      code span.ss { color: #4e9a06; } /* SpecialString */
-      code span.st { color: #4e9a06; } /* String */
-      code span.va { color: #000000; } /* Variable */
-      code span.vs { color: #4e9a06; } /* VerbatimString */
-      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
     </style>
     
     
@@ -295,19 +296,62 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>notas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">nombre =</span> <span class="fu">c</span>(<span class="st">&quot;Jesus&quot;</span>, <span class="st">&quot;Carla&quot;</span>, <span class="st">&quot;Rodrigo&quot;</span>, <span class="st">&quot;Javier&quot;</span>),</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">nota =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">13</span>, <span class="cn">NA</span>))</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>notas</span></code></pre></div>
-<pre><code>##    nombre nota
-## 1   Jesus   12
-## 2   Carla   15
-## 3 Rodrigo   13
-## 4  Javier   NA</code></pre>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">nombre</th>
+<th align="right">nota</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Jesus</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">Carla</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">Rodrigo</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="left">Javier</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>Exploramos visualmente el número de valores perdidos por variable: solo existe un valor aleatorio.</p>
 <p>Finalmente, seleccionar los datos completos con <code>complete.cases</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>notas_comp <span class="ot">&lt;-</span> notas[<span class="fu">complete.cases</span>(notas),]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>notas_comp</span></code></pre></div>
-<pre><code>##    nombre nota
-## 1   Jesus   12
-## 2   Carla   15
-## 3 Rodrigo   13</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>notas_comp <span class="ot">&lt;-</span> notas[<span class="fu">complete.cases</span>(notas),]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>notas_comp</span></code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">nombre</th>
+<th align="right">nota</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Jesus</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">Carla</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">Rodrigo</td>
+<td align="right">13</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p><br></p>
 </div>
 <div id="visualizaciones" class="section level2" number="3.2">
@@ -319,21 +363,106 @@
 </ul>
 <p>Necesitamos instalar el paquete VIM con el siguiente código en la consola: <code>install.packages("VIM")</code>.</p>
 <p>Luego, cargamos los datos de <code>sleep</code> y vemos las primeras filas del dataset utilizando el siguiente código:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga los datos.</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sleep, <span class="at">package =</span> <span class="st">&quot;VIM&quot;</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Vemos las 6 primeras filas.</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sleep)</span></code></pre></div>
-<pre><code>##    BodyWgt BrainWgt NonD Dream Sleep Span Gest Pred Exp Danger
-## 1 6654.000   5712.0   NA    NA   3.3 38.6  645    3   5      3
-## 2    1.000      6.6  6.3   2.0   8.3  4.5   42    3   1      3
-## 3    3.385     44.5   NA    NA  12.5 14.0   60    1   1      1
-## 4    0.920      5.7   NA    NA  16.5   NA   25    5   2      3
-## 5 2547.000   4603.0  2.1   1.8   3.9 69.0  624    3   5      4
-## 6   10.550    179.5  9.1   0.7   9.8 27.0  180    4   4      4</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga los datos.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sleep, <span class="at">package =</span> <span class="st">&quot;VIM&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Vemos las 6 primeras filas.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sleep)</span></code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="right">BodyWgt</th>
+<th align="right">BrainWgt</th>
+<th align="right">NonD</th>
+<th align="right">Dream</th>
+<th align="right">Sleep</th>
+<th align="right">Span</th>
+<th align="right">Gest</th>
+<th align="right">Pred</th>
+<th align="right">Exp</th>
+<th align="right">Danger</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">6654.000</td>
+<td align="right">5712.0</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">3.3</td>
+<td align="right">38.6</td>
+<td align="right">645</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="right">1.000</td>
+<td align="right">6.6</td>
+<td align="right">6.3</td>
+<td align="right">2.0</td>
+<td align="right">8.3</td>
+<td align="right">4.5</td>
+<td align="right">42</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="right">3.385</td>
+<td align="right">44.5</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">12.5</td>
+<td align="right">14.0</td>
+<td align="right">60</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">0.920</td>
+<td align="right">5.7</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">16.5</td>
+<td align="right">NA</td>
+<td align="right">25</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="right">2547.000</td>
+<td align="right">4603.0</td>
+<td align="right">2.1</td>
+<td align="right">1.8</td>
+<td align="right">3.9</td>
+<td align="right">69.0</td>
+<td align="right">624</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="right">10.550</td>
+<td align="right">179.5</td>
+<td align="right">9.1</td>
+<td align="right">0.7</td>
+<td align="right">9.8</td>
+<td align="right">27.0</td>
+<td align="right">180</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>Comprobaremos que el dataset “sleep” ahora aparece también en su <strong>Environment</strong> en RStudio.</p>
 <p>Iniciamos la <strong>exploración inicial</strong> de este nuevo dataset con alguno de los siguientes comandos básicos:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sleep)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sleep)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    62 obs. of  10 variables:
 ##  $ BodyWgt : num  6654 1 3.38 0.92 2547 ...
 ##  $ BrainWgt: num  5712 6.6 44.5 5.7 4603 ...
@@ -345,7 +474,7 @@
 ##  $ Pred    : int  3 3 1 5 3 4 1 4 1 1 ...
 ##  $ Exp     : int  5 1 1 2 5 4 1 5 2 1 ...
 ##  $ Danger  : int  3 3 1 3 4 4 1 4 1 1 ...</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(sleep)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(sleep)</span></code></pre></div>
 <pre><code>## Rows: 62
 ## Columns: 10
 ## $ BodyWgt  &lt;dbl&gt; 6654.000, 1.000, 3.385, 0.920, 2547.000, 10.550, 0.023, 160.0~
@@ -358,7 +487,7 @@
 ## $ Pred     &lt;int&gt; 3, 3, 1, 5, 3, 4, 1, 4, 1, 1, 5, 5, 2, 5, 1, 2, 2, 2, 1, 1, 5~
 ## $ Exp      &lt;int&gt; 5, 1, 1, 2, 5, 4, 1, 5, 2, 1, 4, 5, 1, 5, 1, 2, 2, 2, 2, 1, 5~
 ## $ Danger   &lt;int&gt; 3, 3, 1, 3, 4, 4, 1, 4, 1, 1, 4, 5, 2, 5, 1, 2, 2, 2, 1, 1, 5~</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sleep)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sleep)</span></code></pre></div>
 <pre><code>##     BodyWgt            BrainWgt            NonD            Dream      
 ##  Min.   :   0.005   Min.   :   0.14   Min.   : 2.100   Min.   :0.000  
 ##  1st Qu.:   0.600   1st Qu.:   4.25   1st Qu.: 6.250   1st Qu.:0.900  
@@ -388,7 +517,7 @@
 <p>¿Cuántos datos están con valores NA en este dataset?</p>
 </blockquote>
 <p>Para contar el número de valores perdidos por variable podemos usar este cálculo con la función <em>apply</em> que cuenta el número de valores perdidos (valores NA para R) por columna.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(sleep, <span class="dv">2</span>, <span class="cf">function</span>(x){<span class="fu">sum</span>(<span class="fu">is.na</span>(x))})</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(sleep, <span class="dv">2</span>, <span class="cf">function</span>(x){<span class="fu">sum</span>(<span class="fu">is.na</span>(x))})</span></code></pre></div>
 <pre><code>##  BodyWgt BrainWgt     NonD    Dream    Sleep     Span     Gest     Pred 
 ##        0        0       14       12        4        4        4        0 
 ##      Exp   Danger 
@@ -397,12 +526,12 @@
 <ul>
 <li>¿Cuántos valores perdidos hay en cada variable?</li>
 <li>¿Qué variables tienen valores perdidos?</li>
-<li>¿Qué variables tienen más valores perdidos? 🤚</li>
+<li>¿Qué variables tienen más valores perdidos? 🙋</li>
 </ul>
 <p><br></p>
 <p>Continuamos explorando los valores perdidos analizando el <strong>patrón de valores perdidos</strong> distribuidos <strong>en las diferentes variables</strong> del conjunto de datos (dataset). Esto nos ayudará a entender mejor nuestros datos.</p>
 <p>Lo hacemos utilizando la función <em>md.pattern</em> y <em>md.pairs</em> del paquete <strong>MICE</strong>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mice<span class="sc">::</span><span class="fu">md.pattern</span>(sleep, <span class="at">rotate.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mice<span class="sc">::</span><span class="fu">md.pattern</span>(sleep, <span class="at">rotate.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-7-1.png" width="80%" /></p>
 <pre><code>##    BodyWgt BrainWgt Pred Exp Danger Sleep Span Gest Dream NonD   
 ## 42       1        1    1   1      1     1    1    1     1    1  0
@@ -414,7 +543,7 @@
 ## 2        1        1    1   1      1     0    1    1     1    0  2
 ## 2        1        1    1   1      1     0    1    1     0    0  3
 ##          0        0    0   0      0     4    4    4    12   14 38</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mice<span class="sc">::</span><span class="fu">md.pairs</span>(sleep)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mice<span class="sc">::</span><span class="fu">md.pairs</span>(sleep)</span></code></pre></div>
 <pre><code>## $rr
 ##          BodyWgt BrainWgt NonD Dream Sleep Span Gest Pred Exp Danger
 ## BodyWgt       62       62   48    50    58   58   58   62  62     62
@@ -472,11 +601,11 @@
 <li>¿Cuantas observaciones no tienen nigún valor perdido?</li>
 </ul>
 <p>Visualización de datos perdidos</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sleep_aggr <span class="ot">&lt;-</span> VIM<span class="sc">::</span><span class="fu">aggr</span>(sleep, <span class="at">col =</span> mice<span class="sc">::</span><span class="fu">mdc</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">numbers =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">sortVars =</span> <span class="cn">TRUE</span>, <span class="at">labels =</span> <span class="fu">names</span>(sleep),</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">cex.axis=</span> <span class="fl">0.7</span>, <span class="at">gap =</span> <span class="dv">3</span>,</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">ylab =</span> <span class="fu">c</span>(<span class="st">&quot;Proporción de Pérdida&quot;</span>,</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;Patrón de Pérdida&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sleep_aggr <span class="ot">&lt;-</span> VIM<span class="sc">::</span><span class="fu">aggr</span>(sleep, <span class="at">col =</span> mice<span class="sc">::</span><span class="fu">mdc</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">numbers =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">sortVars =</span> <span class="cn">TRUE</span>, <span class="at">labels =</span> <span class="fu">names</span>(sleep),</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">cex.axis=</span> <span class="fl">0.7</span>, <span class="at">gap =</span> <span class="dv">3</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">ylab =</span> <span class="fu">c</span>(<span class="st">&quot;Proporción de Pérdida&quot;</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;Patrón de Pérdida&quot;</span>))</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-8-1.png" width="768" /></p>
 <pre><code>## 
 ##  Variables sorted by number of missings: 
@@ -492,9 +621,9 @@
 ##       Exp 0.00000000
 ##    Danger 0.00000000</code></pre>
 <p>Distribución de observaciones completas e incompletas por pares de variables</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>VIM<span class="sc">::</span><span class="fu">marginplot</span>(sleep[ , <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>)], <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>VIM<span class="sc">::</span><span class="fu">marginplot</span>(sleep[ , <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>)], <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-9-1.png" width="768" /></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>VIM<span class="sc">::</span><span class="fu">marginplot</span>(sleep[ , <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>)], <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>), <span class="at">pch =</span> <span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>VIM<span class="sc">::</span><span class="fu">marginplot</span>(sleep[ , <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>)], <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>), <span class="at">pch =</span> <span class="dv">20</span>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-9-2.png" width="768" /></p>
 <p>Descripción:</p>
 <ul>
@@ -514,51 +643,163 @@
 <h2 number="4.1"><span class="header-section-number">4.1</span> Con la media.</h2>
 <p>instalamos la librería <code>Hmisc</code> para realizar imputaciones básicas. La instalación, la realizaremos utilizando el siguiente comando en la consola: <code>install.packages("Hmisc")</code>.</p>
 <p>Luego de completada la instalación, comprobamos cargando el paquete.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span></code></pre></div>
 <p>Si no tenemos mayor información, utilizaremos la media como valor de imputación. Es una imputación rápida, simple y sencilla.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, mean))</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>notas</span></code></pre></div>
-<pre><code>##    nombre nota nota_imp
-## 1   Jesus   12 12.00000
-## 2   Carla   15 15.00000
-## 3 Rodrigo   13 13.00000
-## 4  Javier   NA 13.33333</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, mean))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>notas</span></code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">nombre</th>
+<th align="right">nota</th>
+<th align="right">nota_imp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Jesus</td>
+<td align="right">12</td>
+<td align="right">12.00000</td>
+</tr>
+<tr class="even">
+<td align="left">Carla</td>
+<td align="right">15</td>
+<td align="right">15.00000</td>
+</tr>
+<tr class="odd">
+<td align="left">Rodrigo</td>
+<td align="right">13</td>
+<td align="right">13.00000</td>
+</tr>
+<tr class="even">
+<td align="left">Javier</td>
+<td align="right">NA</td>
+<td align="right">13.33333</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr />
 </div>
 <div id="con-valor-aleatorio." class="section level2" number="4.2">
 <h2 number="4.2"><span class="header-section-number">4.2</span> Con valor aleatorio.</h2>
 <p>Utilizamos un valor aleatorio como valor de imputación: Se selecciona aleatoriamente a partir de los valores no perdidos. Simple y útil en caso de MCAR.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, <span class="st">&#39;random&#39;</span>))</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>notas</span></code></pre></div>
-<pre><code>##    nombre nota nota_imp
-## 1   Jesus   12       12
-## 2   Carla   15       15
-## 3 Rodrigo   13       13
-## 4  Javier   NA       15</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, <span class="st">&#39;random&#39;</span>))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>notas</span></code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">nombre</th>
+<th align="right">nota</th>
+<th align="right">nota_imp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Jesus</td>
+<td align="right">12</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">Carla</td>
+<td align="right">15</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">Rodrigo</td>
+<td align="right">13</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="left">Javier</td>
+<td align="right">NA</td>
+<td align="right">12</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr />
 </div>
 <div id="con-un-valor-específico." class="section level2" number="4.3">
 <h2 number="4.3"><span class="header-section-number">4.3</span> Con un valor específico.</h2>
 <p>Si tenemos información específica, o resulta conveniente, podemos imputar los datos perdidos con un valor específico.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, <span class="dv">99</span>))</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>notas</span></code></pre></div>
-<pre><code>##    nombre nota nota_imp
-## 1   Jesus   12       12
-## 2   Carla   15       15
-## 3 Rodrigo   13       13
-## 4  Javier   NA       99</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, <span class="dv">99</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>notas</span></code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">nombre</th>
+<th align="right">nota</th>
+<th align="right">nota_imp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Jesus</td>
+<td align="right">12</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">Carla</td>
+<td align="right">15</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">Rodrigo</td>
+<td align="right">13</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="left">Javier</td>
+<td align="right">NA</td>
+<td align="right">99</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr />
 </div>
 <div id="manualmente" class="section level2" number="4.4">
 <h2 number="4.4"><span class="header-section-number">4.4</span> Manualmente</h2>
 <p>Por ultimo, la imputación puede realizarse sin el paquete Hmisc de la siguiente manera:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota[<span class="fu">is.na</span>(notas<span class="sc">$</span>nota)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(notas<span class="sc">$</span>nota, <span class="at">na.rm =</span> T)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>notas</span></code></pre></div>
-<pre><code>##    nombre     nota nota_imp
-## 1   Jesus 12.00000       12
-## 2   Carla 15.00000       15
-## 3 Rodrigo 13.00000       13
-## 4  Javier 13.33333       99</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota[<span class="fu">is.na</span>(notas<span class="sc">$</span>nota)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(notas<span class="sc">$</span>nota, <span class="at">na.rm =</span> T)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>notas</span></code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">nombre</th>
+<th align="right">nota</th>
+<th align="right">nota_imp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Jesus</td>
+<td align="right">12.00000</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">Carla</td>
+<td align="right">15.00000</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">Rodrigo</td>
+<td align="right">13.00000</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="left">Javier</td>
+<td align="right">13.33333</td>
+<td align="right">99</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p><br></p>
 </div>
 </div>
@@ -567,12 +808,12 @@
 <div id="por-regresión-lineal." class="section level2" number="5.1">
 <h2 number="5.1"><span class="header-section-number">5.1</span> Por regresión lineal.</h2>
 <p>Con la librería mice. Esta librería sirve para imputación múltiple pero podemos usarla también para imputación simple si definimos <em>m=1</em>.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice) </span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>imp <span class="ot">&lt;-</span> <span class="fu">mice</span>(sleep, <span class="at">method =</span> <span class="st">&quot;norm.predict&quot;</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">maxit=</span><span class="dv">1</span>) <span class="co"># Impute data</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice) </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>imp <span class="ot">&lt;-</span> <span class="fu">mice</span>(sleep, <span class="at">method =</span> <span class="st">&quot;norm.predict&quot;</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">maxit=</span><span class="dv">1</span>) <span class="co"># Impute data</span></span></code></pre></div>
 <pre><code>## 
 ##  iter imp variable
 ##   1   1  NonD  Dream  Sleep  Span  Gest</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>imp_reg <span class="ot">&lt;-</span> <span class="fu">complete</span>(imp)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>imp_reg <span class="ot">&lt;-</span> <span class="fu">complete</span>(imp)</span></code></pre></div>
 <p>Para missings en variables categorícas se puede utilizar regresión logistica con el argumento <code>method="logreg"</code>. Ejemplo: <code>mice(nhanes2, meth = c("sample", "norm.predict", "logreg", "norm.predict"))</code></p>
 <p>Para ver otros métodos, podemos ver la documentación de la función mice escribiendo <code>?mice::mice</code> en la consola.</p>
 <p><br></p>
@@ -580,10 +821,10 @@
 <div id="por-k-vecinos-más-cercanos." class="section level2" number="5.2">
 <h2 number="5.2"><span class="header-section-number">5.2</span> Por K vecinos más cercanos.</h2>
 <p>Aplicamos vecions más cercanos y guardamos los resultados en sleep_imp</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DMwR)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>sleep_imp <span class="ot">&lt;-</span> DMwR<span class="sc">::</span><span class="fu">knnImputation</span>(sleep)</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co">#View(sleep_imp)</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sleep_imp)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DMwR)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>sleep_imp <span class="ot">&lt;-</span> DMwR<span class="sc">::</span><span class="fu">knnImputation</span>(sleep)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co">#View(sleep_imp)</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sleep_imp)</span></code></pre></div>
 <pre><code>##     BodyWgt            BrainWgt            NonD            Dream      
 ##  Min.   :   0.005   Min.   :   0.14   Min.   : 2.100   Min.   :0.000  
 ##  1st Qu.:   0.600   1st Qu.:   4.25   1st Qu.: 5.800   1st Qu.:0.925  
@@ -606,7 +847,7 @@
 ##  3rd Qu.:4.000   3rd Qu.:4.000  
 ##  Max.   :5.000   Max.   :5.000</code></pre>
 <p>¿Hay datos perdidos ahora?</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(sleep_imp, <span class="dv">2</span>, <span class="cf">function</span>(x){<span class="fu">sum</span>(<span class="fu">is.na</span>(x))})</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(sleep_imp, <span class="dv">2</span>, <span class="cf">function</span>(x){<span class="fu">sum</span>(<span class="fu">is.na</span>(x))})</span></code></pre></div>
 <pre><code>##  BodyWgt BrainWgt     NonD    Dream    Sleep     Span     Gest     Pred 
 ##        0        0        0        0        0        0        0        0 
 ##      Exp   Danger 
@@ -614,12 +855,13 @@
 </div>
 <div id="por-bosques-aleatorios." class="section level2" number="5.3">
 <h2 number="5.3"><span class="header-section-number">5.3</span> Por bosques aleatorios.</h2>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(missForest)</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>sleep_imp_rf <span class="ot">&lt;-</span> <span class="fu">missForest</span>(sleep)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(missForest)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>sleep_imp_rf <span class="ot">&lt;-</span> <span class="fu">missForest</span>(sleep)</span></code></pre></div>
 <pre><code>##   missForest iteration 1 in progress...done!
 ##   missForest iteration 2 in progress...done!
-##   missForest iteration 3 in progress...done!</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sleep_imp<span class="sc">$</span>NonD, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+##   missForest iteration 3 in progress...done!
+##   missForest iteration 4 in progress...done!</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sleep_imp<span class="sc">$</span>NonD, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##  [1]  2.28  6.30 10.28 10.63  2.10  9.10 15.80  5.20 10.90  8.30 11.00  3.20
 ## [13]  7.60  4.20  6.30  8.60  6.60  9.50  4.80 12.00  4.97  3.30 11.00  8.17
 ## [25]  4.70 10.54 10.40  7.40  2.10  9.21  7.65  7.70 17.90  6.10  8.20  8.40
@@ -634,8 +876,8 @@
 </blockquote>
 <p>Utilizaremos la metodología MICE: Multivariate Imputation by Chained Equations para realizar imputación multivariada.</p>
 <p>La imputación con MICE puede ser simple o múltiple. Simple si solo se imputa el dataset inicial; y múltiple cuando se crean multiples datasets con diferentes imputaciones.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VIM)</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VIM)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span></code></pre></div>
 </div>
 </div>
 <div id="imputación-múltiple" class="section level1" number="6">
@@ -643,9 +885,9 @@
 <div id="mice-1" class="section level2" number="6.1">
 <h2 number="6.1"><span class="header-section-number">6.1</span> MICE</h2>
 <p>Utilizamos el paquete MICE: Imputación Multivariada por Chained Equations para realizar la imputación múltiple.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span></code></pre></div>
 <p>La imputación se realiza con estas líneas de código:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>imp1 <span class="ot">&lt;-</span> <span class="fu">mice</span>(sleep, <span class="at">m =</span> <span class="dv">5</span>, <span class="at">seed =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>imp1 <span class="ot">&lt;-</span> <span class="fu">mice</span>(sleep, <span class="at">m =</span> <span class="dv">5</span>, <span class="at">seed =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## 
 ##  iter imp variable
 ##   1   1  NonD  Dream  Sleep  Span  Gest
@@ -673,7 +915,7 @@
 ##   5   3  NonD  Dream  Sleep  Span  Gest
 ##   5   4  NonD  Dream  Sleep  Span  Gest
 ##   5   5  NonD  Dream  Sleep  Span  Gest</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>imp1</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>imp1</span></code></pre></div>
 <pre><code>## Class: mids
 ## Number of multiple imputations:  5 
 ## Imputation methods:
@@ -699,7 +941,7 @@
 ## 6  4  1 Span  pmm Sleep</code></pre>
 <p>El argumento m=5 indica que se crearan 5 datasets de imputaciones.</p>
 <p>Verificamos el métodos de imputación utilizado:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>imp1<span class="sc">$</span>method</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>imp1<span class="sc">$</span>method</span></code></pre></div>
 <pre><code>##  BodyWgt BrainWgt     NonD    Dream    Sleep     Span     Gest     Pred 
 ##       &quot;&quot;       &quot;&quot;    &quot;pmm&quot;    &quot;pmm&quot;    &quot;pmm&quot;    &quot;pmm&quot;    &quot;pmm&quot;       &quot;&quot; 
 ##      Exp   Danger 
@@ -707,14 +949,71 @@
 <p>Como vemos, se usó el método pmm (Predictive mean matching): Un método de imputación semi-parámetrico usado por defecto para variables continuas. - Selecciona un grupo de candidatos vecino similares y cercanos, y toma uno aleatoriamente como donador.</p>
 <p><br></p>
 <p>Imputaciones para una variable en particular. Veamos el objeto <strong>imp1</strong>, que tiene una lista de imputados <strong>imp</strong> con un set de imputados para la columna NonD</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(imp1<span class="sc">$</span>imp<span class="sc">$</span>NonD)</span></code></pre></div>
-<pre><code>##       1    2    3    4    5
-## 1   3.2  3.3  2.1  2.1  3.2
-## 3  10.0 12.0 10.8 11.9 11.0
-## 4  11.0 10.4 12.8 17.9 13.2
-## 14  2.1  3.2  3.2  2.1  3.2
-## 21 12.8 11.9  7.6  4.7  8.2
-## 24  8.4 11.0 11.0 11.0 10.0</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(imp1<span class="sc">$</span>imp<span class="sc">$</span>NonD)</span></code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+<th align="right">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="right">3.2</td>
+<td align="right">3.3</td>
+<td align="right">2.1</td>
+<td align="right">2.1</td>
+<td align="right">3.2</td>
+</tr>
+<tr class="even">
+<td align="left">3</td>
+<td align="right">10.0</td>
+<td align="right">12.0</td>
+<td align="right">10.8</td>
+<td align="right">11.9</td>
+<td align="right">11.0</td>
+</tr>
+<tr class="odd">
+<td align="left">4</td>
+<td align="right">11.0</td>
+<td align="right">10.4</td>
+<td align="right">12.8</td>
+<td align="right">17.9</td>
+<td align="right">13.2</td>
+</tr>
+<tr class="even">
+<td align="left">14</td>
+<td align="right">2.1</td>
+<td align="right">3.2</td>
+<td align="right">3.2</td>
+<td align="right">2.1</td>
+<td align="right">3.2</td>
+</tr>
+<tr class="odd">
+<td align="left">21</td>
+<td align="right">12.8</td>
+<td align="right">11.9</td>
+<td align="right">7.6</td>
+<td align="right">4.7</td>
+<td align="right">8.2</td>
+</tr>
+<tr class="even">
+<td align="left">24</td>
+<td align="right">8.4</td>
+<td align="right">11.0</td>
+<td align="right">11.0</td>
+<td align="right">11.0</td>
+<td align="right">10.0</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>Notemos que cada columna representa a un set de valores imputados para una variable.</p>
 </div>
 <div id="visualización." class="section level2" number="6.2">
@@ -730,8 +1029,8 @@
 <li><p>En <strong>rojo</strong> están las observaciones imputadas para la variable Gest (variable del eje Y); y en <strong>azul</strong>, todas las demás observaciones.</p></li>
 <li><p>Los puntos azules son los datos observados y además imputaciones realizadas en la variable <strong>NonD</strong> (variable del eje X).</p></li>
 </ul>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lattice)</span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD <span class="sc">|</span> .imp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="fl">1.4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lattice)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD <span class="sc">|</span> .imp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="fl">1.4</span>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-27-1.png" width="768" /></p>
 <p><br></p>
 <ul>
@@ -739,19 +1038,19 @@
 <li><p>A partir de los <strong>puntos rosados</strong> en los diferentes cuadros, se observan las variaciones en las imputaciones para <strong>NonD</strong> en los diferentes datasets contruídos durante la imputación múltiple.</p></li>
 <li><p>Notemos a partir de estos gráficos que se están imputando valores fuera de la nube de puntos creada entre estas dos variables. Aunque podría suceder.</p></li>
 </ul>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, NonD <span class="sc">~</span> Gest <span class="sc">|</span> .imp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="fl">1.4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, NonD <span class="sc">~</span> Gest <span class="sc">|</span> .imp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="fl">1.4</span>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-28-1.png" width="768" /></p>
 <p><br></p>
 <p>Finalmente, para observar los datos de las 5 imputaciones en un solo gráfico, tenemos el siguiente código.</p>
 <p><strong>Para la variable Gest</strong></p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD, <span class="at">pch =</span> <span class="dv">18</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD, <span class="at">pch =</span> <span class="dv">18</span>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-29-1.png" width="70%" /></p>
 <p><strong>Para la variable NonD</strong></p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, NonD <span class="sc">~</span> Gest, <span class="at">pch =</span> <span class="dv">18</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, NonD <span class="sc">~</span> Gest, <span class="at">pch =</span> <span class="dv">18</span>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-30-1.png" width="70%" /></p>
 <p><br></p>
 <p>Ademas, si queremos incluir una tercera variable al análisis podemos observarla cambiando la formula como el siguiente código.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD <span class="sc">+</span> Span , <span class="at">pch =</span> <span class="dv">18</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD <span class="sc">+</span> Span , <span class="at">pch =</span> <span class="dv">18</span>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-31-1.png" width="90%" /></p>
 <ul>
 <li><p>Veremos la relación de la variable Gest con Span además de con NonD.</p></li>
@@ -764,7 +1063,7 @@
 <li><p>Cada densidad está representada en líneas de color rosado y representan la densidad para las imputaciones en uno de los 5 datasets de la imputación múltiple.</p></li>
 <li><p>La densidad en color celeste representa la densidad de los valores observados.</p></li>
 </ul>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">densityplot</span>(imp1)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">densityplot</span>(imp1)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-32-1.png" width="768" /></p>
 <ul>
 <li><p>Este gráfico compara la <strong>densidad de los datos observados versus la densidad de los datos imputados</strong>. Se espera que las líneas sean similares pero no idénticos.</p></li>
@@ -776,7 +1075,7 @@
 <li><p>El último gráfico llamado <strong>stripplot</strong> muestra la distribución de cada variable y sus valores imputados en los multiples datasets.</p></li>
 <li><p>Es <strong>otra forma</strong> de ver la <strong>distribución de los imputados</strong> en las diferentes muestras.</p></li>
 </ul>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stripplot</span>(imp1, <span class="at">pch =</span> <span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stripplot</span>(imp1, <span class="at">pch =</span> <span class="dv">20</span>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-33-1.png" width="768" /></p>
 </div>
 </div>
@@ -785,9 +1084,9 @@
 <div id="casos-completos" class="section level2" number="7.1">
 <h2 number="7.1"><span class="header-section-number">7.1</span> Casos completos</h2>
 <p>El caso más simple y rápido será utilizando solo los datos completos. En este caso, omitimos las fila con valores perdidos y construimos nuestro modelo.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>ajuste_cc <span class="ot">&lt;-</span> <span class="fu">lm</span>(BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt, </span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> <span class="fu">na.omit</span>(sleep))</span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_cc)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>ajuste_cc <span class="ot">&lt;-</span> <span class="fu">lm</span>(BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt, </span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> <span class="fu">na.omit</span>(sleep))</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_cc)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = BodyWgt ~ Sleep + BrainWgt, data = na.omit(sleep))
@@ -811,27 +1110,27 @@
 <div id="imputación-simple." class="section level2" number="7.2">
 <h2 number="7.2"><span class="header-section-number">7.2</span> Imputación simple.</h2>
 <p>Despues de una imputación simple, el resultado es un dataset con el mismo número de filas y columna pero con todos los datos llenos con algún valor imputado. Al realizar el modelamiento, se utilizan los resultados de la imputación realizada para entrenar el modelo.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>ajuste_cc <span class="ot">&lt;-</span> <span class="fu">lm</span>(BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt, <span class="at">data =</span> imp_reg)</span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_cc)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>ajuste_cc <span class="ot">&lt;-</span> <span class="fu">lm</span>(BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt, <span class="at">data =</span> imp_reg)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_cc)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = BodyWgt ~ Sleep + BrainWgt, data = imp_reg)
 ## 
 ## Residuals:
 ##      Min       1Q   Median       3Q      Max 
-## -1557.00     1.98    31.38    57.52  1540.42 
+## -1557.13     6.42    30.37    57.81  1541.30 
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -126.0346   117.6638  -1.071    0.288    
-## Sleep          6.2066     9.8196   0.632    0.530    
-## BrainWgt       0.9137     0.0479  19.074   &lt;2e-16 ***
+## (Intercept) -117.7722   115.1582  -1.023    0.311    
+## Sleep          5.5982     9.8093   0.571    0.570    
+## BrainWgt       0.9125     0.0478  19.087   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 325.2 on 59 degrees of freedom
-## Multiple R-squared:  0.8735, Adjusted R-squared:  0.8692 
-## F-statistic: 203.7 on 2 and 59 DF,  p-value: &lt; 2.2e-16</code></pre>
+## Residual standard error: 325.4 on 59 degrees of freedom
+## Multiple R-squared:  0.8734, Adjusted R-squared:  0.8691 
+## F-statistic: 203.4 on 2 and 59 DF,  p-value: &lt; 2.2e-16</code></pre>
 <ul>
 <li><p>Nota: Si deseamos utilizar la imputación para nuestra data de validación, tenemos que aplicar la metodología y modelos creados para la imputación a partir de la data de entrenamiento.</p></li>
 <li><p>No deben realizarse modelos para imputaciones con los datos de validación sino podríamos sesgar la evaluación del modelo en la data de entrenamiento.</p></li>
@@ -840,34 +1139,152 @@
 <div id="imputación-múltiple." class="section level2" number="7.3">
 <h2 number="7.3"><span class="header-section-number">7.3</span> Imputación múltiple.</h2>
 <ul>
-<li><p>Luego de una imputación multiple, el entrenamiento del modelo debe realizarse en cada uno los múltiples datasets imputados.</p></li>
+<li><p>Luego de una imputación multiple, el entrenamiento del modelo debe realizarse en <strong>cada uno</strong> de los múltiples datasets imputados.</p></li>
 <li><p>Multiples modelos serán entrenados a partir de los datasets. Es nuestra tarea evaluar la <strong>variabilidad de los modelos</strong> en los diferentes conjuntos de datos y analizar el performance conjunto de todos ellos. (Cuando los modelos sirven para entender el problema, es mejor buscar características estables entre diferentes imputaciones.)</p></li>
 <li><p>Ejemplo en R: uso de regresión lineal para los múltiples datasets imputados. El resultados del modelo es el siguiente:</p></li>
 </ul>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>ajuste_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(imp1, <span class="fu">lm</span>( BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt))</span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_imp)</span></code></pre></div>
-<pre><code>## # A tibble: 15 x 6
-##    term        estimate std.error statistic  p.value  nobs
-##    &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;
-##  1 (Intercept) -116.     115.        -1.00  3.20e- 1    62
-##  2 Sleep          5.34     9.70       0.550 5.84e- 1    62
-##  3 BrainWgt       0.912    0.0476    19.2   5.18e-27    62
-##  4 (Intercept) -119.     118.        -1.01  3.16e- 1    62
-##  5 Sleep          5.61     9.88       0.568 5.72e- 1    62
-##  6 BrainWgt       0.912    0.0478    19.1   6.10e-27    62
-##  7 (Intercept) -128.     118.        -1.08  2.86e- 1    62
-##  8 Sleep          6.39     9.96       0.642 5.23e- 1    62
-##  9 BrainWgt       0.914    0.0480    19.0   7.19e-27    62
-## 10 (Intercept) -124.     111.        -1.12  2.69e- 1    62
-## 11 Sleep          6.27     9.54       0.657 5.14e- 1    62
-## 12 BrainWgt       0.914    0.0478    19.1   5.73e-27    62
-## 13 (Intercept) -131.     117.        -1.12  2.68e- 1    62
-## 14 Sleep          6.75     9.92       0.680 4.99e- 1    62
-## 15 BrainWgt       0.915    0.0480    19.1   6.57e-27    62</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>ajuste_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(imp1, <span class="fu">lm</span>( BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt))</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_imp)</span></code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+<th align="right">nobs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">-115.6272181</td>
+<td align="right">115.1974708</td>
+<td align="right">-1.0037305</td>
+<td align="right">0.3196075</td>
+<td align="right">62</td>
+</tr>
+<tr class="even">
+<td align="left">Sleep</td>
+<td align="right">5.3390965</td>
+<td align="right">9.7002572</td>
+<td align="right">0.5504077</td>
+<td align="right">0.5841177</td>
+<td align="right">62</td>
+</tr>
+<tr class="odd">
+<td align="left">BrainWgt</td>
+<td align="right">0.9117585</td>
+<td align="right">0.0475842</td>
+<td align="right">19.1609442</td>
+<td align="right">0.0000000</td>
+<td align="right">62</td>
+</tr>
+<tr class="even">
+<td align="left">(Intercept)</td>
+<td align="right">-119.0949473</td>
+<td align="right">117.8106771</td>
+<td align="right">-1.0109011</td>
+<td align="right">0.3161917</td>
+<td align="right">62</td>
+</tr>
+<tr class="odd">
+<td align="left">Sleep</td>
+<td align="right">5.6116673</td>
+<td align="right">9.8814062</td>
+<td align="right">0.5679017</td>
+<td align="right">0.5722567</td>
+<td align="right">62</td>
+</tr>
+<tr class="even">
+<td align="left">BrainWgt</td>
+<td align="right">0.9123582</td>
+<td align="right">0.0477696</td>
+<td align="right">19.0991238</td>
+<td align="right">0.0000000</td>
+<td align="right">62</td>
+</tr>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">-127.6447412</td>
+<td align="right">118.4513977</td>
+<td align="right">-1.0776128</td>
+<td align="right">0.2855929</td>
+<td align="right">62</td>
+</tr>
+<tr class="even">
+<td align="left">Sleep</td>
+<td align="right">6.3943518</td>
+<td align="right">9.9630342</td>
+<td align="right">0.6418077</td>
+<td align="right">0.5234839</td>
+<td align="right">62</td>
+</tr>
+<tr class="odd">
+<td align="left">BrainWgt</td>
+<td align="right">0.9140870</td>
+<td align="right">0.0480148</td>
+<td align="right">19.0376005</td>
+<td align="right">0.0000000</td>
+<td align="right">62</td>
+</tr>
+<tr class="even">
+<td align="left">(Intercept)</td>
+<td align="right">-124.3898523</td>
+<td align="right">111.4575654</td>
+<td align="right">-1.1160288</td>
+<td align="right">0.2689346</td>
+<td align="right">62</td>
+</tr>
+<tr class="odd">
+<td align="left">Sleep</td>
+<td align="right">6.2677299</td>
+<td align="right">9.5362385</td>
+<td align="right">0.6572539</td>
+<td align="right">0.5135736</td>
+<td align="right">62</td>
+</tr>
+<tr class="even">
+<td align="left">BrainWgt</td>
+<td align="right">0.9139619</td>
+<td align="right">0.0477936</td>
+<td align="right">19.1231024</td>
+<td align="right">0.0000000</td>
+<td align="right">62</td>
+</tr>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">-130.6310123</td>
+<td align="right">116.7065339</td>
+<td align="right">-1.1193119</td>
+<td align="right">0.2675433</td>
+<td align="right">62</td>
+</tr>
+<tr class="even">
+<td align="left">Sleep</td>
+<td align="right">6.7511747</td>
+<td align="right">9.9222146</td>
+<td align="right">0.6804101</td>
+<td align="right">0.4989063</td>
+<td align="right">62</td>
+</tr>
+<tr class="odd">
+<td align="left">BrainWgt</td>
+<td align="right">0.9146903</td>
+<td align="right">0.0479603</td>
+<td align="right">19.0718056</td>
+<td align="right">0.0000000</td>
+<td align="right">62</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>Note que es posible utilizar cualquier otra función en lugar de <code>lm()</code>. El resultado será una lista de modelos para cada dataset.</p>
 <p>Performance del modelo en las 5 diferentes imputaciones con la librería <em>performance</em>.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(ajuste_imp<span class="sc">$</span>analyses, performance)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(ajuste_imp<span class="sc">$</span>analyses, performance)</span></code></pre></div>
 <pre><code>## [[1]]
 ## # Indices of model performance
 ## 
@@ -903,15 +1320,53 @@
 ## ---------------------------------------------------------
 ## 898.060 | 906.569 | 0.874 |     0.869 | 317.020 | 324.980</code></pre>
 <p>Finalmente, el análisis de resultados se realizará combinando los resultados de cada modelos. En nuestro caso, se juntan los coeficientes y errores estándares de los 5 modelos de regresión.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>ajuste_comb <span class="ot">&lt;-</span> <span class="fu">pool</span>(ajuste_imp)</span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_comb)</span></code></pre></div>
-<pre><code>##          term     estimate   std.error  statistic       df   p.value
-## 1 (Intercept) -123.4775543 116.1456478 -1.0631268 56.89702 0.2922159
-## 2       Sleep    6.0728040   9.8226090  0.6182476 56.84236 0.5388816
-## 3    BrainWgt    0.9133712   0.0478443 19.0904921 57.04963 0.0000000</code></pre>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pool.r.squared</span>(ajuste_imp)</span></code></pre></div>
-<pre><code>##           est     lo 95     hi 95 fmi
-## R^2 0.8734907 0.7981373 0.9220335 NaN</code></pre>
+<p><strong>Combinación de ajustes: </strong></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>ajuste_comb <span class="ot">&lt;-</span> <span class="fu">pool</span>(ajuste_imp)</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_comb)</span></code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">df</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">-123.4775543</td>
+<td align="right">116.1456478</td>
+<td align="right">-1.0631268</td>
+<td align="right">56.89702</td>
+<td align="right">0.2922159</td>
+</tr>
+<tr class="even">
+<td align="left">Sleep</td>
+<td align="right">6.0728040</td>
+<td align="right">9.8226090</td>
+<td align="right">0.6182476</td>
+<td align="right">56.84236</td>
+<td align="right">0.5388816</td>
+</tr>
+<tr class="odd">
+<td align="left">BrainWgt</td>
+<td align="right">0.9133712</td>
+<td align="right">0.0478443</td>
+<td align="right">19.0904921</td>
+<td align="right">57.04963</td>
+<td align="right">0.0000000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>** R-Cuadrado ajustado combinado: **</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pool.r.squared</span>(ajuste_imp, <span class="at">adjusted=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##               est     lo 95     hi 95 fmi
+## adj R^2 0.8692022 0.7916065 0.9193155 NaN</code></pre>
 <p>Estos resultados definen el modelo final a evaluar con la data de validación.</p>
 <!-- knitr::purl() -->
 </div>
@@ -929,89 +1384,89 @@
 <li><p><a href="files/3_Tratamiento%20de%20datos%20perdidos.pdf">Slides Imputación</a></p></li>
 <li><p><a href="files/GuiaRImputacion_20210904.R">Códigos utilizados en este manual en R</a></p></li>
 </ul>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r fold-hide"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">warning =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">message =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_url</span>(<span class="st">&quot;files/3_Tratamiento de datos perdidos.pdf&quot;</span>, <span class="at">height =</span> <span class="st">&quot;600px&quot;</span>)</span>
-<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>notas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">nombre =</span> <span class="fu">c</span>(<span class="st">&quot;Jesus&quot;</span>, <span class="st">&quot;Carla&quot;</span>, <span class="st">&quot;Rodrigo&quot;</span>, <span class="st">&quot;Javier&quot;</span>),</span>
-<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">nota =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">13</span>, <span class="cn">NA</span>))</span>
-<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>notas</span>
-<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a>notas_comp <span class="ot">&lt;-</span> notas[<span class="fu">complete.cases</span>(notas),]</span>
-<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a>notas_comp</span>
-<span id="cb72-10"><a href="#cb72-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga los datos.</span></span>
-<span id="cb72-11"><a href="#cb72-11" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sleep, <span class="at">package =</span> <span class="st">&quot;VIM&quot;</span>)</span>
-<span id="cb72-12"><a href="#cb72-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-13"><a href="#cb72-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Vemos las 6 primeras filas.</span></span>
-<span id="cb72-14"><a href="#cb72-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sleep)</span>
-<span id="cb72-15"><a href="#cb72-15" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sleep)</span>
-<span id="cb72-16"><a href="#cb72-16" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(sleep)</span>
-<span id="cb72-17"><a href="#cb72-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sleep)</span>
-<span id="cb72-18"><a href="#cb72-18" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(sleep, <span class="dv">2</span>, <span class="cf">function</span>(x){<span class="fu">sum</span>(<span class="fu">is.na</span>(x))})</span>
-<span id="cb72-19"><a href="#cb72-19" aria-hidden="true" tabindex="-1"></a>mice<span class="sc">::</span><span class="fu">md.pattern</span>(sleep, <span class="at">rotate.names=</span><span class="cn">TRUE</span>)</span>
-<span id="cb72-20"><a href="#cb72-20" aria-hidden="true" tabindex="-1"></a>mice<span class="sc">::</span><span class="fu">md.pairs</span>(sleep)</span>
-<span id="cb72-21"><a href="#cb72-21" aria-hidden="true" tabindex="-1"></a>sleep_aggr <span class="ot">&lt;-</span> VIM<span class="sc">::</span><span class="fu">aggr</span>(sleep, <span class="at">col =</span> mice<span class="sc">::</span><span class="fu">mdc</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">numbers =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb72-22"><a href="#cb72-22" aria-hidden="true" tabindex="-1"></a>                        <span class="at">sortVars =</span> <span class="cn">TRUE</span>, <span class="at">labels =</span> <span class="fu">names</span>(sleep),</span>
-<span id="cb72-23"><a href="#cb72-23" aria-hidden="true" tabindex="-1"></a>                        <span class="at">cex.axis=</span> <span class="fl">0.7</span>, <span class="at">gap =</span> <span class="dv">3</span>,</span>
-<span id="cb72-24"><a href="#cb72-24" aria-hidden="true" tabindex="-1"></a>                        <span class="at">ylab =</span> <span class="fu">c</span>(<span class="st">&quot;Proporción de Pérdida&quot;</span>,</span>
-<span id="cb72-25"><a href="#cb72-25" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;Patrón de Pérdida&quot;</span>))</span>
-<span id="cb72-26"><a href="#cb72-26" aria-hidden="true" tabindex="-1"></a>VIM<span class="sc">::</span><span class="fu">marginplot</span>(sleep[ , <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>)], <span class="at">pch =</span> <span class="dv">19</span>)</span>
-<span id="cb72-27"><a href="#cb72-27" aria-hidden="true" tabindex="-1"></a>VIM<span class="sc">::</span><span class="fu">marginplot</span>(sleep[ , <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>)], <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>), <span class="at">pch =</span> <span class="dv">20</span>)</span>
-<span id="cb72-28"><a href="#cb72-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-29"><a href="#cb72-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Imputación Univariada</span></span>
-<span id="cb72-30"><a href="#cb72-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-31"><a href="#cb72-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span>
-<span id="cb72-32"><a href="#cb72-32" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, mean))</span>
-<span id="cb72-33"><a href="#cb72-33" aria-hidden="true" tabindex="-1"></a>notas</span>
-<span id="cb72-34"><a href="#cb72-34" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, <span class="st">&#39;random&#39;</span>))</span>
-<span id="cb72-35"><a href="#cb72-35" aria-hidden="true" tabindex="-1"></a>notas</span>
-<span id="cb72-36"><a href="#cb72-36" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, <span class="dv">99</span>))</span>
-<span id="cb72-37"><a href="#cb72-37" aria-hidden="true" tabindex="-1"></a>notas</span>
-<span id="cb72-38"><a href="#cb72-38" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota[<span class="fu">is.na</span>(notas<span class="sc">$</span>nota)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(notas<span class="sc">$</span>nota, <span class="at">na.rm =</span> T)</span>
-<span id="cb72-39"><a href="#cb72-39" aria-hidden="true" tabindex="-1"></a>notas</span>
-<span id="cb72-40"><a href="#cb72-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-41"><a href="#cb72-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Imputación Multivariada</span></span>
-<span id="cb72-42"><a href="#cb72-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-43"><a href="#cb72-43" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice) </span>
-<span id="cb72-44"><a href="#cb72-44" aria-hidden="true" tabindex="-1"></a>imp <span class="ot">&lt;-</span> <span class="fu">mice</span>(sleep, <span class="at">method =</span> <span class="st">&quot;norm.predict&quot;</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">maxit=</span><span class="dv">1</span>) <span class="co"># Impute data</span></span>
-<span id="cb72-45"><a href="#cb72-45" aria-hidden="true" tabindex="-1"></a>imp_reg <span class="ot">&lt;-</span> <span class="fu">complete</span>(imp)</span>
-<span id="cb72-46"><a href="#cb72-46" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DMwR)</span>
-<span id="cb72-47"><a href="#cb72-47" aria-hidden="true" tabindex="-1"></a>sleep_imp <span class="ot">&lt;-</span> DMwR<span class="sc">::</span><span class="fu">knnImputation</span>(sleep)</span>
-<span id="cb72-48"><a href="#cb72-48" aria-hidden="true" tabindex="-1"></a><span class="co">#View(sleep_imp)</span></span>
-<span id="cb72-49"><a href="#cb72-49" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sleep_imp)</span>
-<span id="cb72-50"><a href="#cb72-50" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(sleep_imp, <span class="dv">2</span>, <span class="cf">function</span>(x){<span class="fu">sum</span>(<span class="fu">is.na</span>(x))})</span>
-<span id="cb72-51"><a href="#cb72-51" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(missForest)</span>
-<span id="cb72-52"><a href="#cb72-52" aria-hidden="true" tabindex="-1"></a>sleep_imp_rf <span class="ot">&lt;-</span> <span class="fu">missForest</span>(sleep)</span>
-<span id="cb72-53"><a href="#cb72-53" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sleep_imp<span class="sc">$</span>NonD, <span class="at">digits =</span> <span class="dv">3</span>)</span>
-<span id="cb72-54"><a href="#cb72-54" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VIM)</span>
-<span id="cb72-55"><a href="#cb72-55" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
-<span id="cb72-56"><a href="#cb72-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-57"><a href="#cb72-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Imputación Multiple</span></span>
-<span id="cb72-58"><a href="#cb72-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-59"><a href="#cb72-59" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
-<span id="cb72-60"><a href="#cb72-60" aria-hidden="true" tabindex="-1"></a>imp1 <span class="ot">&lt;-</span> <span class="fu">mice</span>(sleep, <span class="at">m =</span> <span class="dv">5</span>, <span class="at">seed =</span> <span class="dv">2</span>)</span>
-<span id="cb72-61"><a href="#cb72-61" aria-hidden="true" tabindex="-1"></a>imp1</span>
-<span id="cb72-62"><a href="#cb72-62" aria-hidden="true" tabindex="-1"></a>imp1<span class="sc">$</span>method</span>
-<span id="cb72-63"><a href="#cb72-63" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(imp1<span class="sc">$</span>imp<span class="sc">$</span>NonD)</span>
-<span id="cb72-64"><a href="#cb72-64" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lattice)</span>
-<span id="cb72-65"><a href="#cb72-65" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD <span class="sc">|</span> .imp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="fl">1.4</span>)</span>
-<span id="cb72-66"><a href="#cb72-66" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, NonD <span class="sc">~</span> Gest <span class="sc">|</span> .imp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="fl">1.4</span>)</span>
-<span id="cb72-67"><a href="#cb72-67" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD, <span class="at">pch =</span> <span class="dv">18</span>)</span>
-<span id="cb72-68"><a href="#cb72-68" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, NonD <span class="sc">~</span> Gest, <span class="at">pch =</span> <span class="dv">18</span>)</span>
-<span id="cb72-69"><a href="#cb72-69" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD <span class="sc">+</span> Span , <span class="at">pch =</span> <span class="dv">18</span>)</span>
-<span id="cb72-70"><a href="#cb72-70" aria-hidden="true" tabindex="-1"></a><span class="fu">densityplot</span>(imp1)</span>
-<span id="cb72-71"><a href="#cb72-71" aria-hidden="true" tabindex="-1"></a><span class="fu">stripplot</span>(imp1, <span class="at">pch =</span> <span class="dv">20</span>)</span>
-<span id="cb72-72"><a href="#cb72-72" aria-hidden="true" tabindex="-1"></a>ajuste_cc <span class="ot">&lt;-</span> <span class="fu">lm</span>(BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt, </span>
-<span id="cb72-73"><a href="#cb72-73" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> <span class="fu">na.omit</span>(sleep))</span>
-<span id="cb72-74"><a href="#cb72-74" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_cc)</span>
-<span id="cb72-75"><a href="#cb72-75" aria-hidden="true" tabindex="-1"></a>ajuste_cc <span class="ot">&lt;-</span> <span class="fu">lm</span>(BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt, <span class="at">data =</span> imp_reg)</span>
-<span id="cb72-76"><a href="#cb72-76" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_cc)</span>
-<span id="cb72-77"><a href="#cb72-77" aria-hidden="true" tabindex="-1"></a>ajuste_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(imp1, <span class="fu">lm</span>( BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt))</span>
-<span id="cb72-78"><a href="#cb72-78" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_imp)</span>
-<span id="cb72-79"><a href="#cb72-79" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span>
-<span id="cb72-80"><a href="#cb72-80" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(ajuste_imp<span class="sc">$</span>analyses, performance)</span>
-<span id="cb72-81"><a href="#cb72-81" aria-hidden="true" tabindex="-1"></a>ajuste_comb <span class="ot">&lt;-</span> <span class="fu">pool</span>(ajuste_imp)</span>
-<span id="cb72-82"><a href="#cb72-82" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_comb)</span>
-<span id="cb72-83"><a href="#cb72-83" aria-hidden="true" tabindex="-1"></a><span class="fu">pool.r.squared</span>(ajuste_imp)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r fold-hide"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">warning =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">message =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_url</span>(<span class="st">&quot;files/3_Tratamiento de datos perdidos.pdf&quot;</span>, <span class="at">height =</span> <span class="st">&quot;600px&quot;</span>)</span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>notas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">nombre =</span> <span class="fu">c</span>(<span class="st">&quot;Jesus&quot;</span>, <span class="st">&quot;Carla&quot;</span>, <span class="st">&quot;Rodrigo&quot;</span>, <span class="st">&quot;Javier&quot;</span>),</span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">nota =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">13</span>, <span class="cn">NA</span>))</span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>notas</span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>notas_comp <span class="ot">&lt;-</span> notas[<span class="fu">complete.cases</span>(notas),]</span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a>notas_comp</span>
+<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga los datos.</span></span>
+<span id="cb62-11"><a href="#cb62-11" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sleep, <span class="at">package =</span> <span class="st">&quot;VIM&quot;</span>)</span>
+<span id="cb62-12"><a href="#cb62-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-13"><a href="#cb62-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Vemos las 6 primeras filas.</span></span>
+<span id="cb62-14"><a href="#cb62-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sleep)</span>
+<span id="cb62-15"><a href="#cb62-15" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sleep)</span>
+<span id="cb62-16"><a href="#cb62-16" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(sleep)</span>
+<span id="cb62-17"><a href="#cb62-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sleep)</span>
+<span id="cb62-18"><a href="#cb62-18" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(sleep, <span class="dv">2</span>, <span class="cf">function</span>(x){<span class="fu">sum</span>(<span class="fu">is.na</span>(x))})</span>
+<span id="cb62-19"><a href="#cb62-19" aria-hidden="true" tabindex="-1"></a>mice<span class="sc">::</span><span class="fu">md.pattern</span>(sleep, <span class="at">rotate.names=</span><span class="cn">TRUE</span>)</span>
+<span id="cb62-20"><a href="#cb62-20" aria-hidden="true" tabindex="-1"></a>mice<span class="sc">::</span><span class="fu">md.pairs</span>(sleep)</span>
+<span id="cb62-21"><a href="#cb62-21" aria-hidden="true" tabindex="-1"></a>sleep_aggr <span class="ot">&lt;-</span> VIM<span class="sc">::</span><span class="fu">aggr</span>(sleep, <span class="at">col =</span> mice<span class="sc">::</span><span class="fu">mdc</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">numbers =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb62-22"><a href="#cb62-22" aria-hidden="true" tabindex="-1"></a>                        <span class="at">sortVars =</span> <span class="cn">TRUE</span>, <span class="at">labels =</span> <span class="fu">names</span>(sleep),</span>
+<span id="cb62-23"><a href="#cb62-23" aria-hidden="true" tabindex="-1"></a>                        <span class="at">cex.axis=</span> <span class="fl">0.7</span>, <span class="at">gap =</span> <span class="dv">3</span>,</span>
+<span id="cb62-24"><a href="#cb62-24" aria-hidden="true" tabindex="-1"></a>                        <span class="at">ylab =</span> <span class="fu">c</span>(<span class="st">&quot;Proporción de Pérdida&quot;</span>,</span>
+<span id="cb62-25"><a href="#cb62-25" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;Patrón de Pérdida&quot;</span>))</span>
+<span id="cb62-26"><a href="#cb62-26" aria-hidden="true" tabindex="-1"></a>VIM<span class="sc">::</span><span class="fu">marginplot</span>(sleep[ , <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>)], <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb62-27"><a href="#cb62-27" aria-hidden="true" tabindex="-1"></a>VIM<span class="sc">::</span><span class="fu">marginplot</span>(sleep[ , <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>)], <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>), <span class="at">pch =</span> <span class="dv">20</span>)</span>
+<span id="cb62-28"><a href="#cb62-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-29"><a href="#cb62-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Imputación Univariada</span></span>
+<span id="cb62-30"><a href="#cb62-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-31"><a href="#cb62-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span>
+<span id="cb62-32"><a href="#cb62-32" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, mean))</span>
+<span id="cb62-33"><a href="#cb62-33" aria-hidden="true" tabindex="-1"></a>notas</span>
+<span id="cb62-34"><a href="#cb62-34" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, <span class="st">&#39;random&#39;</span>))</span>
+<span id="cb62-35"><a href="#cb62-35" aria-hidden="true" tabindex="-1"></a>notas</span>
+<span id="cb62-36"><a href="#cb62-36" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(notas, <span class="fu">impute</span>(nota, <span class="dv">99</span>))</span>
+<span id="cb62-37"><a href="#cb62-37" aria-hidden="true" tabindex="-1"></a>notas</span>
+<span id="cb62-38"><a href="#cb62-38" aria-hidden="true" tabindex="-1"></a>notas<span class="sc">$</span>nota[<span class="fu">is.na</span>(notas<span class="sc">$</span>nota)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(notas<span class="sc">$</span>nota, <span class="at">na.rm =</span> T)</span>
+<span id="cb62-39"><a href="#cb62-39" aria-hidden="true" tabindex="-1"></a>notas</span>
+<span id="cb62-40"><a href="#cb62-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-41"><a href="#cb62-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Imputación Multivariada</span></span>
+<span id="cb62-42"><a href="#cb62-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-43"><a href="#cb62-43" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice) </span>
+<span id="cb62-44"><a href="#cb62-44" aria-hidden="true" tabindex="-1"></a>imp <span class="ot">&lt;-</span> <span class="fu">mice</span>(sleep, <span class="at">method =</span> <span class="st">&quot;norm.predict&quot;</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">maxit=</span><span class="dv">1</span>) <span class="co"># Impute data</span></span>
+<span id="cb62-45"><a href="#cb62-45" aria-hidden="true" tabindex="-1"></a>imp_reg <span class="ot">&lt;-</span> <span class="fu">complete</span>(imp)</span>
+<span id="cb62-46"><a href="#cb62-46" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DMwR)</span>
+<span id="cb62-47"><a href="#cb62-47" aria-hidden="true" tabindex="-1"></a>sleep_imp <span class="ot">&lt;-</span> DMwR<span class="sc">::</span><span class="fu">knnImputation</span>(sleep)</span>
+<span id="cb62-48"><a href="#cb62-48" aria-hidden="true" tabindex="-1"></a><span class="co">#View(sleep_imp)</span></span>
+<span id="cb62-49"><a href="#cb62-49" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sleep_imp)</span>
+<span id="cb62-50"><a href="#cb62-50" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(sleep_imp, <span class="dv">2</span>, <span class="cf">function</span>(x){<span class="fu">sum</span>(<span class="fu">is.na</span>(x))})</span>
+<span id="cb62-51"><a href="#cb62-51" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(missForest)</span>
+<span id="cb62-52"><a href="#cb62-52" aria-hidden="true" tabindex="-1"></a>sleep_imp_rf <span class="ot">&lt;-</span> <span class="fu">missForest</span>(sleep)</span>
+<span id="cb62-53"><a href="#cb62-53" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sleep_imp<span class="sc">$</span>NonD, <span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb62-54"><a href="#cb62-54" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VIM)</span>
+<span id="cb62-55"><a href="#cb62-55" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
+<span id="cb62-56"><a href="#cb62-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-57"><a href="#cb62-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Imputación Multiple</span></span>
+<span id="cb62-58"><a href="#cb62-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-59"><a href="#cb62-59" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
+<span id="cb62-60"><a href="#cb62-60" aria-hidden="true" tabindex="-1"></a>imp1 <span class="ot">&lt;-</span> <span class="fu">mice</span>(sleep, <span class="at">m =</span> <span class="dv">5</span>, <span class="at">seed =</span> <span class="dv">2</span>)</span>
+<span id="cb62-61"><a href="#cb62-61" aria-hidden="true" tabindex="-1"></a>imp1</span>
+<span id="cb62-62"><a href="#cb62-62" aria-hidden="true" tabindex="-1"></a>imp1<span class="sc">$</span>method</span>
+<span id="cb62-63"><a href="#cb62-63" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(imp1<span class="sc">$</span>imp<span class="sc">$</span>NonD)</span>
+<span id="cb62-64"><a href="#cb62-64" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lattice)</span>
+<span id="cb62-65"><a href="#cb62-65" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD <span class="sc">|</span> .imp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="fl">1.4</span>)</span>
+<span id="cb62-66"><a href="#cb62-66" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, NonD <span class="sc">~</span> Gest <span class="sc">|</span> .imp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="fl">1.4</span>)</span>
+<span id="cb62-67"><a href="#cb62-67" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD, <span class="at">pch =</span> <span class="dv">18</span>)</span>
+<span id="cb62-68"><a href="#cb62-68" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, NonD <span class="sc">~</span> Gest, <span class="at">pch =</span> <span class="dv">18</span>)</span>
+<span id="cb62-69"><a href="#cb62-69" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(imp1, Gest <span class="sc">~</span> NonD <span class="sc">+</span> Span , <span class="at">pch =</span> <span class="dv">18</span>)</span>
+<span id="cb62-70"><a href="#cb62-70" aria-hidden="true" tabindex="-1"></a><span class="fu">densityplot</span>(imp1)</span>
+<span id="cb62-71"><a href="#cb62-71" aria-hidden="true" tabindex="-1"></a><span class="fu">stripplot</span>(imp1, <span class="at">pch =</span> <span class="dv">20</span>)</span>
+<span id="cb62-72"><a href="#cb62-72" aria-hidden="true" tabindex="-1"></a>ajuste_cc <span class="ot">&lt;-</span> <span class="fu">lm</span>(BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt, </span>
+<span id="cb62-73"><a href="#cb62-73" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> <span class="fu">na.omit</span>(sleep))</span>
+<span id="cb62-74"><a href="#cb62-74" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_cc)</span>
+<span id="cb62-75"><a href="#cb62-75" aria-hidden="true" tabindex="-1"></a>ajuste_cc <span class="ot">&lt;-</span> <span class="fu">lm</span>(BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt, <span class="at">data =</span> imp_reg)</span>
+<span id="cb62-76"><a href="#cb62-76" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_cc)</span>
+<span id="cb62-77"><a href="#cb62-77" aria-hidden="true" tabindex="-1"></a>ajuste_imp <span class="ot">&lt;-</span> <span class="fu">with</span>(imp1, <span class="fu">lm</span>( BodyWgt <span class="sc">~</span> Sleep <span class="sc">+</span> BrainWgt))</span>
+<span id="cb62-78"><a href="#cb62-78" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_imp)</span>
+<span id="cb62-79"><a href="#cb62-79" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span>
+<span id="cb62-80"><a href="#cb62-80" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(ajuste_imp<span class="sc">$</span>analyses, performance)</span>
+<span id="cb62-81"><a href="#cb62-81" aria-hidden="true" tabindex="-1"></a>ajuste_comb <span class="ot">&lt;-</span> <span class="fu">pool</span>(ajuste_imp)</span>
+<span id="cb62-82"><a href="#cb62-82" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ajuste_comb)</span>
+<span id="cb62-83"><a href="#cb62-83" aria-hidden="true" tabindex="-1"></a><span class="fu">pool.r.squared</span>(ajuste_imp, <span class="at">adjusted=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <ul>
 <li><a href="files/sleep_data_names.pdf">Descripción de columnas del dataset <em>sleep</em></a></li>
 </ul>
@@ -1025,7 +1480,7 @@
 </div>
 
    
-      <div id="rmd-source-code">LS0tDQp0aXRsZTogIlRyYXRhbWllbnRvIGRlIHZhbG9yZXMgcGVyZGlkb3MgY29uIFIiDQphdXRob3I6DQogIC0gRXZlbHluIEd1dGllcnJlel5bZWd1dGllcnJlemFAcHVjcC5lZHUucGVdDQogIC0gVmlsbWEgUm9tZXJvXlt2cm9tZXJvQHVuaS5wZV0NCmRhdGU6ICJTZXB0ZW1iZXIsIDIwMjEiDQpvdXRwdXQ6DQogIHJtZGZvcm1hdHM6OnJvYm9ib29rOg0KICAgIGhpZ2hsaWdodDogdGFuZ28NCiAgICBudW1iZXJfc2VjdGlvbnM6IHRydWUNCiAgICBjb2RlX2ZvbGRpbmc6IHNob3cNCiAgICBjb2RlX2Rvd25sb2FkOiBUUlVFDQogIGh0bWxfZG9jdW1lbnQ6DQogICAgdG9jOiB5ZXMNCiAgcGRmX2RvY3VtZW50OiANCiAgICBudW1iZXJfc2VjdGlvbnM6IHllcw0KICAgIHRvYzogeWVzDQotLS0NCg0KYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9DQprbml0cjo6b3B0c19jaHVuayRzZXQoZWNobyA9IFRSVUUpDQprbml0cjo6b3B0c19jaHVuayRzZXQod2FybmluZyA9IEZBTFNFKQ0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KG1lc3NhZ2UgPSBGQUxTRSkNCmBgYA0KDQoNCg0KIyBJbnRyb2R1Y2Npw7NuLg0KDQoNCmBgYHtyIGVjaG89RkFMU0V9DQprbml0cjo6aW5jbHVkZV91cmwoImZpbGVzLzNfVHJhdGFtaWVudG8gZGUgZGF0b3MgcGVyZGlkb3MucGRmIiwgaGVpZ2h0ID0gIjYwMHB4IikNCmBgYA0KDQoNCg0KIyBMYWJvcmF0b3JpbyBlbiBSLg0KDQpFbiBlc3RhIHNlc2nDs24sIHJlYWxpemFyZW1vcyBsYSBpbXB1dGFjacOzbiBkZSBkYXRvcyBwZXJkaWRvcyB1dGlsaXphbmRvIHTDqWNuaWNhcyBiw6FzaWNhcyB5IHBvciB2ZWNpbm9zIG3DoXMgY2VyY2Fub3MuIA0KDQpSZXF1ZXJpbW9zIGluc3RhbGFyIGxvcyBzaWd1aWVudGVzIHBhcXVldGVzOiANCg0KKiBgSG1pc2NgDQoqIGBWSU1gDQoqIGBtaWNlYA0KKiBgRE13UmANCg0KDQpQYXJhIGBETXdSYCwgdXRpbGl6YXI6IGByZW1vdGVzOjppbnN0YWxsX2dpdGh1YigiY3Jhbi9ETXdSIilgDQoNCg0KIyBFeHBsb3JhY2nDs24gZGUgdmFsb3JlcyBwZXJkaWRvcy4NCiAgDQogIA0KDQo8YnI+DQoNCiMjIEV4cGxvcmFjacOzbiBiw6FzaWNhLg0KDQoqKkNhc28gMTogTm90YXMuKioNCiAgDQpJbmljaWFtb3MgZXN0ZSBlamVtcGxvLCBjcmVhbmRvIHVuIGRhdGEuZnJhbWUgbm90YXMgY29uIGFsZ3VuYSBub3RhIGZhbHRhbnRlLg0KICANCmBgYHtyfQ0Kbm90YXMgPC0gZGF0YS5mcmFtZShub21icmUgPSBjKCJKZXN1cyIsICJDYXJsYSIsICJSb2RyaWdvIiwgIkphdmllciIpLA0KICAgICAgICAgICAgICAgICAgICBub3RhID0gYygxMiwgMTUsIDEzLCBOQSkpDQpub3Rhcw0KYGBgDQoNCkV4cGxvcmFtb3MgdmlzdWFsbWVudGUgZWwgbsO6bWVybyBkZSB2YWxvcmVzIHBlcmRpZG9zIHBvciB2YXJpYWJsZTogc29sbyBleGlzdGUgdW4gdmFsb3IgYWxlYXRvcmlvLg0KDQpGaW5hbG1lbnRlLCBzZWxlY2Npb25hciBsb3MgZGF0b3MgY29tcGxldG9zIGNvbiBgY29tcGxldGUuY2FzZXNgLg0KYGBge3J9DQpub3Rhc19jb21wIDwtIG5vdGFzW2NvbXBsZXRlLmNhc2VzKG5vdGFzKSxdDQpub3Rhc19jb21wDQpgYGANCiANCg0KPGJyPg0KDQojIyBWaXN1YWxpemFjaW9uZXMNCg0KIA0KKipDYXNvIDI6IERhdGFzZXQgc2xlZXAqKiAgDQoNCg0KDQpVdGlsaXphcmVtb3MgZWwgY29uanVudG8gZGUgZGF0b3MgKnNsZWVwKiBkZWwgcGFxdWV0ZSBWSU0gcGFyYSByZWFsaXphciBsYSBleHBsb3JhY2nDs24gZGUgdmFsb3JlcyBwZXJkaWRvcyBlbiBSLg0KIA0KLSBJbnN0YWxhY2nDs246DQoNCk5lY2VzaXRhbW9zIGluc3RhbGFyIGVsIHBhcXVldGUgVklNIGNvbiBlbCBzaWd1aWVudGUgY8OzZGlnbyBlbiBsYSBjb25zb2xhOiBgaW5zdGFsbC5wYWNrYWdlcygiVklNIilgLg0KDQpMdWVnbywgY2FyZ2Ftb3MgbG9zIGRhdG9zIGRlIGBzbGVlcGAgeSB2ZW1vcyBsYXMgcHJpbWVyYXMgZmlsYXMgZGVsIGRhdGFzZXQgdXRpbGl6YW5kbyBlbCBzaWd1aWVudGUgY8OzZGlnbzoNCg0KDQpgYGB7cn0NCiMgQ2FyZ2EgbG9zIGRhdG9zLg0KZGF0YShzbGVlcCwgcGFja2FnZSA9ICJWSU0iKQ0KDQojIFZlbW9zIGxhcyA2IHByaW1lcmFzIGZpbGFzLg0KaGVhZChzbGVlcCkNCmBgYA0KDQoNCkNvbXByb2JhcmVtb3MgcXVlIGVsIGRhdGFzZXQgInNsZWVwIiBhaG9yYSBhcGFyZWNlIHRhbWJpw6luIGVuIHN1ICoqRW52aXJvbm1lbnQqKiBlbiBSU3R1ZGlvLiANCg0KDQpJbmljaWFtb3MgbGEgKipleHBsb3JhY2nDs24gaW5pY2lhbCoqIGRlIGVzdGUgbnVldm8gZGF0YXNldCBjb24gYWxndW5vIGRlIGxvcyBzaWd1aWVudGVzIGNvbWFuZG9zIGLDoXNpY29zOg0KDQpgYGB7cn0NCnN0cihzbGVlcCkNCmRwbHlyOjpnbGltcHNlKHNsZWVwKQ0Kc3VtbWFyeShzbGVlcCkNCmBgYA0KDQoNCkVuIHRvZG9zIGVsbG9zIG9ic2VydmFyZW1vcyB1bmEgcHJpbWVyYSB2aXN0YSBkZSBsb3MgZGF0b3MuIE5vdGFyZW1vcyBhZGVtw6FzLCBxdWUgZXhpc3RlbiB2YWxvcmVzIE5BLCBkYXRvcyBwZXJkaWRvcy4NCkxhIHByaW1lcmEgcHJlZ3VudGEgcXVlIG5vcyBoYWNlbW9zIGVzOg0KDQoNCj4gwr9DdcOhbnRvcyBkYXRvcyBlc3TDoW4gY29uIHZhbG9yZXMgTkEgZW4gZXN0ZSBkYXRhc2V0Pw0KDQoNClBhcmEgY29udGFyIGVsIG7Dum1lcm8gZGUgdmFsb3JlcyBwZXJkaWRvcyBwb3IgdmFyaWFibGUgcG9kZW1vcyB1c2FyIGVzdGUgY8OhbGN1bG8gY29uIGxhIGZ1bmNpw7NuICphcHBseSogcXVlIGN1ZW50YSBlbCBuw7ptZXJvIGRlIHZhbG9yZXMgcGVyZGlkb3MgKHZhbG9yZXMgTkEgcGFyYSBSKSBwb3IgY29sdW1uYS4gDQoNCmBgYHtyfQ0KYXBwbHkoc2xlZXAsIDIsIGZ1bmN0aW9uKHgpe3N1bShpcy5uYSh4KSl9KQ0KYGBgDQogDQogDQpBaG9yYSBwb2RlbW9zIHJlc3BvbmRlciBsbyBzaWd1aWVudGUgYHIgZW1vOjpqaSgidGVhY2hlciIpYDogDQoNCiogwr9DdcOhbnRvcyB2YWxvcmVzIHBlcmRpZG9zIGhheSBlbiBjYWRhIHZhcmlhYmxlPw0KKiDCv1F1w6kgdmFyaWFibGVzIHRpZW5lbiB2YWxvcmVzIHBlcmRpZG9zPw0KKiDCv1F1w6kgdmFyaWFibGVzIHRpZW5lbiBtw6FzIHZhbG9yZXMgcGVyZGlkb3M/IGByIGVtbzo6amkoInJhaXNlZCIpYA0KIA0KDQo8YnI+DQoNCg0KQ29udGludWFtb3MgZXhwbG9yYW5kbyBsb3MgdmFsb3JlcyBwZXJkaWRvcyBhbmFsaXphbmRvIGVsICoqcGF0csOzbiBkZSB2YWxvcmVzIHBlcmRpZG9zKiogZGlzdHJpYnVpZG9zICoqZW4gbGFzIGRpZmVyZW50ZXMgdmFyaWFibGVzKiogZGVsIGNvbmp1bnRvIGRlIGRhdG9zIChkYXRhc2V0KS4gRXN0byBub3MgYXl1ZGFyw6EgYSBlbnRlbmRlciBtZWpvciBudWVzdHJvcyBkYXRvcy4gDQoNCkxvIGhhY2Vtb3MgdXRpbGl6YW5kbyBsYSBmdW5jacOzbiAqbWQucGF0dGVybiogeSAqbWQucGFpcnMqIGRlbCBwYXF1ZXRlICoqTUlDRSoqLg0KDQpgYGB7ciBvdXQud2lkdGg9JzgwJSd9DQptaWNlOjptZC5wYXR0ZXJuKHNsZWVwLCByb3RhdGUubmFtZXM9VFJVRSkNCm1pY2U6Om1kLnBhaXJzKHNsZWVwKQ0KYGBgDQoNCkVuIGVzdG9zIGdyw6FmaWNvcyB5IHRhYmxhcyBvYnNlcnZhbW9zIGxhcyBkaWZlcmVudGVzIGNvbWJpbmFjaW9uZXMgZGUgdmFsb3JlcyBwZXJkaWRvcyBxdWUgdGVuZW1vcyBwYXJhIG51ZXN0cmFzIHZhcmlhYmxlcy4gQWhvcmEsIHBvZGVtb3MgcmVzcG9uZGVyIGxhcyBzaWd1aWVudGUgcHJlZ3VudGFzOiANCg0KKiDCv0N1YW50YXMgb2JzZXJ2YWNpb25lcyBubyB0aWVuZW4gbmlnw7puIHZhbG9yIHBlcmRpZG8/DQoqIMK/Q3VhbnRhcyBvYnNlcnZhY2lvbmVzIG5vIHRpZW5lbiBuaWfDum4gdmFsb3IgcGVyZGlkbz8NCg0KVmlzdWFsaXphY2nDs24gZGUgZGF0b3MgcGVyZGlkb3MNCmBgYHtyfQ0Kc2xlZXBfYWdnciA8LSBWSU06OmFnZ3Ioc2xlZXAsIGNvbCA9IG1pY2U6Om1kYygxOjIpLCBudW1iZXJzID0gVFJVRSwgDQogICAgICAgICAgICAgICAgICAgICAgICBzb3J0VmFycyA9IFRSVUUsIGxhYmVscyA9IG5hbWVzKHNsZWVwKSwNCiAgICAgICAgICAgICAgICAgICAgICAgIGNleC5heGlzPSAwLjcsIGdhcCA9IDMsDQogICAgICAgICAgICAgICAgICAgICAgICB5bGFiID0gYygiUHJvcG9yY2nDs24gZGUgUMOpcmRpZGEiLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIlBhdHLDs24gZGUgUMOpcmRpZGEiKSkNCmBgYA0KDQpEaXN0cmlidWNpw7NuIGRlIG9ic2VydmFjaW9uZXMgY29tcGxldGFzIGUgaW5jb21wbGV0YXMgcG9yIHBhcmVzIGRlIHZhcmlhYmxlcw0KYGBge3J9DQpWSU06Om1hcmdpbnBsb3Qoc2xlZXBbICwgYygzLCA3KV0sIHBjaCA9IDE5KQ0KVklNOjptYXJnaW5wbG90KHNsZWVwWyAsIGMoMywgNyldLCBjb2wgPSBjKCJibHVlIiwgInJlZCIsICJvcmFuZ2UiKSwgcGNoID0gMjApDQpgYGANCg0KRGVzY3JpcGNpw7NuOg0KDQoqIFB1bnRvcyBhenVsZXMgKGRpYWdyYW1hIGRlIGRpc3BlcnNpw7NuKTogaW5kaXZpZHVvcyBjb24gYW1ib3MgdmFsb3JlcyBkZSBsYXMgdmFyaWFibGVzLg0KKiBCb3hwbG90cyBhenVsZXM6IGJveHBsb3RzIGRlIGxvcyB2YWxvcmVzIG5vIHBlcmRpZG9zIGRlIGNhZGEgdmFyaWFibGUNCg0KKiBQdW50b3Mgcm9qb3MgKEVqZSBYOiBOb25EKTogaW5kaXZpZHVvcyBjb24gdmFsb3JlcyBwZXJkaWRvcyBlbiBHZXN0IHBlcm8gb2JzZXJ2YWRvcyBlbiBOb25ELg0KKiBQdW50b3Mgcm9qb3MgKEVqZSBZOiBHZXN0KTogaW5kaXZpZHVvcyBjb24gdmFsb3JlcyBwZXJkaWRvcyBlbiBOb25EIHBlcm8gb2JzZXJ2YWRvcyBlbiBHZXN0Lg0KKiBCb3hwbG90cyByb2pvczogUmVwcmVzZW50YW4gbGEgZGlzdHJpYnVjacOzbiBtYXJnaW5hbCBkZSBsb3MgcHVudG9zIHJvam9zLg0KDQpOb3RhOiBTaSBsb3MgZGF0b3MgcGVyZGlkb3Mgc29uIGNvbXBsZXRhbWVudGUgYWxlYXRvcmlvcyBzZSBlc3BlcmEgcXVlDQpsb3MgYm94cGxvdHMgcm9qb3MgeSBhenVsZXMgc2VhbiBpZMOpbnRpY29zDQoNCg0KXG5ld3BhZ2UNCg0KDQojIEltcHV0YWNpw7NuIFVuaXZhcmlhZGENCg0KYGBge3IgZXZhbD1GQUxTRSwgd2FybmluZz1GQUxTRSwgaW5jbHVkZT1GQUxTRX0NCg0KIyBJbXB1dGFjacOzbiBVbml2YXJpYWRhDQoNCmBgYA0KDQojIyBDb24gbGEgbWVkaWEuDQoNCmluc3RhbGFtb3MgbGEgbGlicmVyw61hIGBIbWlzY2AgcGFyYSByZWFsaXphciBpbXB1dGFjaW9uZXMgYsOhc2ljYXMuIExhIGluc3RhbGFjacOzbiwgbGEgcmVhbGl6YXJlbW9zIHV0aWxpemFuZG8gZWwgc2lndWllbnRlIGNvbWFuZG8gZW4gbGEgY29uc29sYTogYGluc3RhbGwucGFja2FnZXMoIkhtaXNjIilgLg0KDQpMdWVnbyBkZSBjb21wbGV0YWRhIGxhIGluc3RhbGFjacOzbiwgY29tcHJvYmFtb3MgY2FyZ2FuZG8gZWwgcGFxdWV0ZS4NCg0KDQpgYGB7ciB3YXJuaW5nPUZBTFNFfQ0KbGlicmFyeShIbWlzYykNCmBgYA0KDQoNClNpIG5vIHRlbmVtb3MgbWF5b3IgaW5mb3JtYWNpw7NuLCB1dGlsaXphcmVtb3MgbGEgbWVkaWEgY29tbyB2YWxvciBkZSBpbXB1dGFjacOzbi4NCkVzIHVuYSBpbXB1dGFjacOzbiByw6FwaWRhLCBzaW1wbGUgeSBzZW5jaWxsYS4NCg0KYGBge3J9DQpub3RhcyRub3RhX2ltcCA8LSB3aXRoKG5vdGFzLCBpbXB1dGUobm90YSwgbWVhbikpDQpub3Rhcw0KYGBgDQoNCioqKg0KDQojIyBDb24gdmFsb3IgYWxlYXRvcmlvLg0KDQpVdGlsaXphbW9zIHVuIHZhbG9yIGFsZWF0b3JpbyBjb21vIHZhbG9yIGRlIGltcHV0YWNpw7NuOiBTZSBzZWxlY2Npb25hIGFsZWF0b3JpYW1lbnRlIGEgcGFydGlyIGRlIGxvcyB2YWxvcmVzIG5vIHBlcmRpZG9zLiBTaW1wbGUgeSDDunRpbCBlbiBjYXNvIGRlIE1DQVIuDQoNCmBgYHtyfQ0Kbm90YXMkbm90YV9pbXAgPC0gd2l0aChub3RhcywgaW1wdXRlKG5vdGEsICdyYW5kb20nKSkNCm5vdGFzDQpgYGANCg0KKioqDQoNCiMjIENvbiB1biB2YWxvciBlc3BlY8OtZmljby4NCg0KU2kgdGVuZW1vcyBpbmZvcm1hY2nDs24gZXNwZWPDrWZpY2EsIG8gcmVzdWx0YSBjb252ZW5pZW50ZSwgcG9kZW1vcyBpbXB1dGFyIGxvcyBkYXRvcyBwZXJkaWRvcyBjb24gdW4gdmFsb3IgZXNwZWPDrWZpY28uDQoNCg0KYGBge3J9DQpub3RhcyRub3RhX2ltcCA8LSB3aXRoKG5vdGFzLCBpbXB1dGUobm90YSwgOTkpKQ0Kbm90YXMNCmBgYA0KDQoqKioNCg0KIyMgTWFudWFsbWVudGUNCg0KUG9yIHVsdGltbywgbGEgaW1wdXRhY2nDs24gcHVlZGUgcmVhbGl6YXJzZSBzaW4gZWwgcGFxdWV0ZSBIbWlzYyBkZSBsYSBzaWd1aWVudGUgbWFuZXJhOg0KDQpgYGB7cn0NCm5vdGFzJG5vdGFbaXMubmEobm90YXMkbm90YSldIDwtIG1lYW4obm90YXMkbm90YSwgbmEucm0gPSBUKQ0Kbm90YXMNCmBgYA0KDQoNCjxicj4NCg0KIyBJbXB1dGFjacOzbiBNdWx0aXZhcmlhZGENCg0KYGBge3IgZXZhbD1GQUxTRSwgd2FybmluZz1GQUxTRSwgaW5jbHVkZT1GQUxTRX0NCg0KIyBJbXB1dGFjacOzbiBNdWx0aXZhcmlhZGENCg0KYGBgDQoNCiMjIFBvciByZWdyZXNpw7NuIGxpbmVhbC4NCg0KQ29uIGxhIGxpYnJlcsOtYSBtaWNlLiBFc3RhIGxpYnJlcsOtYSBzaXJ2ZSBwYXJhIGltcHV0YWNpw7NuIG3Dumx0aXBsZSBwZXJvIHBvZGVtb3MgdXNhcmxhIHRhbWJpw6luIHBhcmEgaW1wdXRhY2nDs24gc2ltcGxlIHNpIGRlZmluaW1vcyAqbT0xKi4gIA0KDQpgYGB7cn0NCmxpYnJhcnkobWljZSkgDQppbXAgPC0gbWljZShzbGVlcCwgbWV0aG9kID0gIm5vcm0ucHJlZGljdCIsIG0gPSAxLCBtYXhpdD0xKSAjIEltcHV0ZSBkYXRhDQppbXBfcmVnIDwtIGNvbXBsZXRlKGltcCkNCmBgYA0KDQpQYXJhIG1pc3NpbmdzIGVuIHZhcmlhYmxlcyBjYXRlZ29yw61jYXMgc2UgcHVlZGUgdXRpbGl6YXIgcmVncmVzacOzbiBsb2dpc3RpY2EgY29uIGVsIGFyZ3VtZW50byBgbWV0aG9kPSJsb2dyZWciYC4gRWplbXBsbzogDQpgbWljZShuaGFuZXMyLCBtZXRoID0gYygic2FtcGxlIiwgIm5vcm0ucHJlZGljdCIsICJsb2dyZWciLCAibm9ybS5wcmVkaWN0IikpYA0KDQpQYXJhIHZlciBvdHJvcyBtw6l0b2RvcywgcG9kZW1vcyB2ZXIgbGEgZG9jdW1lbnRhY2nDs24gZGUgbGEgZnVuY2nDs24gbWljZSBlc2NyaWJpZW5kbyBgP21pY2U6Om1pY2VgIGVuIGxhIGNvbnNvbGEuDQoNCjxicj4NCg0KIyMgUG9yIEsgdmVjaW5vcyBtw6FzIGNlcmNhbm9zLg0KIA0KQXBsaWNhbW9zIHZlY2lvbnMgbcOhcyBjZXJjYW5vcyB5IGd1YXJkYW1vcyBsb3MgcmVzdWx0YWRvcyBlbiBzbGVlcF9pbXANCg0KYGBge3J9DQpsaWJyYXJ5KERNd1IpDQpzbGVlcF9pbXAgPC0gRE13Ujo6a25uSW1wdXRhdGlvbihzbGVlcCkNCiNWaWV3KHNsZWVwX2ltcCkNCnN1bW1hcnkoc2xlZXBfaW1wKQ0KYGBgDQoNCsK/SGF5IGRhdG9zIHBlcmRpZG9zIGFob3JhPyANCg0KYGBge3J9DQphcHBseShzbGVlcF9pbXAsIDIsIGZ1bmN0aW9uKHgpe3N1bShpcy5uYSh4KSl9KQ0KYGBgDQoNCg0KIyMgUG9yIGJvc3F1ZXMgYWxlYXRvcmlvcy4NCg0KYGBge3J9DQpsaWJyYXJ5KG1pc3NGb3Jlc3QpDQpzbGVlcF9pbXBfcmYgPC0gbWlzc0ZvcmVzdChzbGVlcCkNCnByaW50KHNsZWVwX2ltcCROb25ELCBkaWdpdHMgPSAzKQ0KYGBgDQoNCiMjIE1JQ0UNCg0KPiBNSUNFOiAqTXVsdGl2YXJpYXRlIEltcHV0YXRpb24gYnkgQ2hhaW5lZCBFcXVhdGlvbnMqDQoNClV0aWxpemFyZW1vcyBsYSBtZXRvZG9sb2fDrWEgTUlDRTogTXVsdGl2YXJpYXRlIEltcHV0YXRpb24gYnkgQ2hhaW5lZCBFcXVhdGlvbnMgcGFyYSByZWFsaXphciBpbXB1dGFjacOzbiBtdWx0aXZhcmlhZGEuDQoNCkxhIGltcHV0YWNpw7NuIGNvbiBNSUNFIHB1ZWRlIHNlciBzaW1wbGUgbyBtw7psdGlwbGUuIFNpbXBsZSBzaSBzb2xvIHNlIGltcHV0YSBlbCBkYXRhc2V0IGluaWNpYWw7IHkgbcO6bHRpcGxlIGN1YW5kbyBzZSBjcmVhbiBtdWx0aXBsZXMgZGF0YXNldHMgY29uIGRpZmVyZW50ZXMgaW1wdXRhY2lvbmVzLg0KDQoNCmBgYHtyfQ0KbGlicmFyeShWSU0pDQpsaWJyYXJ5KG1pY2UpDQpgYGANCiANCg0KIyBJbXB1dGFjacOzbiBNw7psdGlwbGUNCg0KYGBge3IgZXZhbD1GQUxTRSwgd2FybmluZz1GQUxTRSwgaW5jbHVkZT1GQUxTRX0NCg0KIyBJbXB1dGFjacOzbiBNdWx0aXBsZQ0KDQpgYGANCg0KIyMgTUlDRQ0KDQpVdGlsaXphbW9zIGVsIHBhcXVldGUgTUlDRTogSW1wdXRhY2nDs24gTXVsdGl2YXJpYWRhIHBvciBDaGFpbmVkIEVxdWF0aW9ucyBwYXJhIHJlYWxpemFyIGxhIGltcHV0YWNpw7NuIG3Dumx0aXBsZS4NCg0KYGBge3J9DQpsaWJyYXJ5KG1pY2UpDQpgYGANCg0KTGEgaW1wdXRhY2nDs24gc2UgcmVhbGl6YSBjb24gZXN0YXMgbMOtbmVhcyBkZSBjw7NkaWdvOg0KDQpgYGB7cn0NCmltcDEgPC0gbWljZShzbGVlcCwgbSA9IDUsIHNlZWQgPSAyKQ0KaW1wMQ0KYGBgDQoNCkVsIGFyZ3VtZW50byBtPTUgaW5kaWNhIHF1ZSBzZSBjcmVhcmFuIDUgZGF0YXNldHMgZGUgaW1wdXRhY2lvbmVzLg0KDQoNClZlcmlmaWNhbW9zIGVsIG3DqXRvZG9zIGRlIGltcHV0YWNpw7NuIHV0aWxpemFkbzoNCmBgYHtyfQ0KaW1wMSRtZXRob2QNCmBgYA0KDQpDb21vIHZlbW9zLCBzZSB1c8OzIGVsIG3DqXRvZG8gcG1tIChQcmVkaWN0aXZlIG1lYW4gbWF0Y2hpbmcpOiBVbiBtw6l0b2RvIGRlIGltcHV0YWNpw7NuIHNlbWktcGFyw6FtZXRyaWNvIHVzYWRvIHBvciBkZWZlY3RvIHBhcmEgdmFyaWFibGVzIGNvbnRpbnVhcy4gDQogIC0gU2VsZWNjaW9uYSB1biBncnVwbyBkZSBjYW5kaWRhdG9zIHZlY2lubyBzaW1pbGFyZXMgeSBjZXJjYW5vcywgeSB0b21hIHVubyBhbGVhdG9yaWFtZW50ZSBjb21vIGRvbmFkb3IuDQoNCg0KPGJyPg0KDQoNCkltcHV0YWNpb25lcyBwYXJhIHVuYSB2YXJpYWJsZSBlbiBwYXJ0aWN1bGFyLiBWZWFtb3MgZWwgb2JqZXRvICoqaW1wMSoqLCBxdWUgdGllbmUgdW5hIGxpc3RhIGRlIGltcHV0YWRvcyAqKmltcCoqIGNvbiB1biBzZXQgZGUgaW1wdXRhZG9zIHBhcmEgbGEgY29sdW1uYSBOb25EIA0KDQpgYGB7cn0NCmhlYWQoaW1wMSRpbXAkTm9uRCkNCmBgYA0KDQpOb3RlbW9zIHF1ZSBjYWRhIGNvbHVtbmEgcmVwcmVzZW50YSBhIHVuIHNldCBkZSB2YWxvcmVzIGltcHV0YWRvcyBwYXJhIHVuYSB2YXJpYWJsZS4NCg0KIyMgVmlzdWFsaXphY2nDs24uDQoNCkVzdG9zIGdyw6FmaWNvcyBub3Mgc2Vydmlyw6FuIHBhcmEgcmV2aXNhciBzaSBsYXMgaW1wdXRhY2lvbmVzIHJlYWxpemFkYXMgc29uIG11eSB2YXJpYWJsZXMgZW50cmUgZGlmZXJlbnRlcyBkYXRhc2V0cy4NCg0KLSBFbCBwcmltZXIgZ3LDoWZpY28gbXVlc3RyYSBsb3MgdmFsb3JlcyBwZXJkaWRvcyBwYXJhIGxhIHZhcmlhYmxlIGVuIGVsIGVqZSBZOiAqKkdlc3QqKi4NCg0KLSBTZSBtdWVzdHJhbiA2IGN1YWRyb3MgY29ycmVzcG9uZGllbnRlcyBhIA0KICANCiAgICAtIExhIGRhdGEgb3JpZ2luYWwgeSANCiAgICAtIExvcyA1IGRhdGFzZXQgY29uc3RydWlkb3MgY29uIGxhIGltcHV0YWNpw7NuIG11bHRpcGxlLiANCiAgICANCi0gRW4gKipyb2pvKiogZXN0w6FuIGxhcyBvYnNlcnZhY2lvbmVzIGltcHV0YWRhcyBwYXJhIGxhIHZhcmlhYmxlIEdlc3QgKHZhcmlhYmxlIGRlbCBlamUgWSk7IHkgZW4gKiphenVsKiosIHRvZGFzIGxhcyBkZW3DoXMgb2JzZXJ2YWNpb25lcy4gDQoNCi0gTG9zIHB1bnRvcyBhenVsZXMgc29uIGxvcyBkYXRvcyBvYnNlcnZhZG9zIHkgYWRlbcOhcyBpbXB1dGFjaW9uZXMgcmVhbGl6YWRhcyBlbiBsYSB2YXJpYWJsZSAqKk5vbkQqKiAodmFyaWFibGUgZGVsIGVqZSBYKS4gDQoNCmBgYHtyfQ0KbGlicmFyeShsYXR0aWNlKQ0KeHlwbG90KGltcDEsIEdlc3QgfiBOb25EIHwgLmltcCwgcGNoID0gMjAsIGNleCA9IDEuNCkNCmBgYA0KDQo8YnI+DQoNCg0KLSBFbiBlbCBzaWd1aWVudGUgZ3LDoWZpY28gb2JzZXJ2YW1vcyBlbCBtaXNtbyB0aXBvIGRlIGRpYWdyYW1hLiBFc3RhIHZleiAqKmVuZm9jYWRvKiogZW4gZWwgYW7DoWxpc2lzIGRlIG90cmEgdmFyaWFibGU6ICoqTm9uRCoqIChOb3RlIGxhIGRpZmVyZW5jaWEgZW4gbGEgZm9ybXVsYSB1dGlsaXphZGEgKk5vbkQgfiBHZXN0KikuIA0KDQoNCi0gQSBwYXJ0aXIgZGUgbG9zICoqcHVudG9zIHJvc2Fkb3MqKiBlbiBsb3MgZGlmZXJlbnRlcyBjdWFkcm9zLCBzZSBvYnNlcnZhbiBsYXMgdmFyaWFjaW9uZXMgZW4gbGFzIGltcHV0YWNpb25lcyBwYXJhICoqTm9uRCoqIGVuIGxvcyBkaWZlcmVudGVzIGRhdGFzZXRzIGNvbnRydcOtZG9zIGR1cmFudGUgbGEgaW1wdXRhY2nDs24gbcO6bHRpcGxlLiANCg0KDQotIE5vdGVtb3MgYSBwYXJ0aXIgZGUgZXN0b3MgZ3LDoWZpY29zIHF1ZSBzZSBlc3TDoW4gaW1wdXRhbmRvIHZhbG9yZXMgZnVlcmEgZGUgbGEgbnViZSBkZSBwdW50b3MgY3JlYWRhIGVudHJlIGVzdGFzIGRvcyB2YXJpYWJsZXMuIEF1bnF1ZSBwb2Ryw61hIHN1Y2VkZXIuIA0KDQoNCmBgYHtyfQ0KeHlwbG90KGltcDEsIE5vbkQgfiBHZXN0IHwgLmltcCwgcGNoID0gMjAsIGNleCA9IDEuNCkNCmBgYA0KDQoNCjxicj4NCg0KRmluYWxtZW50ZSwgcGFyYSBvYnNlcnZhciBsb3MgZGF0b3MgZGUgbGFzIDUgaW1wdXRhY2lvbmVzIGVuIHVuIHNvbG8gZ3LDoWZpY28sIHRlbmVtb3MgZWwgc2lndWllbnRlIGPDs2RpZ28uDQoNCioqUGFyYSBsYSB2YXJpYWJsZSBHZXN0KioNCg0KYGBge3Igb3V0LndpZHRoPSc3MCUnfQ0KeHlwbG90KGltcDEsIEdlc3QgfiBOb25ELCBwY2ggPSAxOCkNCmBgYA0KDQoqKlBhcmEgbGEgdmFyaWFibGUgTm9uRCoqDQoNCmBgYHtyIG91dC53aWR0aD0nNzAlJ30NCnh5cGxvdChpbXAxLCBOb25EIH4gR2VzdCwgcGNoID0gMTgpDQpgYGANCg0KPGJyPg0KDQoNCkFkZW1hcywgc2kgcXVlcmVtb3MgaW5jbHVpciB1bmEgdGVyY2VyYSB2YXJpYWJsZSBhbCBhbsOhbGlzaXMgcG9kZW1vcyBvYnNlcnZhcmxhIGNhbWJpYW5kbyBsYSBmb3JtdWxhIGNvbW8gZWwgc2lndWllbnRlIGPDs2RpZ28uDQoNCmBgYHtyIG91dC53aWR0aD0nOTAlJ30NCnh5cGxvdChpbXAxLCBHZXN0IH4gTm9uRCArIFNwYW4gLCBwY2ggPSAxOCkNCmBgYA0KDQotIFZlcmVtb3MgbGEgcmVsYWNpw7NuIGRlIGxhIHZhcmlhYmxlIEdlc3QgY29uIFNwYW4gYWRlbcOhcyBkZSBjb24gTm9uRC4NCg0KLSBMb3MgKipwdW50b3Mgcm9zYWRvcyoqIHNvbiBsb3MgdmFsb3JlcyBpbXB1dGFkb3MuDQoNCg0KPGJyPg0KDQoNCkZpbmFsbWVudGUsIHV0aWxpemFyZW1vcyB1biBncsOhZmljbyBwYXJhIGxhIGRlbnNpZGFkIGRlIGxhcyBvYnNlcnZhY2lvbmVzIGltcHV0YWRhcyBlbiBjYWRhIGRhdGFzZXQuDQoNCi0gRXN0byBub3MgbW9zdHJhcsOhIHNpIGxhcyBkaWZlcmVudGVzIGltcHV0YWNpb25lcyBlc3TDoW4gY29uY2VudHJhZGFzIGVuIGxvcyBtaXNtb3MgdmFsb3JlcyBvIHNpIGNhbWJpYW4gZW50cmUgZGlmZXJlbnRlcyBkYXRhc2V0cy4gDQoNCi0gQ2FkYSBkZW5zaWRhZCBlc3TDoSByZXByZXNlbnRhZGEgZW4gbMOtbmVhcyBkZSBjb2xvciByb3NhZG8geSByZXByZXNlbnRhbiBsYSBkZW5zaWRhZCBwYXJhIGxhcyBpbXB1dGFjaW9uZXMgZW4gdW5vIGRlIGxvcyA1IGRhdGFzZXRzIGRlIGxhIGltcHV0YWNpw7NuIG3Dumx0aXBsZS4NCg0KLSBMYSBkZW5zaWRhZCBlbiBjb2xvciBjZWxlc3RlIHJlcHJlc2VudGEgbGEgZGVuc2lkYWQgZGUgbG9zIHZhbG9yZXMgb2JzZXJ2YWRvcy4NCg0KDQpgYGB7cn0NCmRlbnNpdHlwbG90KGltcDEpDQpgYGANCg0KLSBFc3RlIGdyw6FmaWNvIGNvbXBhcmEgbGEgKipkZW5zaWRhZCBkZSBsb3MgZGF0b3Mgb2JzZXJ2YWRvcyB2ZXJzdXMgbGEgZGVuc2lkYWQgZGUgbG9zIGRhdG9zIGltcHV0YWRvcyoqLiBTZSBlc3BlcmEgcXVlIGxhcyBsw61uZWFzIHNlYW4gc2ltaWxhcmVzIHBlcm8gbm8gaWTDqW50aWNvcy4NCg0KLSBFbmNvbnRyYXIgZGlmZXJlbmNpYXMgZW50cmUgbGFzIGRpZmVyZW50ZXMgaW1wdXRhY2lvbmVzIGluZGljYSBxdWUgbGFzICoqaW1wdXRhY2lvbmVzIHZhcsOtYW4qKiBlbnRyZSBkaWZlcmVudGVzIGRhdGFzZXRzLg0KDQoNCjxicj4NCg0KKipTdHJlZXBsb3QqKg0KDQotIEVsIMO6bHRpbW8gZ3LDoWZpY28gbGxhbWFkbyAqKnN0cmlwcGxvdCoqIG11ZXN0cmEgbGEgZGlzdHJpYnVjacOzbiBkZSBjYWRhIHZhcmlhYmxlIHkgc3VzIHZhbG9yZXMgaW1wdXRhZG9zIGVuIGxvcyBtdWx0aXBsZXMgZGF0YXNldHMuIA0KDQotIEVzICoqb3RyYSBmb3JtYSoqIGRlIHZlciBsYSAqKmRpc3RyaWJ1Y2nDs24gZGUgbG9zIGltcHV0YWRvcyoqIGVuIGxhcyBkaWZlcmVudGVzIG11ZXN0cmFzLiANCg0KYGBge3J9DQpzdHJpcHBsb3QoaW1wMSwgcGNoID0gMjApDQpgYGANCg0KDQojIE1vZGVsYW1pZW50byAgDQoNCg0KIyMgQ2Fzb3MgY29tcGxldG9zDQoNCkVsIGNhc28gbcOhcyBzaW1wbGUgeSByw6FwaWRvIHNlcsOhIHV0aWxpemFuZG8gc29sbyBsb3MgZGF0b3MgY29tcGxldG9zLg0KRW4gZXN0ZSBjYXNvLCBvbWl0aW1vcyBsYXMgZmlsYSBjb24gdmFsb3JlcyBwZXJkaWRvcyB5IGNvbnN0cnVpbW9zIG51ZXN0cm8gbW9kZWxvLg0KDQpgYGB7cn0NCmFqdXN0ZV9jYyA8LSBsbShCb2R5V2d0IH4gU2xlZXAgKyBCcmFpbldndCwgDQogICAgICAgICAgICAgICAgZGF0YSA9IG5hLm9taXQoc2xlZXApKQ0Kc3VtbWFyeShhanVzdGVfY2MpDQpgYGANCg0KIyMgSW1wdXRhY2nDs24gc2ltcGxlLg0KDQpEZXNwdWVzIGRlIHVuYSBpbXB1dGFjacOzbiBzaW1wbGUsIGVsIHJlc3VsdGFkbyBlcyB1biBkYXRhc2V0IGNvbiBlbCBtaXNtbyBuw7ptZXJvIGRlIGZpbGFzIHkgY29sdW1uYSBwZXJvIGNvbiB0b2RvcyBsb3MgZGF0b3MgbGxlbm9zIGNvbiBhbGfDum4gdmFsb3IgaW1wdXRhZG8uIA0KQWwgcmVhbGl6YXIgZWwgbW9kZWxhbWllbnRvLCBzZSB1dGlsaXphbiBsb3MgcmVzdWx0YWRvcyBkZSBsYSBpbXB1dGFjacOzbiByZWFsaXphZGEgcGFyYSBlbnRyZW5hciBlbCBtb2RlbG8uIA0KDQpgYGB7cn0NCmFqdXN0ZV9jYyA8LSBsbShCb2R5V2d0IH4gU2xlZXAgKyBCcmFpbldndCwgZGF0YSA9IGltcF9yZWcpDQpzdW1tYXJ5KGFqdXN0ZV9jYykNCmBgYA0KDQotIE5vdGE6IFNpIGRlc2VhbW9zIHV0aWxpemFyIGxhIGltcHV0YWNpw7NuIHBhcmEgbnVlc3RyYSBkYXRhIGRlIHZhbGlkYWNpw7NuLCB0ZW5lbW9zIHF1ZSBhcGxpY2FyIGxhIG1ldG9kb2xvZ8OtYSB5IG1vZGVsb3MgY3JlYWRvcyBwYXJhIGxhIGltcHV0YWNpw7NuIGEgcGFydGlyIGRlIGxhIGRhdGEgZGUgZW50cmVuYW1pZW50by4gDQoNCi0gTm8gZGViZW4gcmVhbGl6YXJzZSBtb2RlbG9zIHBhcmEgaW1wdXRhY2lvbmVzIGNvbiBsb3MgZGF0b3MgZGUgdmFsaWRhY2nDs24gc2lubyBwb2Ryw61hbW9zIHNlc2dhciBsYSBldmFsdWFjacOzbiBkZWwgbW9kZWxvIGVuIGxhIGRhdGEgZGUgZW50cmVuYW1pZW50by4gDQoNCg0KIyMgSW1wdXRhY2nDs24gbcO6bHRpcGxlLg0KDQoNCi0gTHVlZ28gZGUgdW5hIGltcHV0YWNpw7NuIG11bHRpcGxlLCBlbCBlbnRyZW5hbWllbnRvIGRlbCBtb2RlbG8gZGViZSByZWFsaXphcnNlIGVuIGNhZGEgdW5vIGxvcyBtw7psdGlwbGVzIGRhdGFzZXRzIGltcHV0YWRvcy4gDQoNCi0gTXVsdGlwbGVzIG1vZGVsb3Mgc2Vyw6FuIGVudHJlbmFkb3MgYSBwYXJ0aXIgZGUgbG9zIGRhdGFzZXRzLiBFcyBudWVzdHJhIHRhcmVhIGV2YWx1YXIgbGEgKip2YXJpYWJpbGlkYWQgZGUgbG9zIG1vZGVsb3MqKiBlbiBsb3MgZGlmZXJlbnRlcyBjb25qdW50b3MgZGUgZGF0b3MgeSBhbmFsaXphciBlbCBwZXJmb3JtYW5jZSBjb25qdW50byBkZSB0b2RvcyBlbGxvcy4gKEN1YW5kbyBsb3MgbW9kZWxvcyBzaXJ2ZW4gcGFyYSBlbnRlbmRlciBlbCBwcm9ibGVtYSwgZXMgbWVqb3IgYnVzY2FyIGNhcmFjdGVyw61zdGljYXMgZXN0YWJsZXMgZW50cmUgZGlmZXJlbnRlcyBpbXB1dGFjaW9uZXMuKQ0KDQotIEVqZW1wbG8gZW4gUjogdXNvIGRlIHJlZ3Jlc2nDs24gbGluZWFsIHBhcmEgbG9zIG3Dumx0aXBsZXMgZGF0YXNldHMgaW1wdXRhZG9zLiBFbCByZXN1bHRhZG9zIGRlbCBtb2RlbG8gZXMgZWwgc2lndWllbnRlOiANCg0KYGBge3J9DQphanVzdGVfaW1wIDwtIHdpdGgoaW1wMSwgbG0oIEJvZHlXZ3QgfiBTbGVlcCArIEJyYWluV2d0KSkNCnN1bW1hcnkoYWp1c3RlX2ltcCkNCmBgYA0KDQpOb3RlIHF1ZSBlcyBwb3NpYmxlIHV0aWxpemFyIGN1YWxxdWllciBvdHJhIGZ1bmNpw7NuIGVuIGx1Z2FyIGRlIGBsbSgpYC4NCkVsIHJlc3VsdGFkbyBzZXLDoSB1bmEgbGlzdGEgZGUgbW9kZWxvcyBwYXJhIGNhZGEgZGF0YXNldC4NCg0KUGVyZm9ybWFuY2UgZGVsIG1vZGVsbyBlbiBsYXMgNSBkaWZlcmVudGVzIGltcHV0YWNpb25lcyBjb24gbGEgbGlicmVyw61hICpwZXJmb3JtYW5jZSouICANCg0KYGBge3J9DQpsaWJyYXJ5KHBlcmZvcm1hbmNlKQ0KbGFwcGx5KGFqdXN0ZV9pbXAkYW5hbHlzZXMsIHBlcmZvcm1hbmNlKQ0KYGBgDQoNCg0KDQpGaW5hbG1lbnRlLCBlbCBhbsOhbGlzaXMgZGUgcmVzdWx0YWRvcyBzZSByZWFsaXphcsOhIGNvbWJpbmFuZG8gbG9zIHJlc3VsdGFkb3MgZGUgY2FkYSBtb2RlbG9zLiANCkVuIG51ZXN0cm8gY2Fzbywgc2UganVudGFuIGxvcyBjb2VmaWNpZW50ZXMgeSBlcnJvcmVzIGVzdMOhbmRhcmVzIGRlIGxvcyA1IG1vZGVsb3MgZGUgcmVncmVzacOzbi4NCg0KYGBge3J9DQphanVzdGVfY29tYiA8LSBwb29sKGFqdXN0ZV9pbXApDQpzdW1tYXJ5KGFqdXN0ZV9jb21iKQ0KcG9vbC5yLnNxdWFyZWQoYWp1c3RlX2ltcCkNCmBgYA0KDQoNCg0KRXN0b3MgcmVzdWx0YWRvcyBkZWZpbmVuIGVsIG1vZGVsbyBmaW5hbCBhIGV2YWx1YXIgY29uIGxhIGRhdGEgZGUgdmFsaWRhY2nDs24uIA0KDQo8IS0tIGtuaXRyOjpwdXJsKCkgLS0+DQoNCg0KDQojIEVqZXJjaWNpbw0KDQotIFtEZXNjcmlwY2nDs24gZGVsIGVqZXJjaWNpb10oZmlsZXMvRWplcmNpY2lvSW1wdXRhY2lvbjEucGRmKQ0KDQotIFtEYXRvcyBBZHZlcnRpc2luZy5jc3ZdKGZpbGVzL0FkdmVydGlzaW5nLmNzdikNCg0KIyBBbmV4b3MNCg0KLSBbU2xpZGVzIEltcHV0YWNpw7NuXShmaWxlcy8zX1RyYXRhbWllbnRvIGRlIGRhdG9zIHBlcmRpZG9zLnBkZikNCg0KLSBbQ8OzZGlnb3MgdXRpbGl6YWRvcyBlbiBlc3RlIG1hbnVhbCBlbiBSXShmaWxlcy9HdWlhUkltcHV0YWNpb25fMjAyMTA5MDQuUikNCg0KYGBge3IgcmVmLmxhYmVsPWtuaXRyOjphbGxfbGFiZWxzKCksIGVjaG89VFJVRSwgZXZhbD1GQUxTRSwgY2xhc3Muc291cmNlID0gImZvbGQtaGlkZSJ9IA0KYGBgIA0KDQoNCi0gW0Rlc2NyaXBjacOzbiBkZSBjb2x1bW5hcyBkZWwgZGF0YXNldCBfc2xlZXBfXShmaWxlcy9zbGVlcF9kYXRhX25hbWVzLnBkZikNCg==</div>
+      <div id="rmd-source-code">LS0tDQp0aXRsZTogIlRyYXRhbWllbnRvIGRlIHZhbG9yZXMgcGVyZGlkb3MgY29uIFIiDQphdXRob3I6DQogIC0gRXZlbHluIEd1dGllcnJlel5bZWd1dGllcnJlemFAcHVjcC5lZHUucGVdDQogIC0gVmlsbWEgUm9tZXJvXlt2cm9tZXJvQHVuaS5wZV0NCmRhdGU6ICJTZXB0ZW1iZXIsIDIwMjEiDQpvdXRwdXQ6DQogIHJtZGZvcm1hdHM6OnJvYm9ib29rOg0KICAgIGhpZ2hsaWdodDogcHlnbWVudHMNCiAgICBudW1iZXJfc2VjdGlvbnM6IHRydWUNCiAgICBjb2RlX2ZvbGRpbmc6IHNob3cNCiAgICBjb2RlX2Rvd25sb2FkOiBUUlVFDQogICAgZGZfcHJpbnQ6ICJrYWJsZSINCiAgaHRtbF9kb2N1bWVudDoNCiAgICB0b2M6IHllcw0KICBwZGZfZG9jdW1lbnQ6IA0KICAgIGtlZXBfdGV4OiB5ZXMNCiAgICBudW1iZXJfc2VjdGlvbnM6IHllcw0KICAgIHRvYzogeWVzDQoNCi0tLQ0KDQpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRX0NCmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkNCmtuaXRyOjpvcHRzX2NodW5rJHNldCh3YXJuaW5nID0gRkFMU0UpDQprbml0cjo6b3B0c19jaHVuayRzZXQobWVzc2FnZSA9IEZBTFNFKQ0KYGBgDQoNCg0KDQojIEludHJvZHVjY2nDs24uDQoNCg0KYGBge3IgZWNobz1GQUxTRX0NCmtuaXRyOjppbmNsdWRlX3VybCgiZmlsZXMvM19UcmF0YW1pZW50byBkZSBkYXRvcyBwZXJkaWRvcy5wZGYiLCBoZWlnaHQgPSAiNjAwcHgiKQ0KYGBgDQoNCg0KDQojIExhYm9yYXRvcmlvIGVuIFIuDQoNCkVuIGVzdGEgc2VzacOzbiwgcmVhbGl6YXJlbW9zIGxhIGltcHV0YWNpw7NuIGRlIGRhdG9zIHBlcmRpZG9zIHV0aWxpemFuZG8gdMOpY25pY2FzIGLDoXNpY2FzIHkgcG9yIHZlY2lub3MgbcOhcyBjZXJjYW5vcy4gDQoNClJlcXVlcmltb3MgaW5zdGFsYXIgbG9zIHNpZ3VpZW50ZXMgcGFxdWV0ZXM6IA0KDQoqIGBIbWlzY2ANCiogYFZJTWANCiogYG1pY2VgDQoqIGBETXdSYA0KDQoNClBhcmEgYERNd1JgLCB1dGlsaXphcjogYHJlbW90ZXM6Omluc3RhbGxfZ2l0aHViKCJjcmFuL0RNd1IiKWANCg0KDQojIEV4cGxvcmFjacOzbiBkZSB2YWxvcmVzIHBlcmRpZG9zLg0KICANCiAgDQoNCjxicj4NCg0KIyMgRXhwbG9yYWNpw7NuIGLDoXNpY2EuDQoNCioqQ2FzbyAxOiBOb3Rhcy4qKg0KICANCkluaWNpYW1vcyBlc3RlIGVqZW1wbG8sIGNyZWFuZG8gdW4gZGF0YS5mcmFtZSBub3RhcyBjb24gYWxndW5hIG5vdGEgZmFsdGFudGUuDQogIA0KYGBge3J9DQpub3RhcyA8LSBkYXRhLmZyYW1lKG5vbWJyZSA9IGMoIkplc3VzIiwgIkNhcmxhIiwgIlJvZHJpZ28iLCAiSmF2aWVyIiksDQogICAgICAgICAgICAgICAgICAgIG5vdGEgPSBjKDEyLCAxNSwgMTMsIE5BKSkNCm5vdGFzDQpgYGANCg0KRXhwbG9yYW1vcyB2aXN1YWxtZW50ZSBlbCBuw7ptZXJvIGRlIHZhbG9yZXMgcGVyZGlkb3MgcG9yIHZhcmlhYmxlOiBzb2xvIGV4aXN0ZSB1biB2YWxvciBhbGVhdG9yaW8uDQoNCkZpbmFsbWVudGUsIHNlbGVjY2lvbmFyIGxvcyBkYXRvcyBjb21wbGV0b3MgY29uIGBjb21wbGV0ZS5jYXNlc2AuDQpgYGB7cn0NCm5vdGFzX2NvbXAgPC0gbm90YXNbY29tcGxldGUuY2FzZXMobm90YXMpLF0NCm5vdGFzX2NvbXANCmBgYA0KIA0KDQo8YnI+DQoNCiMjIFZpc3VhbGl6YWNpb25lcw0KDQogDQoqKkNhc28gMjogRGF0YXNldCBzbGVlcCoqICANCg0KDQoNClV0aWxpemFyZW1vcyBlbCBjb25qdW50byBkZSBkYXRvcyAqc2xlZXAqIGRlbCBwYXF1ZXRlIFZJTSBwYXJhIHJlYWxpemFyIGxhIGV4cGxvcmFjacOzbiBkZSB2YWxvcmVzIHBlcmRpZG9zIGVuIFIuDQogDQotIEluc3RhbGFjacOzbjoNCg0KTmVjZXNpdGFtb3MgaW5zdGFsYXIgZWwgcGFxdWV0ZSBWSU0gY29uIGVsIHNpZ3VpZW50ZSBjw7NkaWdvIGVuIGxhIGNvbnNvbGE6IGBpbnN0YWxsLnBhY2thZ2VzKCJWSU0iKWAuDQoNCkx1ZWdvLCBjYXJnYW1vcyBsb3MgZGF0b3MgZGUgYHNsZWVwYCB5IHZlbW9zIGxhcyBwcmltZXJhcyBmaWxhcyBkZWwgZGF0YXNldCB1dGlsaXphbmRvIGVsIHNpZ3VpZW50ZSBjw7NkaWdvOg0KDQoNCmBgYHtyfQ0KIyBDYXJnYSBsb3MgZGF0b3MuDQpkYXRhKHNsZWVwLCBwYWNrYWdlID0gIlZJTSIpDQoNCiMgVmVtb3MgbGFzIDYgcHJpbWVyYXMgZmlsYXMuDQpoZWFkKHNsZWVwKQ0KYGBgDQoNCg0KQ29tcHJvYmFyZW1vcyBxdWUgZWwgZGF0YXNldCAic2xlZXAiIGFob3JhIGFwYXJlY2UgdGFtYmnDqW4gZW4gc3UgKipFbnZpcm9ubWVudCoqIGVuIFJTdHVkaW8uIA0KDQoNCkluaWNpYW1vcyBsYSAqKmV4cGxvcmFjacOzbiBpbmljaWFsKiogZGUgZXN0ZSBudWV2byBkYXRhc2V0IGNvbiBhbGd1bm8gZGUgbG9zIHNpZ3VpZW50ZXMgY29tYW5kb3MgYsOhc2ljb3M6DQoNCmBgYHtyfQ0Kc3RyKHNsZWVwKQ0KZHBseXI6OmdsaW1wc2Uoc2xlZXApDQpzdW1tYXJ5KHNsZWVwKQ0KYGBgDQoNCg0KRW4gdG9kb3MgZWxsb3Mgb2JzZXJ2YXJlbW9zIHVuYSBwcmltZXJhIHZpc3RhIGRlIGxvcyBkYXRvcy4gTm90YXJlbW9zIGFkZW3DoXMsIHF1ZSBleGlzdGVuIHZhbG9yZXMgTkEsIGRhdG9zIHBlcmRpZG9zLg0KTGEgcHJpbWVyYSBwcmVndW50YSBxdWUgbm9zIGhhY2Vtb3MgZXM6DQoNCg0KPiDCv0N1w6FudG9zIGRhdG9zIGVzdMOhbiBjb24gdmFsb3JlcyBOQSBlbiBlc3RlIGRhdGFzZXQ/DQoNCg0KUGFyYSBjb250YXIgZWwgbsO6bWVybyBkZSB2YWxvcmVzIHBlcmRpZG9zIHBvciB2YXJpYWJsZSBwb2RlbW9zIHVzYXIgZXN0ZSBjw6FsY3VsbyBjb24gbGEgZnVuY2nDs24gKmFwcGx5KiBxdWUgY3VlbnRhIGVsIG7Dum1lcm8gZGUgdmFsb3JlcyBwZXJkaWRvcyAodmFsb3JlcyBOQSBwYXJhIFIpIHBvciBjb2x1bW5hLiANCg0KYGBge3J9DQphcHBseShzbGVlcCwgMiwgZnVuY3Rpb24oeCl7c3VtKGlzLm5hKHgpKX0pDQpgYGANCiANCiANCkFob3JhIHBvZGVtb3MgcmVzcG9uZGVyIGxvIHNpZ3VpZW50ZSBgciBlbW86OmppKCJ0ZWFjaGVyIilgOiANCg0KKiDCv0N1w6FudG9zIHZhbG9yZXMgcGVyZGlkb3MgaGF5IGVuIGNhZGEgdmFyaWFibGU/DQoqIMK/UXXDqSB2YXJpYWJsZXMgdGllbmVuIHZhbG9yZXMgcGVyZGlkb3M/DQoqIMK/UXXDqSB2YXJpYWJsZXMgdGllbmVuIG3DoXMgdmFsb3JlcyBwZXJkaWRvcz8gYHIgZW1vOjpqaSgicmFpc2VkIilgDQogDQoNCjxicj4NCg0KDQpDb250aW51YW1vcyBleHBsb3JhbmRvIGxvcyB2YWxvcmVzIHBlcmRpZG9zIGFuYWxpemFuZG8gZWwgKipwYXRyw7NuIGRlIHZhbG9yZXMgcGVyZGlkb3MqKiBkaXN0cmlidWlkb3MgKiplbiBsYXMgZGlmZXJlbnRlcyB2YXJpYWJsZXMqKiBkZWwgY29uanVudG8gZGUgZGF0b3MgKGRhdGFzZXQpLiBFc3RvIG5vcyBheXVkYXLDoSBhIGVudGVuZGVyIG1lam9yIG51ZXN0cm9zIGRhdG9zLiANCg0KTG8gaGFjZW1vcyB1dGlsaXphbmRvIGxhIGZ1bmNpw7NuICptZC5wYXR0ZXJuKiB5ICptZC5wYWlycyogZGVsIHBhcXVldGUgKipNSUNFKiouDQoNCmBgYHtyIG91dC53aWR0aD0nODAlJ30NCm1pY2U6Om1kLnBhdHRlcm4oc2xlZXAsIHJvdGF0ZS5uYW1lcz1UUlVFKQ0KbWljZTo6bWQucGFpcnMoc2xlZXApDQpgYGANCg0KRW4gZXN0b3MgZ3LDoWZpY29zIHkgdGFibGFzIG9ic2VydmFtb3MgbGFzIGRpZmVyZW50ZXMgY29tYmluYWNpb25lcyBkZSB2YWxvcmVzIHBlcmRpZG9zIHF1ZSB0ZW5lbW9zIHBhcmEgbnVlc3RyYXMgdmFyaWFibGVzLiBBaG9yYSwgcG9kZW1vcyByZXNwb25kZXIgbGFzIHNpZ3VpZW50ZSBwcmVndW50YXM6IA0KDQoqIMK/Q3VhbnRhcyBvYnNlcnZhY2lvbmVzIG5vIHRpZW5lbiBuaWfDum4gdmFsb3IgcGVyZGlkbz8NCiogwr9DdWFudGFzIG9ic2VydmFjaW9uZXMgbm8gdGllbmVuIG5pZ8O6biB2YWxvciBwZXJkaWRvPw0KDQpWaXN1YWxpemFjacOzbiBkZSBkYXRvcyBwZXJkaWRvcw0KYGBge3J9DQpzbGVlcF9hZ2dyIDwtIFZJTTo6YWdncihzbGVlcCwgY29sID0gbWljZTo6bWRjKDE6MiksIG51bWJlcnMgPSBUUlVFLCANCiAgICAgICAgICAgICAgICAgICAgICAgIHNvcnRWYXJzID0gVFJVRSwgbGFiZWxzID0gbmFtZXMoc2xlZXApLA0KICAgICAgICAgICAgICAgICAgICAgICAgY2V4LmF4aXM9IDAuNywgZ2FwID0gMywNCiAgICAgICAgICAgICAgICAgICAgICAgIHlsYWIgPSBjKCJQcm9wb3JjacOzbiBkZSBQw6lyZGlkYSIsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiUGF0csOzbiBkZSBQw6lyZGlkYSIpKQ0KYGBgDQoNCkRpc3RyaWJ1Y2nDs24gZGUgb2JzZXJ2YWNpb25lcyBjb21wbGV0YXMgZSBpbmNvbXBsZXRhcyBwb3IgcGFyZXMgZGUgdmFyaWFibGVzDQpgYGB7cn0NClZJTTo6bWFyZ2lucGxvdChzbGVlcFsgLCBjKDMsIDcpXSwgcGNoID0gMTkpDQpWSU06Om1hcmdpbnBsb3Qoc2xlZXBbICwgYygzLCA3KV0sIGNvbCA9IGMoImJsdWUiLCAicmVkIiwgIm9yYW5nZSIpLCBwY2ggPSAyMCkNCmBgYA0KDQpEZXNjcmlwY2nDs246DQoNCiogUHVudG9zIGF6dWxlcyAoZGlhZ3JhbWEgZGUgZGlzcGVyc2nDs24pOiBpbmRpdmlkdW9zIGNvbiBhbWJvcyB2YWxvcmVzIGRlIGxhcyB2YXJpYWJsZXMuDQoqIEJveHBsb3RzIGF6dWxlczogYm94cGxvdHMgZGUgbG9zIHZhbG9yZXMgbm8gcGVyZGlkb3MgZGUgY2FkYSB2YXJpYWJsZQ0KDQoqIFB1bnRvcyByb2pvcyAoRWplIFg6IE5vbkQpOiBpbmRpdmlkdW9zIGNvbiB2YWxvcmVzIHBlcmRpZG9zIGVuIEdlc3QgcGVybyBvYnNlcnZhZG9zIGVuIE5vbkQuDQoqIFB1bnRvcyByb2pvcyAoRWplIFk6IEdlc3QpOiBpbmRpdmlkdW9zIGNvbiB2YWxvcmVzIHBlcmRpZG9zIGVuIE5vbkQgcGVybyBvYnNlcnZhZG9zIGVuIEdlc3QuDQoqIEJveHBsb3RzIHJvam9zOiBSZXByZXNlbnRhbiBsYSBkaXN0cmlidWNpw7NuIG1hcmdpbmFsIGRlIGxvcyBwdW50b3Mgcm9qb3MuDQoNCk5vdGE6IFNpIGxvcyBkYXRvcyBwZXJkaWRvcyBzb24gY29tcGxldGFtZW50ZSBhbGVhdG9yaW9zIHNlIGVzcGVyYSBxdWUNCmxvcyBib3hwbG90cyByb2pvcyB5IGF6dWxlcyBzZWFuIGlkw6ludGljb3MNCg0KDQpcbmV3cGFnZQ0KDQoNCiMgSW1wdXRhY2nDs24gVW5pdmFyaWFkYQ0KDQpgYGB7ciBldmFsPUZBTFNFLCB3YXJuaW5nPUZBTFNFLCBpbmNsdWRlPUZBTFNFfQ0KDQojIEltcHV0YWNpw7NuIFVuaXZhcmlhZGENCg0KYGBgDQoNCiMjIENvbiBsYSBtZWRpYS4NCg0KaW5zdGFsYW1vcyBsYSBsaWJyZXLDrWEgYEhtaXNjYCBwYXJhIHJlYWxpemFyIGltcHV0YWNpb25lcyBiw6FzaWNhcy4gTGEgaW5zdGFsYWNpw7NuLCBsYSByZWFsaXphcmVtb3MgdXRpbGl6YW5kbyBlbCBzaWd1aWVudGUgY29tYW5kbyBlbiBsYSBjb25zb2xhOiBgaW5zdGFsbC5wYWNrYWdlcygiSG1pc2MiKWAuDQoNCkx1ZWdvIGRlIGNvbXBsZXRhZGEgbGEgaW5zdGFsYWNpw7NuLCBjb21wcm9iYW1vcyBjYXJnYW5kbyBlbCBwYXF1ZXRlLg0KDQoNCmBgYHtyIHdhcm5pbmc9RkFMU0V9DQpsaWJyYXJ5KEhtaXNjKQ0KYGBgDQoNCg0KU2kgbm8gdGVuZW1vcyBtYXlvciBpbmZvcm1hY2nDs24sIHV0aWxpemFyZW1vcyBsYSBtZWRpYSBjb21vIHZhbG9yIGRlIGltcHV0YWNpw7NuLg0KRXMgdW5hIGltcHV0YWNpw7NuIHLDoXBpZGEsIHNpbXBsZSB5IHNlbmNpbGxhLg0KDQpgYGB7cn0NCm5vdGFzJG5vdGFfaW1wIDwtIHdpdGgobm90YXMsIGltcHV0ZShub3RhLCBtZWFuKSkNCm5vdGFzDQpgYGANCg0KKioqDQoNCiMjIENvbiB2YWxvciBhbGVhdG9yaW8uDQoNClV0aWxpemFtb3MgdW4gdmFsb3IgYWxlYXRvcmlvIGNvbW8gdmFsb3IgZGUgaW1wdXRhY2nDs246IFNlIHNlbGVjY2lvbmEgYWxlYXRvcmlhbWVudGUgYSBwYXJ0aXIgZGUgbG9zIHZhbG9yZXMgbm8gcGVyZGlkb3MuIFNpbXBsZSB5IMO6dGlsIGVuIGNhc28gZGUgTUNBUi4NCg0KYGBge3J9DQpub3RhcyRub3RhX2ltcCA8LSB3aXRoKG5vdGFzLCBpbXB1dGUobm90YSwgJ3JhbmRvbScpKQ0Kbm90YXMNCmBgYA0KDQoqKioNCg0KIyMgQ29uIHVuIHZhbG9yIGVzcGVjw61maWNvLg0KDQpTaSB0ZW5lbW9zIGluZm9ybWFjacOzbiBlc3BlY8OtZmljYSwgbyByZXN1bHRhIGNvbnZlbmllbnRlLCBwb2RlbW9zIGltcHV0YXIgbG9zIGRhdG9zIHBlcmRpZG9zIGNvbiB1biB2YWxvciBlc3BlY8OtZmljby4NCg0KDQpgYGB7cn0NCm5vdGFzJG5vdGFfaW1wIDwtIHdpdGgobm90YXMsIGltcHV0ZShub3RhLCA5OSkpDQpub3Rhcw0KYGBgDQoNCioqKg0KDQojIyBNYW51YWxtZW50ZQ0KDQpQb3IgdWx0aW1vLCBsYSBpbXB1dGFjacOzbiBwdWVkZSByZWFsaXphcnNlIHNpbiBlbCBwYXF1ZXRlIEhtaXNjIGRlIGxhIHNpZ3VpZW50ZSBtYW5lcmE6DQoNCmBgYHtyfQ0Kbm90YXMkbm90YVtpcy5uYShub3RhcyRub3RhKV0gPC0gbWVhbihub3RhcyRub3RhLCBuYS5ybSA9IFQpDQpub3Rhcw0KYGBgDQoNCg0KPGJyPg0KDQojIEltcHV0YWNpw7NuIE11bHRpdmFyaWFkYQ0KDQpgYGB7ciBldmFsPUZBTFNFLCB3YXJuaW5nPUZBTFNFLCBpbmNsdWRlPUZBTFNFfQ0KDQojIEltcHV0YWNpw7NuIE11bHRpdmFyaWFkYQ0KDQpgYGANCg0KIyMgUG9yIHJlZ3Jlc2nDs24gbGluZWFsLg0KDQpDb24gbGEgbGlicmVyw61hIG1pY2UuIEVzdGEgbGlicmVyw61hIHNpcnZlIHBhcmEgaW1wdXRhY2nDs24gbcO6bHRpcGxlIHBlcm8gcG9kZW1vcyB1c2FybGEgdGFtYmnDqW4gcGFyYSBpbXB1dGFjacOzbiBzaW1wbGUgc2kgZGVmaW5pbW9zICptPTEqLiAgDQoNCmBgYHtyfQ0KbGlicmFyeShtaWNlKSANCmltcCA8LSBtaWNlKHNsZWVwLCBtZXRob2QgPSAibm9ybS5wcmVkaWN0IiwgbSA9IDEsIG1heGl0PTEpICMgSW1wdXRlIGRhdGENCmltcF9yZWcgPC0gY29tcGxldGUoaW1wKQ0KYGBgDQoNClBhcmEgbWlzc2luZ3MgZW4gdmFyaWFibGVzIGNhdGVnb3LDrWNhcyBzZSBwdWVkZSB1dGlsaXphciByZWdyZXNpw7NuIGxvZ2lzdGljYSBjb24gZWwgYXJndW1lbnRvIGBtZXRob2Q9ImxvZ3JlZyJgLiBFamVtcGxvOiANCmBtaWNlKG5oYW5lczIsIG1ldGggPSBjKCJzYW1wbGUiLCAibm9ybS5wcmVkaWN0IiwgImxvZ3JlZyIsICJub3JtLnByZWRpY3QiKSlgDQoNClBhcmEgdmVyIG90cm9zIG3DqXRvZG9zLCBwb2RlbW9zIHZlciBsYSBkb2N1bWVudGFjacOzbiBkZSBsYSBmdW5jacOzbiBtaWNlIGVzY3JpYmllbmRvIGA/bWljZTo6bWljZWAgZW4gbGEgY29uc29sYS4NCg0KPGJyPg0KDQojIyBQb3IgSyB2ZWNpbm9zIG3DoXMgY2VyY2Fub3MuDQogDQpBcGxpY2Ftb3MgdmVjaW9ucyBtw6FzIGNlcmNhbm9zIHkgZ3VhcmRhbW9zIGxvcyByZXN1bHRhZG9zIGVuIHNsZWVwX2ltcA0KDQpgYGB7cn0NCmxpYnJhcnkoRE13UikNCnNsZWVwX2ltcCA8LSBETXdSOjprbm5JbXB1dGF0aW9uKHNsZWVwKQ0KI1ZpZXcoc2xlZXBfaW1wKQ0Kc3VtbWFyeShzbGVlcF9pbXApDQpgYGANCg0Kwr9IYXkgZGF0b3MgcGVyZGlkb3MgYWhvcmE/IA0KDQpgYGB7cn0NCmFwcGx5KHNsZWVwX2ltcCwgMiwgZnVuY3Rpb24oeCl7c3VtKGlzLm5hKHgpKX0pDQpgYGANCg0KDQojIyBQb3IgYm9zcXVlcyBhbGVhdG9yaW9zLg0KDQpgYGB7cn0NCmxpYnJhcnkobWlzc0ZvcmVzdCkNCnNsZWVwX2ltcF9yZiA8LSBtaXNzRm9yZXN0KHNsZWVwKQ0KcHJpbnQoc2xlZXBfaW1wJE5vbkQsIGRpZ2l0cyA9IDMpDQpgYGANCg0KIyMgTUlDRQ0KDQo+IE1JQ0U6ICpNdWx0aXZhcmlhdGUgSW1wdXRhdGlvbiBieSBDaGFpbmVkIEVxdWF0aW9ucyoNCg0KVXRpbGl6YXJlbW9zIGxhIG1ldG9kb2xvZ8OtYSBNSUNFOiBNdWx0aXZhcmlhdGUgSW1wdXRhdGlvbiBieSBDaGFpbmVkIEVxdWF0aW9ucyBwYXJhIHJlYWxpemFyIGltcHV0YWNpw7NuIG11bHRpdmFyaWFkYS4NCg0KTGEgaW1wdXRhY2nDs24gY29uIE1JQ0UgcHVlZGUgc2VyIHNpbXBsZSBvIG3Dumx0aXBsZS4gU2ltcGxlIHNpIHNvbG8gc2UgaW1wdXRhIGVsIGRhdGFzZXQgaW5pY2lhbDsgeSBtw7psdGlwbGUgY3VhbmRvIHNlIGNyZWFuIG11bHRpcGxlcyBkYXRhc2V0cyBjb24gZGlmZXJlbnRlcyBpbXB1dGFjaW9uZXMuDQoNCg0KYGBge3J9DQpsaWJyYXJ5KFZJTSkNCmxpYnJhcnkobWljZSkNCmBgYA0KIA0KDQojIEltcHV0YWNpw7NuIE3Dumx0aXBsZQ0KDQpgYGB7ciBldmFsPUZBTFNFLCB3YXJuaW5nPUZBTFNFLCBpbmNsdWRlPUZBTFNFfQ0KDQojIEltcHV0YWNpw7NuIE11bHRpcGxlDQoNCmBgYA0KDQojIyBNSUNFDQoNClV0aWxpemFtb3MgZWwgcGFxdWV0ZSBNSUNFOiBJbXB1dGFjacOzbiBNdWx0aXZhcmlhZGEgcG9yIENoYWluZWQgRXF1YXRpb25zIHBhcmEgcmVhbGl6YXIgbGEgaW1wdXRhY2nDs24gbcO6bHRpcGxlLg0KDQpgYGB7cn0NCmxpYnJhcnkobWljZSkNCmBgYA0KDQpMYSBpbXB1dGFjacOzbiBzZSByZWFsaXphIGNvbiBlc3RhcyBsw61uZWFzIGRlIGPDs2RpZ286DQoNCmBgYHtyfQ0KaW1wMSA8LSBtaWNlKHNsZWVwLCBtID0gNSwgc2VlZCA9IDIpDQppbXAxDQpgYGANCg0KRWwgYXJndW1lbnRvIG09NSBpbmRpY2EgcXVlIHNlIGNyZWFyYW4gNSBkYXRhc2V0cyBkZSBpbXB1dGFjaW9uZXMuDQoNCg0KVmVyaWZpY2Ftb3MgZWwgbcOpdG9kb3MgZGUgaW1wdXRhY2nDs24gdXRpbGl6YWRvOg0KYGBge3J9DQppbXAxJG1ldGhvZA0KYGBgDQoNCkNvbW8gdmVtb3MsIHNlIHVzw7MgZWwgbcOpdG9kbyBwbW0gKFByZWRpY3RpdmUgbWVhbiBtYXRjaGluZyk6IFVuIG3DqXRvZG8gZGUgaW1wdXRhY2nDs24gc2VtaS1wYXLDoW1ldHJpY28gdXNhZG8gcG9yIGRlZmVjdG8gcGFyYSB2YXJpYWJsZXMgY29udGludWFzLiANCiAgLSBTZWxlY2Npb25hIHVuIGdydXBvIGRlIGNhbmRpZGF0b3MgdmVjaW5vIHNpbWlsYXJlcyB5IGNlcmNhbm9zLCB5IHRvbWEgdW5vIGFsZWF0b3JpYW1lbnRlIGNvbW8gZG9uYWRvci4NCg0KDQo8YnI+DQoNCg0KSW1wdXRhY2lvbmVzIHBhcmEgdW5hIHZhcmlhYmxlIGVuIHBhcnRpY3VsYXIuIFZlYW1vcyBlbCBvYmpldG8gKippbXAxKiosIHF1ZSB0aWVuZSB1bmEgbGlzdGEgZGUgaW1wdXRhZG9zICoqaW1wKiogY29uIHVuIHNldCBkZSBpbXB1dGFkb3MgcGFyYSBsYSBjb2x1bW5hIE5vbkQgDQoNCmBgYHtyfQ0KaGVhZChpbXAxJGltcCROb25EKQ0KYGBgDQoNCk5vdGVtb3MgcXVlIGNhZGEgY29sdW1uYSByZXByZXNlbnRhIGEgdW4gc2V0IGRlIHZhbG9yZXMgaW1wdXRhZG9zIHBhcmEgdW5hIHZhcmlhYmxlLg0KDQojIyBWaXN1YWxpemFjacOzbi4NCg0KRXN0b3MgZ3LDoWZpY29zIG5vcyBzZXJ2aXLDoW4gcGFyYSByZXZpc2FyIHNpIGxhcyBpbXB1dGFjaW9uZXMgcmVhbGl6YWRhcyBzb24gbXV5IHZhcmlhYmxlcyBlbnRyZSBkaWZlcmVudGVzIGRhdGFzZXRzLg0KDQotIEVsIHByaW1lciBncsOhZmljbyBtdWVzdHJhIGxvcyB2YWxvcmVzIHBlcmRpZG9zIHBhcmEgbGEgdmFyaWFibGUgZW4gZWwgZWplIFk6ICoqR2VzdCoqLg0KDQotIFNlIG11ZXN0cmFuIDYgY3VhZHJvcyBjb3JyZXNwb25kaWVudGVzIGEgDQogIA0KICAgIC0gTGEgZGF0YSBvcmlnaW5hbCB5IA0KICAgIC0gTG9zIDUgZGF0YXNldCBjb25zdHJ1aWRvcyBjb24gbGEgaW1wdXRhY2nDs24gbXVsdGlwbGUuIA0KICAgIA0KLSBFbiAqKnJvam8qKiBlc3TDoW4gbGFzIG9ic2VydmFjaW9uZXMgaW1wdXRhZGFzIHBhcmEgbGEgdmFyaWFibGUgR2VzdCAodmFyaWFibGUgZGVsIGVqZSBZKTsgeSBlbiAqKmF6dWwqKiwgdG9kYXMgbGFzIGRlbcOhcyBvYnNlcnZhY2lvbmVzLiANCg0KLSBMb3MgcHVudG9zIGF6dWxlcyBzb24gbG9zIGRhdG9zIG9ic2VydmFkb3MgeSBhZGVtw6FzIGltcHV0YWNpb25lcyByZWFsaXphZGFzIGVuIGxhIHZhcmlhYmxlICoqTm9uRCoqICh2YXJpYWJsZSBkZWwgZWplIFgpLiANCg0KYGBge3J9DQpsaWJyYXJ5KGxhdHRpY2UpDQp4eXBsb3QoaW1wMSwgR2VzdCB+IE5vbkQgfCAuaW1wLCBwY2ggPSAyMCwgY2V4ID0gMS40KQ0KYGBgDQoNCjxicj4NCg0KDQotIEVuIGVsIHNpZ3VpZW50ZSBncsOhZmljbyBvYnNlcnZhbW9zIGVsIG1pc21vIHRpcG8gZGUgZGlhZ3JhbWEuIEVzdGEgdmV6ICoqZW5mb2NhZG8qKiBlbiBlbCBhbsOhbGlzaXMgZGUgb3RyYSB2YXJpYWJsZTogKipOb25EKiogKE5vdGUgbGEgZGlmZXJlbmNpYSBlbiBsYSBmb3JtdWxhIHV0aWxpemFkYSAqTm9uRCB+IEdlc3QqKS4gDQoNCg0KLSBBIHBhcnRpciBkZSBsb3MgKipwdW50b3Mgcm9zYWRvcyoqIGVuIGxvcyBkaWZlcmVudGVzIGN1YWRyb3MsIHNlIG9ic2VydmFuIGxhcyB2YXJpYWNpb25lcyBlbiBsYXMgaW1wdXRhY2lvbmVzIHBhcmEgKipOb25EKiogZW4gbG9zIGRpZmVyZW50ZXMgZGF0YXNldHMgY29udHJ1w61kb3MgZHVyYW50ZSBsYSBpbXB1dGFjacOzbiBtw7psdGlwbGUuIA0KDQoNCi0gTm90ZW1vcyBhIHBhcnRpciBkZSBlc3RvcyBncsOhZmljb3MgcXVlIHNlIGVzdMOhbiBpbXB1dGFuZG8gdmFsb3JlcyBmdWVyYSBkZSBsYSBudWJlIGRlIHB1bnRvcyBjcmVhZGEgZW50cmUgZXN0YXMgZG9zIHZhcmlhYmxlcy4gQXVucXVlIHBvZHLDrWEgc3VjZWRlci4gDQoNCg0KYGBge3J9DQp4eXBsb3QoaW1wMSwgTm9uRCB+IEdlc3QgfCAuaW1wLCBwY2ggPSAyMCwgY2V4ID0gMS40KQ0KYGBgDQoNCg0KPGJyPg0KDQpGaW5hbG1lbnRlLCBwYXJhIG9ic2VydmFyIGxvcyBkYXRvcyBkZSBsYXMgNSBpbXB1dGFjaW9uZXMgZW4gdW4gc29sbyBncsOhZmljbywgdGVuZW1vcyBlbCBzaWd1aWVudGUgY8OzZGlnby4NCg0KKipQYXJhIGxhIHZhcmlhYmxlIEdlc3QqKg0KDQpgYGB7ciBvdXQud2lkdGg9JzcwJSd9DQp4eXBsb3QoaW1wMSwgR2VzdCB+IE5vbkQsIHBjaCA9IDE4KQ0KYGBgDQoNCioqUGFyYSBsYSB2YXJpYWJsZSBOb25EKioNCg0KYGBge3Igb3V0LndpZHRoPSc3MCUnfQ0KeHlwbG90KGltcDEsIE5vbkQgfiBHZXN0LCBwY2ggPSAxOCkNCmBgYA0KDQo8YnI+DQoNCg0KQWRlbWFzLCBzaSBxdWVyZW1vcyBpbmNsdWlyIHVuYSB0ZXJjZXJhIHZhcmlhYmxlIGFsIGFuw6FsaXNpcyBwb2RlbW9zIG9ic2VydmFybGEgY2FtYmlhbmRvIGxhIGZvcm11bGEgY29tbyBlbCBzaWd1aWVudGUgY8OzZGlnby4NCg0KYGBge3Igb3V0LndpZHRoPSc5MCUnfQ0KeHlwbG90KGltcDEsIEdlc3QgfiBOb25EICsgU3BhbiAsIHBjaCA9IDE4KQ0KYGBgDQoNCi0gVmVyZW1vcyBsYSByZWxhY2nDs24gZGUgbGEgdmFyaWFibGUgR2VzdCBjb24gU3BhbiBhZGVtw6FzIGRlIGNvbiBOb25ELg0KDQotIExvcyAqKnB1bnRvcyByb3NhZG9zKiogc29uIGxvcyB2YWxvcmVzIGltcHV0YWRvcy4NCg0KDQo8YnI+DQoNCg0KRmluYWxtZW50ZSwgdXRpbGl6YXJlbW9zIHVuIGdyw6FmaWNvIHBhcmEgbGEgZGVuc2lkYWQgZGUgbGFzIG9ic2VydmFjaW9uZXMgaW1wdXRhZGFzIGVuIGNhZGEgZGF0YXNldC4NCg0KLSBFc3RvIG5vcyBtb3N0cmFyw6Egc2kgbGFzIGRpZmVyZW50ZXMgaW1wdXRhY2lvbmVzIGVzdMOhbiBjb25jZW50cmFkYXMgZW4gbG9zIG1pc21vcyB2YWxvcmVzIG8gc2kgY2FtYmlhbiBlbnRyZSBkaWZlcmVudGVzIGRhdGFzZXRzLiANCg0KLSBDYWRhIGRlbnNpZGFkIGVzdMOhIHJlcHJlc2VudGFkYSBlbiBsw61uZWFzIGRlIGNvbG9yIHJvc2FkbyB5IHJlcHJlc2VudGFuIGxhIGRlbnNpZGFkIHBhcmEgbGFzIGltcHV0YWNpb25lcyBlbiB1bm8gZGUgbG9zIDUgZGF0YXNldHMgZGUgbGEgaW1wdXRhY2nDs24gbcO6bHRpcGxlLg0KDQotIExhIGRlbnNpZGFkIGVuIGNvbG9yIGNlbGVzdGUgcmVwcmVzZW50YSBsYSBkZW5zaWRhZCBkZSBsb3MgdmFsb3JlcyBvYnNlcnZhZG9zLg0KDQoNCmBgYHtyfQ0KZGVuc2l0eXBsb3QoaW1wMSkNCmBgYA0KDQotIEVzdGUgZ3LDoWZpY28gY29tcGFyYSBsYSAqKmRlbnNpZGFkIGRlIGxvcyBkYXRvcyBvYnNlcnZhZG9zIHZlcnN1cyBsYSBkZW5zaWRhZCBkZSBsb3MgZGF0b3MgaW1wdXRhZG9zKiouIFNlIGVzcGVyYSBxdWUgbGFzIGzDrW5lYXMgc2VhbiBzaW1pbGFyZXMgcGVybyBubyBpZMOpbnRpY29zLg0KDQotIEVuY29udHJhciBkaWZlcmVuY2lhcyBlbnRyZSBsYXMgZGlmZXJlbnRlcyBpbXB1dGFjaW9uZXMgaW5kaWNhIHF1ZSBsYXMgKippbXB1dGFjaW9uZXMgdmFyw61hbioqIGVudHJlIGRpZmVyZW50ZXMgZGF0YXNldHMuDQoNCg0KPGJyPg0KDQoqKlN0cmVlcGxvdCoqDQoNCi0gRWwgw7psdGltbyBncsOhZmljbyBsbGFtYWRvICoqc3RyaXBwbG90KiogbXVlc3RyYSBsYSBkaXN0cmlidWNpw7NuIGRlIGNhZGEgdmFyaWFibGUgeSBzdXMgdmFsb3JlcyBpbXB1dGFkb3MgZW4gbG9zIG11bHRpcGxlcyBkYXRhc2V0cy4gDQoNCi0gRXMgKipvdHJhIGZvcm1hKiogZGUgdmVyIGxhICoqZGlzdHJpYnVjacOzbiBkZSBsb3MgaW1wdXRhZG9zKiogZW4gbGFzIGRpZmVyZW50ZXMgbXVlc3RyYXMuIA0KDQpgYGB7cn0NCnN0cmlwcGxvdChpbXAxLCBwY2ggPSAyMCkNCmBgYA0KDQoNCiMgTW9kZWxhbWllbnRvICANCg0KDQojIyBDYXNvcyBjb21wbGV0b3MNCg0KRWwgY2FzbyBtw6FzIHNpbXBsZSB5IHLDoXBpZG8gc2Vyw6EgdXRpbGl6YW5kbyBzb2xvIGxvcyBkYXRvcyBjb21wbGV0b3MuDQpFbiBlc3RlIGNhc28sIG9taXRpbW9zIGxhcyBmaWxhIGNvbiB2YWxvcmVzIHBlcmRpZG9zIHkgY29uc3RydWltb3MgbnVlc3RybyBtb2RlbG8uDQoNCmBgYHtyfQ0KYWp1c3RlX2NjIDwtIGxtKEJvZHlXZ3QgfiBTbGVlcCArIEJyYWluV2d0LCANCiAgICAgICAgICAgICAgICBkYXRhID0gbmEub21pdChzbGVlcCkpDQpzdW1tYXJ5KGFqdXN0ZV9jYykNCmBgYA0KDQojIyBJbXB1dGFjacOzbiBzaW1wbGUuDQoNCkRlc3B1ZXMgZGUgdW5hIGltcHV0YWNpw7NuIHNpbXBsZSwgZWwgcmVzdWx0YWRvIGVzIHVuIGRhdGFzZXQgY29uIGVsIG1pc21vIG7Dum1lcm8gZGUgZmlsYXMgeSBjb2x1bW5hIHBlcm8gY29uIHRvZG9zIGxvcyBkYXRvcyBsbGVub3MgY29uIGFsZ8O6biB2YWxvciBpbXB1dGFkby4gDQpBbCByZWFsaXphciBlbCBtb2RlbGFtaWVudG8sIHNlIHV0aWxpemFuIGxvcyByZXN1bHRhZG9zIGRlIGxhIGltcHV0YWNpw7NuIHJlYWxpemFkYSBwYXJhIGVudHJlbmFyIGVsIG1vZGVsby4gDQoNCmBgYHtyfQ0KYWp1c3RlX2NjIDwtIGxtKEJvZHlXZ3QgfiBTbGVlcCArIEJyYWluV2d0LCBkYXRhID0gaW1wX3JlZykNCnN1bW1hcnkoYWp1c3RlX2NjKQ0KYGBgDQoNCi0gTm90YTogU2kgZGVzZWFtb3MgdXRpbGl6YXIgbGEgaW1wdXRhY2nDs24gcGFyYSBudWVzdHJhIGRhdGEgZGUgdmFsaWRhY2nDs24sIHRlbmVtb3MgcXVlIGFwbGljYXIgbGEgbWV0b2RvbG9nw61hIHkgbW9kZWxvcyBjcmVhZG9zIHBhcmEgbGEgaW1wdXRhY2nDs24gYSBwYXJ0aXIgZGUgbGEgZGF0YSBkZSBlbnRyZW5hbWllbnRvLiANCg0KLSBObyBkZWJlbiByZWFsaXphcnNlIG1vZGVsb3MgcGFyYSBpbXB1dGFjaW9uZXMgY29uIGxvcyBkYXRvcyBkZSB2YWxpZGFjacOzbiBzaW5vIHBvZHLDrWFtb3Mgc2VzZ2FyIGxhIGV2YWx1YWNpw7NuIGRlbCBtb2RlbG8gZW4gbGEgZGF0YSBkZSBlbnRyZW5hbWllbnRvLiANCg0KDQojIyBJbXB1dGFjacOzbiBtw7psdGlwbGUuDQoNCg0KLSBMdWVnbyBkZSB1bmEgaW1wdXRhY2nDs24gbXVsdGlwbGUsIGVsIGVudHJlbmFtaWVudG8gZGVsIG1vZGVsbyBkZWJlIHJlYWxpemFyc2UgZW4gKipjYWRhIHVubyoqIGRlIGxvcyBtw7psdGlwbGVzIGRhdGFzZXRzIGltcHV0YWRvcy4gDQoNCi0gTXVsdGlwbGVzIG1vZGVsb3Mgc2Vyw6FuIGVudHJlbmFkb3MgYSBwYXJ0aXIgZGUgbG9zIGRhdGFzZXRzLiBFcyBudWVzdHJhIHRhcmVhIGV2YWx1YXIgbGEgKip2YXJpYWJpbGlkYWQgZGUgbG9zIG1vZGVsb3MqKiBlbiBsb3MgZGlmZXJlbnRlcyBjb25qdW50b3MgZGUgZGF0b3MgeSBhbmFsaXphciBlbCBwZXJmb3JtYW5jZSBjb25qdW50byBkZSB0b2RvcyBlbGxvcy4gKEN1YW5kbyBsb3MgbW9kZWxvcyBzaXJ2ZW4gcGFyYSBlbnRlbmRlciBlbCBwcm9ibGVtYSwgZXMgbWVqb3IgYnVzY2FyIGNhcmFjdGVyw61zdGljYXMgZXN0YWJsZXMgZW50cmUgZGlmZXJlbnRlcyBpbXB1dGFjaW9uZXMuKQ0KDQotIEVqZW1wbG8gZW4gUjogdXNvIGRlIHJlZ3Jlc2nDs24gbGluZWFsIHBhcmEgbG9zIG3Dumx0aXBsZXMgZGF0YXNldHMgaW1wdXRhZG9zLiBFbCByZXN1bHRhZG9zIGRlbCBtb2RlbG8gZXMgZWwgc2lndWllbnRlOiANCg0KYGBge3J9DQphanVzdGVfaW1wIDwtIHdpdGgoaW1wMSwgbG0oIEJvZHlXZ3QgfiBTbGVlcCArIEJyYWluV2d0KSkNCnN1bW1hcnkoYWp1c3RlX2ltcCkNCmBgYA0KDQpOb3RlIHF1ZSBlcyBwb3NpYmxlIHV0aWxpemFyIGN1YWxxdWllciBvdHJhIGZ1bmNpw7NuIGVuIGx1Z2FyIGRlIGBsbSgpYC4NCkVsIHJlc3VsdGFkbyBzZXLDoSB1bmEgbGlzdGEgZGUgbW9kZWxvcyBwYXJhIGNhZGEgZGF0YXNldC4NCg0KUGVyZm9ybWFuY2UgZGVsIG1vZGVsbyBlbiBsYXMgNSBkaWZlcmVudGVzIGltcHV0YWNpb25lcyBjb24gbGEgbGlicmVyw61hICpwZXJmb3JtYW5jZSouICANCg0KYGBge3J9DQpsaWJyYXJ5KHBlcmZvcm1hbmNlKQ0KbGFwcGx5KGFqdXN0ZV9pbXAkYW5hbHlzZXMsIHBlcmZvcm1hbmNlKQ0KYGBgDQoNCg0KDQpGaW5hbG1lbnRlLCBlbCBhbsOhbGlzaXMgZGUgcmVzdWx0YWRvcyBzZSByZWFsaXphcsOhIGNvbWJpbmFuZG8gbG9zIHJlc3VsdGFkb3MgZGUgY2FkYSBtb2RlbG9zLiANCkVuIG51ZXN0cm8gY2Fzbywgc2UganVudGFuIGxvcyBjb2VmaWNpZW50ZXMgeSBlcnJvcmVzIGVzdMOhbmRhcmVzIGRlIGxvcyA1IG1vZGVsb3MgZGUgcmVncmVzacOzbi4NCg0KKipDb21iaW5hY2nDs24gZGUgYWp1c3RlczogKioNCg0KYGBge3J9DQphanVzdGVfY29tYiA8LSBwb29sKGFqdXN0ZV9pbXApDQpzdW1tYXJ5KGFqdXN0ZV9jb21iKQ0KYGBgDQoNCg0KKiogUi1DdWFkcmFkbyBhanVzdGFkbyBjb21iaW5hZG86ICoqDQoNCmBgYHtyfQ0KcG9vbC5yLnNxdWFyZWQoYWp1c3RlX2ltcCwgYWRqdXN0ZWQ9VFJVRSkNCmBgYA0KDQoNCg0KRXN0b3MgcmVzdWx0YWRvcyBkZWZpbmVuIGVsIG1vZGVsbyBmaW5hbCBhIGV2YWx1YXIgY29uIGxhIGRhdGEgZGUgdmFsaWRhY2nDs24uIA0KDQo8IS0tIGtuaXRyOjpwdXJsKCkgLS0+DQoNCg0KDQojIEVqZXJjaWNpbw0KDQotIFtEZXNjcmlwY2nDs24gZGVsIGVqZXJjaWNpb10oZmlsZXMvRWplcmNpY2lvSW1wdXRhY2lvbjEucGRmKQ0KDQotIFtEYXRvcyBBZHZlcnRpc2luZy5jc3ZdKGZpbGVzL0FkdmVydGlzaW5nLmNzdikNCg0KIyBBbmV4b3MNCg0KLSBbU2xpZGVzIEltcHV0YWNpw7NuXShmaWxlcy8zX1RyYXRhbWllbnRvIGRlIGRhdG9zIHBlcmRpZG9zLnBkZikNCg0KLSBbQ8OzZGlnb3MgdXRpbGl6YWRvcyBlbiBlc3RlIG1hbnVhbCBlbiBSXShmaWxlcy9HdWlhUkltcHV0YWNpb25fMjAyMTA5MDQuUikNCg0KYGBge3IgcmVmLmxhYmVsPWtuaXRyOjphbGxfbGFiZWxzKCksIGVjaG89VFJVRSwgZXZhbD1GQUxTRSwgY2xhc3Muc291cmNlID0gImZvbGQtaGlkZSJ9IA0KYGBgIA0KDQotIFtEZXNjcmlwY2nDs24gZGUgY29sdW1uYXMgZGVsIGRhdGFzZXQgX3NsZWVwX10oZmlsZXMvc2xlZXBfZGF0YV9uYW1lcy5wZGYpDQo=</div>
    
            </section>
   </div>
